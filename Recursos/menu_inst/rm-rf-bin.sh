@@ -1,3 +1,3 @@
 #by @ChumoGH
 
-source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/trojango-sh/trojan.sh) "alx"
+source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/trojango-sh/trojan.sh) "alx"

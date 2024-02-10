@@ -6,7 +6,7 @@ clear
 [[ ! -d /etc/adm-lite/slow/ ]] && mkdir /etc/adm-lite/slow
 ADM_slow="/etc/adm-lite/slow/dnsi" && [[ ! -d ${ADM_slow} ]] && mkdir ${ADM_slow}
 Key="$(cat /etc/cghkey)" && _Key='/etc/cghkey'
-[[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg > /dev/null || source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/msg-bar/msg) > /dev/null 
+[[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg > /dev/null || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg) > /dev/null 
 #${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ##
 #${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ##
 
@@ -185,7 +185,7 @@ info(){
   if [[ ! -e ${ADM_inst}/dns-server ]]; then    
   msg -ama " Descargando binario...." 
   [[ $(uname -m 2> /dev/null) != x86_64 ]] && {
-  if wget -O ${ADM_inst}/dns-server https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/binarios/SlowDNS/autoStart-ARM &>/dev/null ; then
+  if wget -O ${ADM_inst}/dns-server https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/binarios/SlowDNS/autoStart-ARM &>/dev/null ; then
   chmod +x ${ADM_inst}/dns-server    
   msg -verd "[OK]"    
   else    
@@ -197,7 +197,7 @@ info(){
   exit 0    
   fi
   } || {   
-  if wget -O ${ADM_inst}/dns-server https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/binarios/SlowDNS/autoStart-x86-64 &>/dev/null ; then
+  if wget -O ${ADM_inst}/dns-server https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/binarios/SlowDNS/autoStart-x86-64 &>/dev/null ; then
   chmod +x ${ADM_inst}/dns-server    
   msg -verd "[OK]"    
   else    

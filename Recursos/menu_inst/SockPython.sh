@@ -58,7 +58,7 @@ exit && exit
 }
 }
 
-source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/module)
+source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/module)
 [[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg
 msg -bar3
 ADM_inst="/etc/adm-lite" && [[ ! -d ${ADM_inst} ]] && exit
@@ -1039,7 +1039,7 @@ case ${selection} in
 	read -p "PRESIONE ENTER PARA RETORNAR"
 	exit
 	} || {
-	if wget -O /bin/WS-Epro https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/binarios/SockWS/autoStart &>/dev/null ; then
+	if wget -O /bin/WS-Epro https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/binarios/SockWS/autoStart &>/dev/null ; then
 	  chmod 777 /bin/WS-Epro
 	fi
     mod1 "${conect}" 
