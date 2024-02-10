@@ -1,5 +1,4 @@
 #!/bin/sh
-#Alias : ChuKK-SCRIPT
 clear
 config="/usr/local/etc/trojan/config.json"
 temp="/etc/trojan/temp.json"

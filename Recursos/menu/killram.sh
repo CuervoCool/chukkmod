@@ -1,5 +1,4 @@
 #!/bin/sh
-#Alias : ChuKK-SCRIPT
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/
 kill $(ps -A -ostat,ppid | awk '/[zZ]/{print $2}')
 tiempo=$(printf '%(%D-%H:%M:%S)T')

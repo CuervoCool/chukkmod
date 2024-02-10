@@ -1,5 +1,4 @@
 #!/bin/bash
-#Alias : ChuKK-SCRIPT
 # -*- ENCODING: UTF-8 -*-
 
 # verificacion primarias
