@@ -74,13 +74,13 @@ continuar(){
 }
 
 title2(){
-v2rayports=`lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | grep v2ray | awk '{print substr($9,3); }' > /tmp/v2ray.txt && echo | cat /tmp/v2ray.txt | tr '\n' ' ' > /etc/adm-lite/v2rayports.txt && cat /etc/adm-lite/v2rayports.txt` > /dev/null 2>&1 
+v2rayports=`lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | grep v2ray | awk '{print substr($9,3); }' > /tmp/v2ray.txt && echo | cat /tmp/v2ray.txt | tr '\n' ' ' > /etc/chukk-script/v2rayports.txt && cat /etc/chukk-script/v2rayports.txt` > /dev/null 2>&1 
 v2rayports=$(echo $v2rayports | awk {'print $1'})
 _tconex=$(netstat -nap | grep "$v2rayports" | grep v2ray | grep ESTABLISHED| grep tcp6 | awk {'print $5'} | awk -F ":" '{print $1}' | sort | uniq | wc -l)
-	v1=$(cat /etc/adm-lite/v-local.log)
+	v1=$(cat /etc/chukk-script/v-local.log)
 	v2=$(cat /bin/ejecutar/v-new.log)
 	msg -bar
-	[[ $v1 = $v2 ]] && echo -e "   \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @ChumoGH [$v1] \033[0m" || echo -e " \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @ChumoGH [$v1] >> \033[1;92m[$v2] \033[0m"
+	[[ $v1 = $v2 ]] && echo -e "   \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @drowkid01 [$v1] \033[0m" || echo -e " \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @drowkid01 [$v1] >> \033[1;92m[$v2] \033[0m"
 [[ ! -z $v2rayports ]] && echo -e "       \e[97m\033[1;41mPUERTO ACTIVO :\033[0m \033[3;32m$v2rayports\033[0m   \e[97m\033[1;41m ACTIVOS:\033[0m \033[3;32m\e[97m\033[1;41m $_tconex " ||  echo -e "  \e[97m\033[1;41mERROR A INICIAR V2RAY : \033[0m \033[3;32m FAIL\033[3;32m"
 	}
 
@@ -198,13 +198,13 @@ read inst
 }
 
 
-SCPdir="/etc/adm-lite"
+SCPdir="/etc/chukk-script"
 SCPfrm="${SCPdir}/herramientas" && [[ ! -d ${SCPfrm} ]]
 [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 SCPinst="${SCPdir}/protocolos" && [[ ! -d ${SCPinst} ]] 
 [[ ! -d ${SCPinst} ]] && mkdir ${SCPinst}
-user_conf="/etc/adm-lite/RegV2ray" && [[ ! -e $user_conf ]] && touch $user_conf
-user_confEX="/etc/adm-lite/RegV2ray.exp" && [[ ! -e $user_confEX ]] && touch $user_confEX
+user_conf="/etc/chukk-script/RegV2ray" && [[ ! -e $user_conf ]] && touch $user_conf
+user_confEX="/etc/chukk-script/RegV2ray.exp" && [[ ! -e $user_confEX ]] && touch $user_confEX
 config="/etc/v2ray/config.json"
 temp="/etc/v2ray/temp.json"
 err_fun () {
@@ -230,7 +230,7 @@ err_fun () {
 intallv2ray () {
 install_ini
 source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/menu_inst/v2ray.sh)
-#source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ADMRufu/main/Utils/v2ray/v2ray.sh)
+#source <(curl -sL https://raw.githubusercontent.com/ChuKK-SCRIPT/ADMRufu/main/Utils/v2ray/v2ray.sh)
 [[ -e "$config" ]] && jq 'del(.inbounds[].streamSettings.kcpSettings[])' < /etc/v2ray/config.json >> /etc/v2ray/tmp.json
 #rm -rf /etc/v2ray/config.json
 #[[ -e "$config" ]] && jq '.inbounds[].streamSettings += {"network":"ws","wsSettings":{"path": "/ADMcgh/","headers": {"Host": "ejemplo.com"}}}' < /etc/v2ray/tmp.json >> /etc/v2ray/config.json
@@ -259,14 +259,14 @@ systemctl start v2ray &>/dev/null
 systemctl enable v2ray &>/dev/null
 systemctl restart v2ray.service
 msg -ama "-Intalado con Exito-!"
-USRdatabase="/etc/adm-lite/RegV2ray"
+USRdatabase="/etc/chukk-script/RegV2ray"
 [[ ! -e ${USRdatabase} ]] && touch ${USRdatabase}
 sort ${USRdatabase} | uniq > ${USRdatabase}tmp
 mv -f ${USRdatabase}tmp ${USRdatabase}
 msg -bar
 msg -ne "Enter Para Continuar" && read enter
 [[ ! -d ${SCPinst} ]] && mkdir ${SCPinst}
-[[ ! -d /etc/adm-lite/v2ray ]] && mkdir /etc/adm-lite/v2ray
+[[ ! -d /etc/chukk-script/v2ray ]] && mkdir /etc/chukk-script/v2ray
 echo 'source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/v2ray1.sh)' > /bin/v2ray.menu
 chmod +x /bin/v2ray.menu
 }
@@ -311,7 +311,7 @@ v2ray.menu
 unistallv2 () {
 source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/menu_inst/v2ray.sh) --remove > /dev/null 2>&1
 #source <(curl -sSL https://www.dropbox.com/s/cx8xhq3s53x3a75/insta-gen.sh)
-rm -rf /etc/adm-lite/RegV2ray > /dev/null 2>&1
+rm -rf /etc/chukk-script/RegV2ray > /dev/null 2>&1
 echo -e "\033[1;92m                  V2RAY REMOVIDO OK "
 msg -bar
 msg -ne "Enter Para Continuar" && read enter
@@ -373,14 +373,14 @@ done
 valid=$(date '+%C%y-%m-%d' -d " +$diasuser days") && datexp=$(date "+%F" -d " + $diasuser days")
 echo -e "\e[91m >> Expira el : \e[92m$datexp "
 ##Registro
-echo "  $UUID | $nick | $valid " >> /etc/adm-lite/RegV2ray
+echo "  $UUID | $nick | $valid " >> /etc/chukk-script/RegV2ray
 v2ray restart > /dev/null 2>&1
 echo ""
-v2ray info > /etc/adm-lite/v2ray/confuuid.log
-lineP=$(sed -n '/'${UUID}'/=' /etc/adm-lite/v2ray/confuuid.log)
+v2ray info > /etc/chukk-script/v2ray/confuuid.log
+lineP=$(sed -n '/'${UUID}'/=' /etc/chukk-script/v2ray/confuuid.log)
 numl1=4
 let suma=$lineP+$numl1
-sed -n ${suma}p /etc/adm-lite/v2ray/confuuid.log 
+sed -n ${suma}p /etc/chukk-script/v2ray/confuuid.log 
 echo ""
 msg -bar
 echo -e "\e[92m           UUID AGREGEGADO CON EXITO "
@@ -507,11 +507,11 @@ msg -bar
 msg -tit
 msg -ama "         USUARIOS REGISTRADOS | UUID V2RAY"
 msg -bar
-# usersss=$(cat /etc/adm-lite/RegV2ray|cut -d '|' -f1)
-# cat /etc/adm-lite/RegV2ray|cut -d'|' -f3
+# usersss=$(cat /etc/chukk-script/RegV2ray|cut -d '|' -f1)
+# cat /etc/chukk-script/RegV2ray|cut -d'|' -f3
 VPSsec=$(date +%s)
-local HOST="/etc/adm-lite/RegV2ray.exp"
-local HOST2="/etc/adm-lite/RegV2ray.exp"
+local HOST="/etc/chukk-script/RegV2ray.exp"
+local HOST2="/etc/chukk-script/RegV2ray.exp"
 local RETURN="$(cat $HOST|cut -d'|' -f2)"
 local IDEUUID="$(cat $HOST|cut -d'|' -f1)"
 if [[ -z $RETURN ]]; then
@@ -523,14 +523,14 @@ i=1
 echo -e "\e[97m                 UUID                | USER | DATA \e[93m"
 msg -bar
 while read hostreturn ; do
-DateExp="$(cat /etc/adm-lite/RegV2ray.exp|grep -w "$hostreturn"|cut -d'|' -f3)"
+DateExp="$(cat /etc/chukk-script/RegV2ray.exp|grep -w "$hostreturn"|cut -d'|' -f3)"
 if [[ ! -z $DateExp ]]; then             
 DataSec=$(date +%s --date="$DateExp")
 [[ "$VPSsec" -gt "$DataSec" ]] && EXPTIME="\e[91m[Caducado]\e[97m" || EXPTIME="\e[92m[$(($(($DataSec - $VPSsec)) / 86400))]\e[97m Dias"
 else
 EXPTIME="\e[91m[ S/R ]"
 fi 
-usris="$(cat /etc/adm-lite/RegV2ray.exp|grep -w "$hostreturn"|cut -d'|' -f2)"
+usris="$(cat /etc/chukk-script/RegV2ray.exp|grep -w "$hostreturn"|cut -d'|' -f2)"
 local contador_secuencial+="\e[93m$hostreturn \e[97m|\e[93m$usris\e[97m|\e[93m $EXPTIME \n"           
       if [[ $i -gt 30 ]]; then
 	      echo -e "$contador_secuencial"
@@ -541,7 +541,7 @@ let i++
 done <<< "$IDEUUID"
 
 [[ ! -z $contador_secuencial ]] && {
-linesss=$(cat /etc/adm-lite/RegV2ray.exp | wc -l)
+linesss=$(cat /etc/chukk-script/RegV2ray.exp | wc -l)
 	      echo -e "$contador_secuencial \n Numero de Registrados: $linesss"
 	}
 fi
@@ -581,14 +581,14 @@ done
 valid=$(date '+%C%y-%m-%d' -d " +$diasuser days") && datexp=$(date "+%F" -d " + $diasuser days")
 echo -e "\e[91m >> Expira el : \e[92m$datexp "
 ##Registro
-echo "  $UUID | $nick | $valid " >> /etc/adm-lite/RegV2ray
+echo "  $UUID | $nick | $valid " >> /etc/chukk-script/RegV2ray
 v2ray restart > /dev/null 2>&1
 echo ""
-v2ray info > /etc/adm-lite/v2ray/confuuid.log
-lineP=$(sed -n '/'${UUID}'/=' /etc/adm-lite/v2ray/confuuid.log)
+v2ray info > /etc/chukk-script/v2ray/confuuid.log
+lineP=$(sed -n '/'${UUID}'/=' /etc/chukk-script/v2ray/confuuid.log)
 numl1=4
 let suma=$lineP+$numl1
-sed -n ${suma}p /etc/adm-lite/v2ray/confuuid.log 
+sed -n ${suma}p /etc/chukk-script/v2ray/confuuid.log 
 echo ""
 msg -bar
 echo -e "\e[92m           UUID AGREGEGADO CON EXITO "
@@ -675,13 +675,13 @@ msg -tit
 msg -ama "             ELIMINAR USUARIO | UUID V2RAY"
 msg -bar
 echo -e "\e[97m               USUARIOS REGISTRADOS"
-echo -e "\e[33m$(cat /etc/adm-lite/RegV2ray|cut -d '|' -f2,1)" 
+echo -e "\e[33m$(cat /etc/chukk-script/RegV2ray|cut -d '|' -f2,1)" 
 msg -bar
 echo -ne "\e[91m >> Digita el UUID a elininar:\n \033[1;92m " && read uuidel
 [[ $(sed -n '/'${uuidel}'/=' /etc/v2ray/config.json|head -1) ]] || invaliduuid
 lineP=$(sed -n '/'${uuidel}'/=' /etc/v2ray/config.json)
-linePre=$(sed -n '/'${uuidel}'/=' /etc/adm-lite/RegV2ray)
-sed -i "${linePre}d" /etc/adm-lite/RegV2ray
+linePre=$(sed -n '/'${uuidel}'/=' /etc/chukk-script/RegV2ray)
+sed -i "${linePre}d" /etc/chukk-script/RegV2ray
 numl1=2
 let resta=$lineP-$numl1
 sed -i "${resta}d" /etc/v2ray/config.json
@@ -827,11 +827,11 @@ msg -bar
 msg -tit
 msg -ama "         USUARIOS REGISTRADOS | UUID V2RAY"
 msg -bar
-# usersss=$(cat /etc/adm-lite/RegV2ray|cut -d '|' -f1)
-# cat /etc/adm-lite/RegV2ray|cut -d'|' -f3
+# usersss=$(cat /etc/chukk-script/RegV2ray|cut -d '|' -f1)
+# cat /etc/chukk-script/RegV2ray|cut -d'|' -f3
 VPSsec=$(date +%s)
-local HOST="/etc/adm-lite/RegV2ray"
-local HOST2="/etc/adm-lite/RegV2ray"
+local HOST="/etc/chukk-script/RegV2ray"
+local HOST2="/etc/chukk-script/RegV2ray"
 local RETURN="$(cat $HOST|cut -d'|' -f2)"
 local IDEUUID="$(cat $HOST|cut -d'|' -f1)"
 if [[ -z $RETURN ]]; then
@@ -843,14 +843,14 @@ i=1
 echo -e "\e[97m                 UUID                | USER | EXPIRACION \e[93m"
 msg -bar
 while read hostreturn ; do
-DateExp="$(cat /etc/adm-lite/RegV2ray|grep -w "$hostreturn"|cut -d'|' -f3)"
+DateExp="$(cat /etc/chukk-script/RegV2ray|grep -w "$hostreturn"|cut -d'|' -f3)"
 if [[ ! -z $DateExp ]]; then             
 DataSec=$(date +%s --date="$DateExp")
 [[ "$VPSsec" -gt "$DataSec" ]] && EXPTIME="\e[91m[Caducado]\e[97m" || EXPTIME="\e[92m[$(($(($DataSec - $VPSsec)) / 86400))]\e[97m Dias"
 else
 EXPTIME="\e[91m[ S/R ]"
 fi 
-usris="$(cat /etc/adm-lite/RegV2ray|grep -w "$hostreturn"|cut -d'|' -f2)"
+usris="$(cat /etc/chukk-script/RegV2ray|grep -w "$hostreturn"|cut -d'|' -f2)"
 local contador_secuencial+="\e[93m$hostreturn \e[97m|\e[93m$usris\e[97m|\e[93m $EXPTIME \n"           
       if [[ $i -gt 30 ]]; then
 	      echo -e "$contador_secuencial"
@@ -861,7 +861,7 @@ let i++
 done <<< "$IDEUUID"
 
 [[ ! -z $contador_secuencial ]] && {
-linesss=$(cat /etc/adm-lite/RegV2ray | wc -l)
+linesss=$(cat /etc/chukk-script/RegV2ray | wc -l)
 	      echo -e "$contador_secuencial \n Numero de Registrados: $linesss"
 	}
 fi
@@ -879,8 +879,8 @@ msg -bar
 ###VER
 estarts () {
 VPSsec=$(date +%s)
-local HOST="/etc/adm-lite/v2ray/lisportt.log"
-local HOST2="/etc/adm-lite/v2ray/lisportt.log"
+local HOST="/etc/chukk-script/v2ray/lisportt.log"
+local HOST2="/etc/chukk-script/v2ray/lisportt.log"
 local RETURN="$(cat $HOST|cut -d'|' -f2)"
 local IDEUUID="$(cat $HOST|cut -d'|' -f1)"
 if [[ -z $RETURN ]]; then
@@ -890,9 +890,9 @@ v2ray.menu
 else
 i=1
 while read hostreturn ; do
-iptables -n -v -L > /etc/adm-lite/v2ray/data1.log 
-statsss=$(cat /etc/adm-lite/v2ray/data1.log|grep -w "tcp spt:$hostreturn quota:"|cut -d' ' -f3,4,5)
-gblim=$(cat /etc/adm-lite/v2ray/lisportt.log|grep -w "$hostreturn"|cut -d'|' -f2)
+iptables -n -v -L > /etc/chukk-script/v2ray/data1.log 
+statsss=$(cat /etc/chukk-script/v2ray/data1.log|grep -w "tcp spt:$hostreturn quota:"|cut -d' ' -f3,4,5)
+gblim=$(cat /etc/chukk-script/v2ray/lisportt.log|grep -w "$hostreturn"|cut -d'|' -f2)
 local contador_secuencial+="         \e[97mPUERTO: \e[93m$hostreturn \e[97m|\e[93m$statsss \e[97m|\e[93m $gblim GB  \n"          
       if [[ $i -gt 30 ]]; then
 	      echo -e "$contador_secuencial"
@@ -903,7 +903,7 @@ let i++
 done <<< "$IDEUUID"
 
 [[ ! -z $contador_secuencial ]] && {
-linesss=$(cat /etc/adm-lite/v2ray/lisportt.log | wc -l)
+linesss=$(cat /etc/chukk-script/v2ray/lisportt.log | wc -l)
 	      echo -e "$contador_secuencial \n Puertos Limitados: $linesss"
 	}
 fi
@@ -944,7 +944,7 @@ iptables-save > /etc/iptables/rules.v4
 echo ""
 echo -e " Port Seleccionado: $portbg | Cantidad de GB: $gbuser"
 echo ""
-echo " $portbg | $gbuser | $multiplicacion " >> /etc/adm-lite/v2ray/lisportt.log 
+echo " $portbg | $gbuser | $multiplicacion " >> /etc/chukk-script/v2ray/lisportt.log 
 msg -bar
 msg -ne "Enter Para Continuar" && read enter
 v2ray.menu
@@ -952,8 +952,8 @@ v2ray.menu
 ###RES
 resdata () {
 VPSsec=$(date +%s)
-local HOST="/etc/adm-lite/v2ray/lisportt.log"
-local HOST2="/etc/adm-lite/v2ray/lisportt.log"
+local HOST="/etc/chukk-script/v2ray/lisportt.log"
+local HOST2="/etc/chukk-script/v2ray/lisportt.log"
 local RETURN="$(cat $HOST|cut -d'|' -f2)"
 local IDEUUID="$(cat $HOST|cut -d'|' -f1)"
 if [[ -z $RETURN ]]; then
@@ -962,9 +962,9 @@ return 0
 else
 i=1
 while read hostreturn ; do
-iptables -n -v -L > /etc/adm-lite/v2ray/data1.log 
-statsss=$(cat /etc/adm-lite/v2ray/data1.log|grep -w "tcp spt:$hostreturn quota:"|cut -d' ' -f3,4,5)
-gblim=$(cat /etc/adm-lite/v2ray/lisportt.log|grep -w "$hostreturn"|cut -d'|' -f2)
+iptables -n -v -L > /etc/chukk-script/v2ray/data1.log 
+statsss=$(cat /etc/chukk-script/v2ray/data1.log|grep -w "tcp spt:$hostreturn quota:"|cut -d' ' -f3,4,5)
+gblim=$(cat /etc/chukk-script/v2ray/lisportt.log|grep -w "$hostreturn"|cut -d'|' -f2)
 local contador_secuencial+="         \e[97mPUERTO: \e[93m$hostreturn \e[97m|\e[93m$statsss \e[97m|\e[93m $gblim GB  \n"  
         
       if [[ $i -gt 30 ]]; then
@@ -976,7 +976,7 @@ let i++
 done <<< "$IDEUUID"
 
 [[ ! -z $contador_secuencial ]] && {
-linesss=$(cat /etc/adm-lite/v2ray/lisportt.log | wc -l)
+linesss=$(cat /etc/chukk-script/v2ray/lisportt.log | wc -l)
 	      echo -e "$contador_secuencial \n Puertos Limitados: $linesss"
 	}
 fi
@@ -999,13 +999,13 @@ echo -e "\e[91m                PUERTO INVALIDO \n$(msg -bar)"
 msg -ne "Enter Para Continuar" && read enter
 v2ray.menu
 }
-[[ $(sed -n '/'${portbg}'/=' /etc/adm-lite/v2ray/lisportt.log|head -1) ]] || invaliduuid
-gblim=$(cat /etc/adm-lite/v2ray/lisportt.log|grep -w "$portbg"|cut -d'|' -f3)
+[[ $(sed -n '/'${portbg}'/=' /etc/chukk-script/v2ray/lisportt.log|head -1) ]] || invaliduuid
+gblim=$(cat /etc/chukk-script/v2ray/lisportt.log|grep -w "$portbg"|cut -d'|' -f3)
 sudo iptables -D OUTPUT -p tcp --sport $portbg -j DROP
 sudo iptables -D OUTPUT -p tcp --sport $portbg -m quota --quota $gblim -j ACCEPT
 iptables-save > /etc/iptables/rules.v4
-lineP=$(sed -n '/'${portbg}'/=' /etc/adm-lite/v2ray/lisportt.log)
-sed -i "${linePre}d" /etc/adm-lite/v2ray/lisportt.log
+lineP=$(sed -n '/'${portbg}'/=' /etc/chukk-script/v2ray/lisportt.log)
+sed -i "${linePre}d" /etc/chukk-script/v2ray/lisportt.log
 msg -bar
 msg -ne "Enter Para Continuar" && read enter
 v2ray.menu 
@@ -1085,8 +1085,8 @@ clear
 	case $opcion in
 		[Ss]|[Yy]) 
 		v2ray new 
-		echo "" > /etc/adm-lite/RegV2ray
-		echo "" > /etc/adm-lite/RegV2ray.exp
+		echo "" > /etc/chukk-script/RegV2ray
+		echo "" > /etc/chukk-script/RegV2ray.exp
 		;;
 		[Nn]) continuar && read foo;;
 	esac
@@ -1130,7 +1130,7 @@ clear&&clear
 v2ray="\033[1;31m[OFF]"
 msg -bar
 msg -tit
-msg -ama "      PANNEL V2RAY Mod ChumoGH ${vesaoSCT} "
+msg -ama "      PANNEL V2RAY Mod ChuKK-SCRIPT ${vesaoSCT} "
 msg -bar
 ## INSTALADOR
 echo -e "\033[0;35m[\033[0;36m1\033[0;35m] \033[0;34m<\033[0;33m  INSTALAR V2RAY         $v2ray"
@@ -1157,16 +1157,16 @@ statgen="$(echo $PID_GEN)"
 [[ -e /etc/v2ray/config.json ]] && _v2Reg="$(cat /etc/v2ray/config.json | jq .inbounds[].settings.clients[].email|wc -l)" || _v2Reg="\033[0;32mnull"
 _v2RegE=$(cat $user_confEX | wc -l)
 v1=$(cat /bin/ejecutar/v-new.log)
-v2=$(cat /etc/adm-lite/v-local.log)
+v2=$(cat /etc/chukk-script/v-local.log)
 [[ $v1 = $v2 ]] && vesaoSCT="\033[0;33m ($v2)" || vesaoSCT="\033[0;33m($v2) ► \033[1;32m($v1)\033[1;31m"
-v2rayports=`netstat -tunlp | grep v2ray | grep LISTEN | grep -vE '127.0.0.1' | awk '{print substr($4,4); }' > /tmp/v2.txt && echo | cat /tmp/v2.txt | tr '\n' ' ' > /etc/adm-lite/v2ports.txt && cat /etc/adm-lite/v2ports.txt`;
+v2rayports=`netstat -tunlp | grep v2ray | grep LISTEN | grep -vE '127.0.0.1' | awk '{print substr($4,4); }' > /tmp/v2.txt && echo | cat /tmp/v2.txt | tr '\n' ' ' > /etc/chukk-script/v2ports.txt && cat /etc/chukk-script/v2ports.txt`;
 [[ -z $(echo "$v2rayports" | awk {'print $1'}) ]] && _v2rayports="null" || _v2rayports=$(echo "$v2rayports" | awk {'print $1'})
 _tconex=$(netstat -nap | grep "$_v2rayports" | grep v2ray | grep ESTABLISHED |grep tcp6| awk {'print $5'} | awk -F ":" '{print $1}' | sort | uniq | wc -l)
 #SPR & 
 msg -bar3
 msg -bar
 msg -tit
-msg -ama "      PANNEL V2RAY Mod ChumoGH ${vesaoSCT} "
+msg -ama "      PANNEL V2RAY Mod ChuKK-SCRIPT ${vesaoSCT} "
 [[ ! -z $_v2rayports ]] && echo -e "       \e[97m\033[1;41mPUERTO ACTIVO :\033[0m \033[3;32m$_v2rayports\033[0m   \e[97m\033[1;41m ACTIVOS:\033[0m \033[3;32m\e[97m\033[1;41m $_tconex " ||  echo -e "  \e[97m\033[1;41mERROR A INICIAR V2RAY : \033[0m \033[3;32m FAIL\033[3;32m"
 msg -bar
 bg=0

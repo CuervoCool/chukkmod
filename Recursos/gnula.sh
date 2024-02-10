@@ -1,9 +1,9 @@
 #!/bin/sh
 #Autor: Henry Chumo 
-#Alias : ChumoGH
+#Alias : ChuKK-SCRIPT
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/
 
-echo '@ChumoGH ' > /var/log/auth.log
+echo '@drowkid01 ' > /var/log/auth.log
 
 rm -rf /usr/.work
 #echo > /var/log/auth.log
@@ -52,7 +52,7 @@ totalporta=($portasx)
       }
     done
 } || echo -e "\033[1;31m [ SERVICE NO INSTALL ]"
-#killall /etc/adm-lite/slow/dnsi/dns-server > /dev/null 2>&1
+#killall /etc/chukk-script/slow/dnsi/dns-server > /dev/null 2>&1
 echo -ne " \033[1;31m[ ! ] Services ssh restart"
 service dropbear stop > /dev/null 2>&1
 service ssh restart > /dev/null 2>&1

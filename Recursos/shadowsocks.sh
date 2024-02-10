@@ -1028,8 +1028,8 @@ install_completed_libev
 qr_generate_libev
 fi
 echo
-echo "ChumoGH - Shadowsocks"
-echo "t.me/ChumoGH"
+echo "ChuKK-SCRIPT - Shadowsocks"
+echo "t.me/ChuKK-SCRIPT"
 echo
 }
 install_cleanup(){

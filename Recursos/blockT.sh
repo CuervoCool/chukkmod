@@ -3,8 +3,8 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;31m" [3]="\033[1;33m" [4]="\033[1;32m" )
-SCPfrm="/etc/adm-lite" && [[ ! -d ${SCPfrm} ]] && exit
-SCPinst="/etc/adm-lite" && [[ ! -d ${SCPinst} ]] && exit
+SCPfrm="/etc/chukk-script" && [[ ! -d ${SCPfrm} ]] && exit
+SCPinst="/etc/chukk-script" && [[ ! -d ${SCPinst} ]] && exit
 
 sh_ver="1.0.11"
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
@@ -466,7 +466,7 @@ if [[ ! -z $action ]]; then
 	[[ $action = "unbanspam" ]] && UnBan_SPAM && exit 0
 	[[ $action = "unbanall" ]] && UnBan_ALL && exit 0
 fi
-echo -e "  Panel de Firewall ChumoGH By ADM 2021 ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}"
+echo -e "  Panel de Firewall ChuKK-SCRIPT By ADM 2021 ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}"
 msg -bar2
 echo -e "  ${Green_font_prefix}0.${Font_color_suffix} Ver la lista actual de prohibidos
 ————————————

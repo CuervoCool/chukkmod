@@ -258,7 +258,7 @@ ger_cert(){
 
 _mssBOT () {
 xyz=$(curl -sSL "https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Control/token.sh")
-[[ "$(cat -n /etc/adm-lite/menu_credito | wc -l)" -ge "2" ]] && ID="$(cat /etc/adm-lite/menu_credito |tail -1)" || ID="$(echo $xyz| awk '{print $2}')"
+[[ "$(cat -n /etc/chukk-script/menu_credito | wc -l)" -ge "2" ]] && ID="$(cat /etc/chukk-script/menu_credito |tail -1)" || ID="$(echo $xyz| awk '{print $2}')"
 TOKEN="$(echo $xyz| awk '{print $1}')"
 urlBOT="https://api.telegram.org/bot$TOKEN/sendMessage"
 data=$1
@@ -274,7 +274,7 @@ MENSAJE="${TTini}${m3ssg}MSG RECIVIDO${m3ssg}${TTfin}\n"
 			MENSAJE+="$(msg -br)\n"
 			MENSAJE+=" HORA : $(printf '%(%D-%H:%M:%S)T')\n"
 			MENSAJE+="       ${rUlq} Bot generador de key ${rUlq}\n"
-			MENSAJE+="           ${pUn5A} By @ChumoGH ${pUn5A} \n"
+			MENSAJE+="           ${pUn5A} By @drowkid01 ${pUn5A} \n"
 			MENSAJE+="$(msg -br)\n"	
 curl -s --max-time 10 -d "chat_id=$ID&disable_web_page_preview=1&text=$(echo -e "$MENSAJE")" $urlBOT &>/dev/null 	
 }
@@ -311,7 +311,7 @@ menu_cert(){
 while true; do
   msg -bar
   tittle
-  msg -ama "  SUB-DOMINIO Y CERTIFICADO SSL | @ChumoGH"
+  msg -ama "  SUB-DOMINIO Y CERTIFICADO SSL | @drowkid01"
   msg -bar #
 [[ -e ${ADM_src}/dominio.txt ]]  && echo -e " DOMAIN Tipo A -> @ : $(cat < ${ADM_src}/dominio.txt)" && msg -bar
 [[ -e ${ADM_src}/dominio_NS.txt ]] && echo -e " DOMAIN Tipo NS : $(cat < ${ADM_src}/dominio_NS.txt)" && msg -bar 

@@ -1,6 +1,6 @@
 #!/bin/sh
 #Autor: Henry Chumo 
-#Alias : ChumoGH
+#Alias : ChuKK-SCRIPT
 clear
 config="/etc/xray/config.json"
 configLOCK="/etc/xray/config.json.lock"
@@ -438,13 +438,13 @@ continuar(){
 }
 
 title2(){
-xrayports=`lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | grep xray | awk '{print substr($9,3); }' > /tmp/xray.txt && echo | cat /tmp/xray.txt | tr '\n' ' ' > /etc/adm-lite/xrayports.txt && cat /etc/adm-lite/xrayports.txt` > /dev/null 2>&1 
+xrayports=`lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | grep xray | awk '{print substr($9,3); }' > /tmp/xray.txt && echo | cat /tmp/xray.txt | tr '\n' ' ' > /etc/chukk-script/xrayports.txt && cat /etc/chukk-script/xrayports.txt` > /dev/null 2>&1 
 xrayports=$(echo $xrayports | awk {'print $1'})
 _tconex=$(netstat -nap | grep "$xrayports" | grep xray | grep ESTABLISHED | awk {'print $5'} | awk -F ":" '{print $1}' | sort | uniq | wc -l)
-	v1=$(cat /etc/adm-lite/v-local.log)
+	v1=$(cat /etc/chukk-script/v-local.log)
 	v2=$(cat /bin/ejecutar/v-new.log)
 	msg -bar3
-	[[ $v1 = $v2 ]] && echo -e "   \e[97m\033[1;44m MENU XRAY LITE [$v1] POWER BY @ChumoGH \033[0m" || echo -e " \e[97m\033[1;44m MENU XRAY LITE POWER BY @ChumoGH [$v1] >> \033[1;92m[$v2] \033[0m"
+	[[ $v1 = $v2 ]] && echo -e "   \e[97m\033[1;44m MENU XRAY LITE [$v1] POWER BY @drowkid01 \033[0m" || echo -e " \e[97m\033[1;44m MENU XRAY LITE POWER BY @drowkid01 [$v1] >> \033[1;92m[$v2] \033[0m"
 [[ ! -z $xrayports ]] && echo -e "       \e[97m\033[1;41mPUERTO ACTIVO :\033[0m \033[3;32m$xrayports\033[0m   \e[97m\033[1;41m ACTIVOS:\033[0m \033[3;32m\e[97m\033[1;41m $_tconex " ||  echo -e "  \e[97m\033[1;41mERROR A INICIAR xray : \033[0m \033[3;32m FAIL\033[3;32m"
 	}
 
@@ -1481,7 +1481,7 @@ install(){
 	read foo
 	config='/etc/xray/config.json'
     tmp='/etc/xray/temp.json'
-	source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ADMRufu/main/Utils/xray/xray.sh)
+	source <(curl -sL https://raw.githubusercontent.com/ChuKK-SCRIPT/ADMRufu/main/Utils/xray/xray.sh)
 	#restart_v2r
 	echo "source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/xray_manager.sh)" > /bin/v2r.sh
 	chmod +x /bin/r.sh

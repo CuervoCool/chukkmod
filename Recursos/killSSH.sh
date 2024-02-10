@@ -1,14 +1,14 @@
 #!/bin/bash
 #CREADOR Henry Chumo | 06/06/2022
 #REFACTORY | 16/10/2022
-#Alias : @ChumoGH
+#Alias : @drowkid01
 # NUNCA  DEJES DE APRENDER
 # POWER BY @CHUMOGH
 # -*- ENCODING: UTF-8 -*-
 [[ $(dpkg --get-selections|grep -w "tcpdump"|head -1) ]] || apt-get install tcpdump -y &>/dev/null
 [[ -e /bin/ejecutar/limFIX ]] && _limTOP="$(cat < /bin/ejecutar/limFIX)" || _limTOP='1'
 time=$(date +%s)
-export ADM='/etc/adm-lite/userDIR/'
+export ADM='/etc/chukk-script/userDIR/'
 touch /root/user
 export database="/root/user"
 echo $$ > /tmp/pids
@@ -50,7 +50,7 @@ fun_net () {
 log_0="/tmp/tcpdum"
 log_1="/tmp/tcpdump"
 log_2="/tmp/tcpdumpLOG"
-usr_dir="/etc/adm-lite/userDIR/usr_cnx"
+usr_dir="/etc/chukk-script/userDIR/usr_cnx"
 [[ -e "$log_1" ]] &&  mv -f $log_1 $log_2
 [[ ! -e $usr_dir ]] && touch $usr_dir
 #ENCERRA TCP
