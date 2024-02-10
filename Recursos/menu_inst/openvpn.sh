@@ -21,7 +21,7 @@ wget -O /tmp/openvpn.sh -q https://raw.githubusercontent.com/CuervoCool/chukkmod
 #source <(curl -sL https://www.dropbox.com/s/omykq6x27ua54fb/openvpn-install.sh)
 
 }
-source /etc/adm-lite/cabecalho
+source /etc/chukk-script/cabecalho
 echo -e $barra
 #echo -e "          \033[1;42mBIENVENIDO NUEVAMENTE!\033[0m"
 #echo -e $barra

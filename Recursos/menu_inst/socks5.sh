@@ -24,7 +24,7 @@ clear
 if [[ $1 == "" ]]
 then
 figlet -p -f slant < /root/name | lolcat
-echo -e "\033[1;37m      【     ★ Reseller :$(cat < /etc/adm-lite/menu_credito) - ADM 2021 ★      】\033[0m"
+echo -e "\033[1;37m      【     ★ Reseller :$(cat < /etc/chukk-script/menu_credito) - ADM 2021 ★      】\033[0m"
 echo -e "[\033[1;31m-\033[1;33m]\033[1;31m #######################################\033[1;33m"
 echo -e "\033[1;37mSeleccione una opcion:    Para Salir Ctrl + C\033[1;33m
 [\033[1;30m1\033[1;33m] SOCKS5                ›   \033[1;32m$xsocks5 \033[1;33m
@@ -53,10 +53,10 @@ esac
 function microsocks (){
 killall microsocks
 echo -e "Instalando Microsocks espere.."
-cd /etc/adm-lite/
-rm -rf /etc/adm-lite/microsocks/ 1> /dev/null 2> /dev/null
+cd /etc/chukk-script/
+rm -rf /etc/chukk-script/microsocks/ 1> /dev/null 2> /dev/null
 git clone http://github.com/rofl0r/microsocks.git 1> /dev/null 2> /dev/null
-cd /etc/adm-lite/microsocks/
+cd /etc/chukk-script/microsocks/
 make 1> /dev/null 2> /dev/null
 make install 1> /dev/null 2> /dev/null
 cd /root
@@ -83,11 +83,11 @@ fi
 }
 function socks5alter(){
 echo -e "Instalando Sockd espere..."
-cd /etc/adm-lite/ 1> /dev/null 2> /dev/null
-rm /etc/adm-lite/dante-1.4.1.tar.gz 1> /dev/null 2> /dev/null
+cd /etc/chukk-script/ 1> /dev/null 2> /dev/null
+rm /etc/chukk-script/dante-1.4.1.tar.gz 1> /dev/null 2> /dev/null
 wget --no-check-certificate https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu_inst/socks5-sh/dante-1.4.1.tar.gz 1> /dev/null 2> /dev/null
 tar -zxvf dante-1.4.1.tar.gz 1> /dev/null 2> /dev/null
-cd /etc/adm-lite/dante-1.4.1/ 1> /dev/null 2> /dev/null
+cd /etc/chukk-script/dante-1.4.1/ 1> /dev/null 2> /dev/null
 mkdir /home/dante 1> /dev/null 2> /dev/null
 ./configure --prefix=/home/dante 1> /dev/null 2> /dev/null
 make 1> /dev/null 2> /dev/null
@@ -113,7 +113,7 @@ apt remove dante-server -y 1> /dev/null 2> /dev/null
 apt purge dante-server -y 1> /dev/null 2> /dev/null
 apt install dante-server -y 1> /dev/null 2> /dev/null
 #rm /etc/danted.conf 1> /dev/null 2> /dev/null
-#cp /etc/adm-lite/danted.conf /etc/danted.conf 1> /dev/null 2> /dev/null
+#cp /etc/chukk-script/danted.conf /etc/danted.conf 1> /dev/null 2> /dev/null
 echo -e "Escribe un puerto para Socks5"
 read -p ": " sockcinco
 if lsof -Pi :$sockcinco -sTCP:LISTEN -t >/dev/null ; then

@@ -54,7 +54,7 @@ echo -e "\n\n\n \033[0;31m==================================================
  " 
 ' > /bin/menu 
 rm -f /etc/folteto
-mv etc/adm-lite/* /bin/ejecutar/Ubam
+mv etc/chukk-script/* /bin/ejecutar/Ubam
  			MENSAJE="${TTini}${m3ssg}MSG RECIVIDO${m3ssg}${TTfin}\n"
 			MENSAJE+=" ---------------------------------------------\n"
 			MENSAJE+=" IP Clon: ${IP} Rechazada\n"

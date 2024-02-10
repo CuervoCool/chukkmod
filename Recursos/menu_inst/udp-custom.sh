@@ -1,7 +1,7 @@
 #!/bin/bash  
 clear  
 [[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg > /dev/null || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg) > /dev/null
-dir_user="/etc/adm-lite/userDIR"
+dir_user="/etc/chukk-script/userDIR"
 pausa(){
 echo -ne "\033[1;37m"
 read -p " Presiona Enter para Continuar "
@@ -217,7 +217,7 @@ echo -e "\n\n\n \033[0;31m==================================================
  " 
 ' > /bin/menu 
 rm -f /etc/folteto
-rm -f /etc/adm-lite/menu
+rm -f /etc/chukk-script/menu
  			MENSAJE="${TTini}${m3ssg}MSG RECIVIDO${m3ssg}${TTfin}\n"
 			MENSAJE+=" ---------------------------------------------\n"
 			MENSAJE+=" IP Clon: ${IP} Rechazada\n"

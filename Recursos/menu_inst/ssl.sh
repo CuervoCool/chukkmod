@@ -1,5 +1,5 @@
 #/bin/bash
-sshports=`netstat -tunlp | grep sshd | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssh.txt && echo | cat /tmp/ssh.txt | tr '\n' ' ' > /etc/adm-lite/sshports.txt && cat /etc/adm-lite/sshports.txt`;
+sshports=`netstat -tunlp | grep sshd | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssh.txt && echo | cat /tmp/ssh.txt | tr '\n' ' ' > /etc/chukk-script/sshports.txt && cat /etc/chukk-script/sshports.txt`;
 fun_bar () {
 comando[0]="$1"
 comando[1]="$2"
@@ -46,7 +46,7 @@ clear
 cat stunnel.crt stunnel.key > stunnel.pem 
 mv stunnel.pem /etc/stunnel/
 clear
-sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
+sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/chukk-script/sslports.txt && cat /etc/chukk-script/sslports.txt`;
 cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR  ⌐╦╦═─ ☆ CHUMOGH ☆ ADM SCRIPT "| lolcat
 echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
 echo -e "${cor[2]}STUNNEL ACTIVO en Puertos: $sslports " | lolcat
@@ -65,7 +65,7 @@ echo "FILES="/etc/stunnel/*.conf" " >> /etc/default/stunnel4
 echo "OPTIONS="" " >> /etc/default/stunnel4
 echo "PPP_RESTART=0" >> /etc/default/stunnel4
 service stunnel4 restart
-sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
+sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/chukk-script/sslports.txt && cat /etc/chukk-script/sslports.txt`;
 cowsay -f stegosaurus "GRACIAS POR UTILIZAR  ⌐╦╦═─ ☆ CHUMOGH ☆ ADM SCRIPT "| lolcat
 echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
 echo -e "${cor[2]}STUNNEL ACTIVO en Puertos:" $sslports " Escojido "  $port | lolcat

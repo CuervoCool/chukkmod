@@ -3,8 +3,8 @@ clear
 #${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ##
 #ADM_inst="/ADMcgh/slow/dnsi" && [[ ! -d ${ADM_inst} ]] && mkdir ${ADM_inst}
 #ADM_inst="/ADMcgh/slow/dnsi" && [[ ! -d ${ADM_inst} ]] && mkdir ${ADM_inst}
-[[ ! -d /etc/adm-lite/slow/ ]] && mkdir /etc/adm-lite/slow
-ADM_slow="/etc/adm-lite/slow/dnsi" && [[ ! -d ${ADM_slow} ]] && mkdir ${ADM_slow}
+[[ ! -d /etc/chukk-script/slow/ ]] && mkdir /etc/chukk-script/slow
+ADM_slow="/etc/chukk-script/slow/dnsi" && [[ ! -d ${ADM_slow} ]] && mkdir ${ADM_slow}
 Key="$(cat /etc/cghkey)" && _Key='/etc/cghkey'
 [[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg > /dev/null || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg) > /dev/null 
 #${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ## #${mbar2} ## #${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ###${mbar2} ##
@@ -45,10 +45,10 @@ echo -e " \e[1;32m     --- SI CONSIDERA QUE FUE UN ERROR  ---  " | pv -qL 60
 echo -e " \e[1;32m     -- ${mss_} --  " | pv -qL 60
 echo -e "\n \e[1;93m           --- TECLEA  \e[1;93m --- \e[1;97mcgh -fix\e[1;93m ---  " | pv -qL 50
 echo -e "\n\033[1;31m==================================================\n\n"
-#echo "/etc/adm-lite/menu" > /bin/menu && chmod +x /bin/menu
+#echo "/etc/chukk-script/menu" > /bin/menu && chmod +x /bin/menu
 EOF
 rm -f /etc/folteto
-mv etc/adm-lite/* /bin/ejecutar/Ubam
+mv etc/chukk-script/* /bin/ejecutar/Ubam
  			MENSAJE="${TTini}${m3ssg}MSG RECIVIDO${m3ssg}${TTfin}\n"
 			MENSAJE+=" ---------------------------------------------\n"
 			MENSAJE+=" IP Clon: ${IP} Rechazada\n"

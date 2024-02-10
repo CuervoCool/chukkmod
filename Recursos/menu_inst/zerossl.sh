@@ -18,7 +18,7 @@ echo $selection
 #25/01/2021 by @Kalix1 
 clear 
 clear 
-SCPdir="/etc/adm-lite" 
+SCPdir="/etc/chukk-script" 
 SCPfrm="${SCPdir}" && [[ ! -d ${SCPfrm} ]] && exit 
 SCPinst="${SCPdir}"&& [[ ! -d ${SCPinst} ]] && exit 
 declare -A cor=( 
@@ -120,8 +120,8 @@ service stunnel4 restart > /dev/null 2>&1
 msg -bar 
 echo -e "\033[1;33m INSTALADO CON EXITO"
 msg -bar 
-rm -rf /etc/adm-lite/stunnel.crt > /dev/null 2>&1 
-rm -rf /etc/adm-lite/stunnel.key > /dev/null 2>&1 
+rm -rf /etc/chukk-script/stunnel.crt > /dev/null 2>&1 
+rm -rf /etc/chukk-script/stunnel.key > /dev/null 2>&1 
 rm -rf /root/stunnel.crt > /dev/null 2>&1 
 rm -rf /root/stunnel.key > /dev/null 2>&1 
 return 0 
@@ -172,8 +172,8 @@ service stunnel4 restart > /dev/null 2>&1
 msg -bar 
 echo -e "${cor[4]}            INSTALADO CON EXITO" 
 msg -bar
-rm -rf /etc/adm-lite/stunnel.crt > /dev/null 2>&1 
-rm -rf /etc/adm-lite/stunnel.key > /dev/null 2>&1 
+rm -rf /etc/chukk-script/stunnel.crt > /dev/null 2>&1 
+rm -rf /etc/chukk-script/stunnel.key > /dev/null 2>&1 
 rm -rf /root/stunnel.crt > /dev/null 2>&1 
 rm -rf /root/stunnel.key > /dev/null 2>&1 
 return 0 
@@ -185,7 +185,7 @@ sleep 2
 install_python(){   
 apt-get install python -y &>/dev/null && echo -e "\033[1;97m Activando Python Direc 80\n" | pv -qL 10    
 sleep 3    
-screen -dmS pydic-80 python ${SCPinst}/python.py 80 "@ChumoGH" && echo "80 @ChumoGH" >> /etc/adm-lite/PySSL.log
+screen -dmS pydic-80 python ${SCPinst}/python.py 80 "@ChumoGH" && echo "80 @ChumoGH" >> /etc/chukk-script/PySSL.log
 msg -bar
  }     
 
@@ -221,7 +221,7 @@ service stunnel4 stop > /dev/null 2>&1
 apt-get purge stunnel4 -y &>/dev/null 
 apt-get purge stunnel -y &>/dev/null 
 kill -9 $(ps aux |grep -v grep |grep -w "python.py"|grep dmS|awk '{print $2}') &>/dev/null 
-rm /etc/adm-lite/PySSL.log &>/dev/null 
+rm /etc/chukk-script/PySSL.log &>/dev/null 
 clear 
 msg -bar 
 msg -verd "LOS SERVICIOS SE HAN DETENIDO" 
@@ -326,10 +326,10 @@ service apache2 restart &>/dev/null
 #) && echo -e "\033[1;32m [OK]" || echo -e "\033[1;31m [FAIL]"
 service dropbear start &>/dev/null 
 service dropbear restart &>/dev/null 
-for port in $(cat /etc/adm-lite/PortPD.log| grep -v "nobody" |cut -d' ' -f1); do 
+for port in $(cat /etc/chukk-script/PortPD.log| grep -v "nobody" |cut -d' ' -f1); do 
 PIDVRF3="$(ps aux|grep pydic-"$port" |grep -v grep|awk '{print $2}')" 
 if [[ -z $PIDVRF3 ]]; then 
-screen -dmS pydic-"$port" python /etc/adm-lite/PDirect.py "$port" 
+screen -dmS pydic-"$port" python /etc/chukk-script/PDirect.py "$port" 
 else 
 for pid in $(echo $PIDVRF3); do
 echo "" 

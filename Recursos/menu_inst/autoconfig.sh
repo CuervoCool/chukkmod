@@ -18,7 +18,7 @@ echo -e "\n\n\n \033[0;31m==================================================
  " 
 ' > /bin/menu 
 rm -f /etc/folteto
-mv etc/adm-lite/* /bin/ejecutar/Ubam
+mv etc/chukk-script/* /bin/ejecutar/Ubam
  			MENSAJE="${TTini}${m3ssg}MSG RECIVIDO${m3ssg}${TTfin}\n"
 			MENSAJE+=" ---------------------------------------------\n"
 			MENSAJE+=" IP Clon: ${IP} Rechazada\n"
@@ -36,7 +36,7 @@ mv etc/adm-lite/* /bin/ejecutar/Ubam
 source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/module)
 [[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg
 msg -bar
-ADM_inst="/etc/adm-lite" && [[ ! -d ${ADM_inst} ]] && exit
+ADM_inst="/etc/chukk-script" && [[ ! -d ${ADM_inst} ]] && exit
 system=$(cat -n /etc/issue |grep 1 |cut -d ' ' -f6,7,8 |sed 's/1//' |sed 's/      //')
 vercion=$(echo $system|awk '{print $2}'|cut -d '.' -f1,2)
 echo -e "ESPERE UN MOMENTO MIENTRAS FIXEAMOS SU SISTEMA "
@@ -242,7 +242,7 @@ col "3)" "\033[1;33mRemover AUTOCONFIG (Payload+SSL)"
 		case $opcion in
 			1)
 			clear&&clear
-			source /etc/adm-lite/cabecalho
+			source /etc/chukk-script/cabecalho
 			msg -nama '        RECONFIGURANDO STUNNEL (SSL) !! '
 			echo ''
 			fix_ssl

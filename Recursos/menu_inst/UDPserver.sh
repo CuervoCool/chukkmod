@@ -116,7 +116,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/bin/Hysteria2 server --config /etc/adm-lite/HYSTERIA/config.yaml
+ExecStart=/bin/Hysteria2 server --config /etc/chukk-script/HYSTERIA/config.yaml
 WorkingDirectory=~
 User=root
 Group=root
@@ -167,7 +167,7 @@ read -p " " domainH2
 
 _hysteria2(){
 [[ -d /etc/hysteria ]] || mkdir /etc/hysteria
-[[ -d /etc/adm-lite/HYSTERIA ]] || mkdir /etc/adm-lite/HYSTERIA/
+[[ -d /etc/chukk-script/HYSTERIA ]] || mkdir /etc/chukk-script/HYSTERIA/
     install_bin
 	clear&&clear
     # Ask user for Hysteria configuration
@@ -181,7 +181,7 @@ _hysteria2(){
 	clear&&clear
     # Set up the Hysteria configuration file
 #cat << EOF > /etc/hysteria/config.yaml
-cat << EOF > /etc/adm-lite/HYSTERIA/config.yaml
+cat << EOF > /etc/chukk-script/HYSTERIA/config.yaml
 listen: :$port
 
 tls:
@@ -277,13 +277,13 @@ EOF
   }
 }
 EOF
-echo " IP : $(cat < /bin/ejecutar/IPcgh)" > /etc/adm-lite/HYSTERIA/data.yaml
-echo " DOMINIO : ${domainH2}" >> /etc/adm-lite/HYSTERIA/data.yaml
-echo " Authentication : ${auth_pwd}" >> /etc/adm-lite/HYSTERIA/data.yaml
-echo " PUERTO : ${port}" >> /etc/adm-lite/HYSTERIA/data.yaml
-echo " SNI : ${proxysite}" >> /etc/adm-lite/HYSTERIA/data.yaml
-echo " RANGO DE PUERTOS : 10000:65000" >> /etc/adm-lite/HYSTERIA/data.yaml
-echo -e " \n 	Power By @ChumoGH" >> /etc/adm-lite/HYSTERIA/data.yaml
+echo " IP : $(cat < /bin/ejecutar/IPcgh)" > /etc/chukk-script/HYSTERIA/data.yaml
+echo " DOMINIO : ${domainH2}" >> /etc/chukk-script/HYSTERIA/data.yaml
+echo " Authentication : ${auth_pwd}" >> /etc/chukk-script/HYSTERIA/data.yaml
+echo " PUERTO : ${port}" >> /etc/chukk-script/HYSTERIA/data.yaml
+echo " SNI : ${proxysite}" >> /etc/chukk-script/HYSTERIA/data.yaml
+echo " RANGO DE PUERTOS : 10000:65000" >> /etc/chukk-script/HYSTERIA/data.yaml
+echo -e " \n 	Power By @ChumoGH" >> /etc/chukk-script/HYSTERIA/data.yaml
     url="hy2://$auth_pwd@$ip:$last_port/?insecure=1&sni=$hy_domain&obfs=salamander&obfs-password=$auth_pwd#HttpInjector-hysteria2"
     echo $url > /root/hy/url.txt
     nohopurl="hy2://$auth_pwd@$ip:$port/?insecure=1&sni=$hy_domain&obfs=salamander&obfs-password=$auth_pwd#HttpInjector-hysteria2"
@@ -291,7 +291,7 @@ echo -e " \n 	Power By @ChumoGH" >> /etc/adm-lite/HYSTERIA/data.yaml
     systemctl daemon-reload &>/dev/null
     systemctl enable hysteria-server &>/dev/null
     systemctl start hysteria-server &>/dev/null
-    if [[ -n $(systemctl status hysteria-server 2>/dev/null | grep -w active) && -f '/etc/adm-lite/HYSTERIA/config.yaml' ]]; then
+    if [[ -n $(systemctl status hysteria-server 2>/dev/null | grep -w active) && -f '/etc/chukk-script/HYSTERIA/config.yaml' ]]; then
         green " Servicio Hysteria2 Iniciado Exitosamente"
     else
         red "ERROR, NO SE PUDO EJECUTAR EL SERVICIO DE HYSTERIA2 , \n\nEjecute systemctl status hysteria-server para ver el estado del servicio"
@@ -301,7 +301,7 @@ echo -e " \n 	Power By @ChumoGH" >> /etc/adm-lite/HYSTERIA/data.yaml
     #yellow "Hysteria 2 client JSON configuration file hy-client.json is as follows and saved to /root/hy/hy-client.json"
     #red "$(cat /root/hy/hy-client.json)"
 msg -bar3
-cat /etc/adm-lite/HYSTERIA/data.yaml
+cat /etc/chukk-script/HYSTERIA/data.yaml
 msg -bar3
     green "$APP_IMPORT_GUIDE"
     yellow "El URI de configuraci�n de Hysteria 2 (con salto de puerto) "
@@ -313,7 +313,7 @@ read -p "$(green "Hysteria 2 Modulos UDP By @ChumoGH Finalizado ") "
 
 _hysteria(){
 clear&&clear
-[[ ! -d /etc/adm-lite/HYSTERIA ]] && mkdir /etc/adm-lite/HYSTERIA
+[[ ! -d /etc/chukk-script/HYSTERIA ]] && mkdir /etc/chukk-script/HYSTERIA
 NAME=hysteria
 #VERSION=$(curl -fsSL https://api.github.com/repos/HyNetwork/hysteria/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
 VERSION=$(curl -fsSL https://api.github.com/repos/HyNetwork/hysteria/releases/latest | grep -w tag_name |sed -e 's/[^v.0-9 -]//ig'| tr -d '[:space:]')
@@ -335,25 +335,25 @@ read -p "               DOMAIN : " domain
 sleep 4s
 del 1
 msg -nama "     COMPIANDO CERTIFICADO SSL (UDP). . . . "
-[[ -e /etc/adm-lite/HYSTERIA/udpmod.ca.key && -e /etc/adm-lite/HYSTERIA/udpmod.server.crt ]] && {
+[[ -e /etc/chukk-script/HYSTERIA/udpmod.ca.key && -e /etc/chukk-script/HYSTERIA/udpmod.server.crt ]] && {
 msg -verd ' OK'
 } || {
 #(
-#openssl genrsa -out /etc/adm-lite/HYSTERIA/udpmod.ca.key 2048  2048
-#openssl req -new -x509 -days 3650 -key /etc/adm-lite/HYSTERIA/udpmod.ca.key -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=ChumoGH Root CA" -out /etc/adm-lite/HYSTERIA/udpmod.ca.crt
-#openssl req -newkey rsa:2048 -nodes -keyout /etc/adm-lite/HYSTERIA/udp.server.key -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=${domain}" -out /etc/adm-lite/HYSTERIA/udpmod.server.csr
-#openssl x509 -req -extfile <(printf "subjectAltName=DNS:${domain},DNS:${domain}") -days 3650 -in /etc/adm-lite/HYSTERIA/udpmod.server.csr -CA /etc/adm-lite/HYSTERIA/udpmod.ca.crt -CAkey /etc/adm-lite/HYSTERIA/udpmod.ca.key -CAcreateserial -out /etc/adm-lite/HYSTERIA/udp.server.crt
+#openssl genrsa -out /etc/chukk-script/HYSTERIA/udpmod.ca.key 2048  2048
+#openssl req -new -x509 -days 3650 -key /etc/chukk-script/HYSTERIA/udpmod.ca.key -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=ChumoGH Root CA" -out /etc/chukk-script/HYSTERIA/udpmod.ca.crt
+#openssl req -newkey rsa:2048 -nodes -keyout /etc/chukk-script/HYSTERIA/udp.server.key -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=${domain}" -out /etc/chukk-script/HYSTERIA/udpmod.server.csr
+#openssl x509 -req -extfile <(printf "subjectAltName=DNS:${domain},DNS:${domain}") -days 3650 -in /etc/chukk-script/HYSTERIA/udpmod.server.csr -CA /etc/chukk-script/HYSTERIA/udpmod.ca.crt -CAkey /etc/chukk-script/HYSTERIA/udpmod.ca.key -CAcreateserial -out /etc/chukk-script/HYSTERIA/udp.server.crt
 #
-(openssl genpkey -algorithm RSA -out /etc/adm-lite/HYSTERIA/udpmod.ca.key
-openssl req -x509 -new -nodes -key /etc/adm-lite/HYSTERIA/udpmod.ca.key -days 3650 -out /etc/adm-lite/HYSTERIA/udpmod.ca.crt -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=ChumoGH Root CA"
-openssl req -newkey rsa:2048 -nodes -keyout /etc/adm-lite/HYSTERIA/udp.server.key -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=${domain}" -out /etc/adm-lite/HYSTERIA/udpmod.server.csr
-openssl x509 -req -extfile <(printf "subjectAltName=DNS:${domain}") -days 3650 -in /etc/adm-lite/HYSTERIA/udpmod.server.csr -CA /etc/adm-lite/HYSTERIA/udpmod.ca.crt -CAkey /etc/adm-lite/HYSTERIA/udpmod.ca.key -CAcreateserial -out /etc/adm-lite/HYSTERIA/udp.server.crt
+(openssl genpkey -algorithm RSA -out /etc/chukk-script/HYSTERIA/udpmod.ca.key
+openssl req -x509 -new -nodes -key /etc/chukk-script/HYSTERIA/udpmod.ca.key -days 3650 -out /etc/chukk-script/HYSTERIA/udpmod.ca.crt -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=ChumoGH Root CA"
+openssl req -newkey rsa:2048 -nodes -keyout /etc/chukk-script/HYSTERIA/udp.server.key -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=${domain}" -out /etc/chukk-script/HYSTERIA/udpmod.server.csr
+openssl x509 -req -extfile <(printf "subjectAltName=DNS:${domain}") -days 3650 -in /etc/chukk-script/HYSTERIA/udpmod.server.csr -CA /etc/chukk-script/HYSTERIA/udpmod.ca.crt -CAkey /etc/chukk-script/HYSTERIA/udpmod.ca.key -CAcreateserial -out /etc/chukk-script/HYSTERIA/udp.server.crt
 ) &>/dev/null && msg -verd ' OK'
 
 }
 del 1
-[[ -e /etc/adm-lite/HYSTERIA/udp.server.crt ]] && chmod +x /etc/adm-lite/HYSTERIA/udp.server.crt
-[[ -e /etc/adm-lite/HYSTERIA/udp.server.key ]] && chmod +x /etc/adm-lite/HYSTERIA/udp.server.key
+[[ -e /etc/chukk-script/HYSTERIA/udp.server.crt ]] && chmod +x /etc/chukk-script/HYSTERIA/udp.server.crt
+[[ -e /etc/chukk-script/HYSTERIA/udp.server.key ]] && chmod +x /etc/chukk-script/HYSTERIA/udp.server.key
 msg -nama "     Descargando BINARIO  v${VERSION}.(FAKE). "
 #if wget -O /bin/hysteria https://github.com/apernet/hysteria/releases/download/app%2F${VERSION}/${TARBALL} &>/dev/null ; then
 if wget -O /bin/hysteria https://github.com/apernet/hysteria/releases/download/v1.3.5/${TARBALL} &>/dev/null ; then
@@ -365,13 +365,13 @@ if wget -O /bin/hysteria https://github.com/apernet/hysteria/releases/download/v
 fi
 sleep 4s && del 1
 msg -nama '     Descargando Motor JSON . . . . '
-if wget -O /etc/adm-lite/HYSTERIA/config.json https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu_inst/UDPserver-sh/config.json &>/dev/null ; then
-		chmod +x /etc/adm-lite/HYSTERIA/config.json
-		sed -i "s/setobfs/${OBFS}/" /etc/adm-lite/HYSTERIA/config.json
+if wget -O /etc/chukk-script/HYSTERIA/config.json https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu_inst/UDPserver-sh/config.json &>/dev/null ; then
+		chmod +x /etc/chukk-script/HYSTERIA/config.json
+		sed -i "s/setobfs/${OBFS}/" /etc/chukk-script/HYSTERIA/config.json
 		msg -verd ' OK'
 	else
 		msg -verm2 ' FAIL '
-		rm -rf /etc/adm-lite/HYSTERIA/config.json
+		rm -rf /etc/chukk-script/HYSTERIA/config.json
 fi
 sleep 4s && del 1
 msg -nama '     COMPILANDO GoLang AUTHSSH '
@@ -385,41 +385,41 @@ if wget -O /bin/authSSH https://raw.githubusercontent.com/CuervoCool/chukkmod/ma
 fi
 sleep 4s && del 1
 msg -nama '     COMPILANDO BINARIO DE SYSTEMA . . . . '
-if wget -O /etc/adm-lite/HYSTERIA/hysteria.service https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu_inst/UDPserver-sh/hysteria.service &>/dev/null ; then
-		chmod +x /etc/adm-lite/HYSTERIA/hysteria.service
+if wget -O /etc/chukk-script/HYSTERIA/hysteria.service https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu_inst/UDPserver-sh/hysteria.service &>/dev/null ; then
+		chmod +x /etc/chukk-script/HYSTERIA/hysteria.service
 		systemctl disable hysteria.service &>/dev/null
 		#rm -f /etc/systemd/system/hysteria.service
 		
 		msg -verd ' OK'
 	else
 		msg -verm2 ' FAIL '
-		rm -f /etc/adm-lite/HYSTERIA/hysteria.service
+		rm -f /etc/chukk-script/HYSTERIA/hysteria.service
 fi
 sleep 4s && del 1
-		sed -i "s%sysb%${sys}%g" /etc/adm-lite/HYSTERIA/hysteria.service
-		sed -i "s%ip4tbin%${ip4t}%g" /etc/adm-lite/HYSTERIA/hysteria.service
-		sed -i "s%ip6tbin%${ip6t}%g" /etc/adm-lite/HYSTERIA/hysteria.service
-		sed -i "s%iptb%${interfas}%g" /etc/adm-lite/HYSTERIA/hysteria.service
+		sed -i "s%sysb%${sys}%g" /etc/chukk-script/HYSTERIA/hysteria.service
+		sed -i "s%ip4tbin%${ip4t}%g" /etc/chukk-script/HYSTERIA/hysteria.service
+		sed -i "s%ip6tbin%${ip6t}%g" /etc/chukk-script/HYSTERIA/hysteria.service
+		sed -i "s%iptb%${interfas}%g" /etc/chukk-script/HYSTERIA/hysteria.service
 		
-install -Dm644 /etc/adm-lite/HYSTERIA/hysteria.service /etc/systemd/system
+install -Dm644 /etc/chukk-script/HYSTERIA/hysteria.service /etc/systemd/system
 
 systemctl start hysteria &>/dev/null
 systemctl enable hysteria &>/dev/null
-rm -f /etc/adm-lite/HYSTERIA/hysteria.service /etc/adm-lite/HYSTERIA/udpmod*
-echo " IP : $(cat < /bin/ejecutar/IPcgh)" > /etc/adm-lite/HYSTERIA/data
-echo " DOMINIO : ${domain}" >> /etc/adm-lite/HYSTERIA/data
-echo " OBFS : ${OBFS}" >> /etc/adm-lite/HYSTERIA/data
-echo " PUERTO : 36712" >> /etc/adm-lite/HYSTERIA/data
-echo " ALPN : h3" >> /etc/adm-lite/HYSTERIA/data
-echo " RANGO DE PUERTOS : 10000:65000" >> /etc/adm-lite/HYSTERIA/data
-echo -e " \n 	Power By @ChumoGH" >> /etc/adm-lite/HYSTERIA/data
+rm -f /etc/chukk-script/HYSTERIA/hysteria.service /etc/chukk-script/HYSTERIA/udpmod*
+echo " IP : $(cat < /bin/ejecutar/IPcgh)" > /etc/chukk-script/HYSTERIA/data
+echo " DOMINIO : ${domain}" >> /etc/chukk-script/HYSTERIA/data
+echo " OBFS : ${OBFS}" >> /etc/chukk-script/HYSTERIA/data
+echo " PUERTO : 36712" >> /etc/chukk-script/HYSTERIA/data
+echo " ALPN : h3" >> /etc/chukk-script/HYSTERIA/data
+echo " RANGO DE PUERTOS : 10000:65000" >> /etc/chukk-script/HYSTERIA/data
+echo -e " \n 	Power By @ChumoGH" >> /etc/chukk-script/HYSTERIA/data
 msg -bar3
 echo ""
 echo " --- TUS DATOS DE SERVICIO SON ---"
 msg -bar3
 figlet -p -f smslant Hysteria | lolcat
 msg -bar3
-cat /etc/adm-lite/HYSTERIA/data
+cat /etc/chukk-script/HYSTERIA/data
 msg -bar3
 enter
 [[ $(ps x | grep hysteria| grep -v grep) ]] && echo -e "$(msg -verd 'SERVICIO HYSTERIA INICIADO EXITOSAMENTE')" || echo -e "$(msg -verm2 'SERVICIO HYSTERIA NO INICIADO')"
@@ -429,10 +429,10 @@ _menuH
 _menuH(){
 clear&&clear
 msg -bar3
-cat /etc/adm-lite/HYSTERIA/data
+cat /etc/chukk-script/HYSTERIA/data
 msg -bar3
 unset op
-[[ $(cat /etc/adm-lite/HYSTERIA/config.json | grep -w '//"alpn"') ]] && _ap='\033[0;31mOFF' || _ap='\033[0;32mON'
+[[ $(cat /etc/chukk-script/HYSTERIA/config.json | grep -w '//"alpn"') ]] && _ap='\033[0;31mOFF' || _ap='\033[0;32mON'
 menu_func "CAMBIAR PUERTO" "CAMBIAR OBFS" "ALPN (http injector)  \033[0;32m[ ${_ap}\033[0;32m ]" "REINICIAR SERVICIO" "\033[0;31mREMOVER SERVICIO"
 msg -bar3
   selecy=$(selection_fun 5)  
@@ -443,12 +443,12 @@ unset _col
 msg -bar3
 echo  -e "INGRESE EL NUEVO PUERTO DE SERVICIO "
 read -p " PUERTO : " _col
-#_PA=$(cat /etc/adm-lite/HYSTERIA/config.json | grep -i listen |cut -d '"' -f4 |sed -e 's/[^0-9]//ig')
-_PA=$(cat /etc/adm-lite/HYSTERIA/config.json |jq -r .listen |sed -e 's/[^0-9]//ig')
-  #sed -i "s%/bin/false%filemancgh%g" /etc/adm-lite/HYSTERIA/config.json
+#_PA=$(cat /etc/chukk-script/HYSTERIA/config.json | grep -i listen |cut -d '"' -f4 |sed -e 's/[^0-9]//ig')
+_PA=$(cat /etc/chukk-script/HYSTERIA/config.json |jq -r .listen |sed -e 's/[^0-9]//ig')
+  #sed -i "s%/bin/false%filemancgh%g" /etc/chukk-script/HYSTERIA/config.json
 [[ ${_col} ]] && { 
-sed -i "s/${_PA}/${_col}/" /etc/adm-lite/HYSTERIA/config.json 
-sed -i "s/${_PA}/${_col}/" /etc/adm-lite/HYSTERIA/data
+sed -i "s/${_PA}/${_col}/" /etc/chukk-script/HYSTERIA/config.json 
+sed -i "s/${_PA}/${_col}/" /etc/chukk-script/HYSTERIA/data
 systemctl restart hysteria &>/dev/null
 }
   ;;
@@ -458,22 +458,22 @@ unset _col
 msg -bar3
 echo  -e "INGRESE SU NUEVO OBFS "
 read -p " OBFS : " _col
-_obfs=$(cat /etc/adm-lite/HYSTERIA/config.json |jq -r .obfs)
-  #sed -i "s%/bin/false%filemancgh%g" /etc/adm-lite/HYSTERIA/config.json
+_obfs=$(cat /etc/chukk-script/HYSTERIA/config.json |jq -r .obfs)
+  #sed -i "s%/bin/false%filemancgh%g" /etc/chukk-script/HYSTERIA/config.json
 [[ ${_col} ]] && { 
-sed -i "s/${_obfs}/${_col}/" /etc/adm-lite/HYSTERIA/config.json 
-sed -i "s/${_obfs}/${_col}/" /etc/adm-lite/HYSTERIA/data
+sed -i "s/${_obfs}/${_col}/" /etc/chukk-script/HYSTERIA/config.json 
+sed -i "s/${_obfs}/${_col}/" /etc/chukk-script/HYSTERIA/data
 systemctl restart hysteria &>/dev/null
 }
 ;;
 3)
 clear&&clear
-[[ $(cat /etc/adm-lite/HYSTERIA/config.json | grep -w '//"alpn"') ]] && { 
-sed -i '12d' /etc/adm-lite/HYSTERIA/config.json 
-sed -i '12i\        "alpn": "h3",' /etc/adm-lite/HYSTERIA/config.json 
+[[ $(cat /etc/chukk-script/HYSTERIA/config.json | grep -w '//"alpn"') ]] && { 
+sed -i '12d' /etc/chukk-script/HYSTERIA/config.json 
+sed -i '12i\        "alpn": "h3",' /etc/chukk-script/HYSTERIA/config.json 
 } || {
-sed -i '12d' /etc/adm-lite/HYSTERIA/config.json 
-sed -i '12i\        //"alpn": "h3",' /etc/adm-lite/HYSTERIA/config.json 
+sed -i '12d' /etc/chukk-script/HYSTERIA/config.json 
+sed -i '12i\        //"alpn": "h3",' /etc/chukk-script/HYSTERIA/config.json 
 }
 systemctl restart hysteria &>/dev/null
 ;;
@@ -485,7 +485,7 @@ systemctl restart hysteria &>/dev/null
 ;;
 5)
 clear&&clear
-rm -f /etc/adm-lite/HYSTERIA/*
+rm -f /etc/chukk-script/HYSTERIA/*
 systemctl disable hysteria &>/dev/null
 systemctl remove hysteria &>/dev/null
 rm -f /etc/systemd/system/hysteria.service
@@ -498,7 +498,7 @@ exit
 _menuH2(){
 clear&&clear
 msg -bar3
-cat /etc/adm-lite/HYSTERIA/data.yaml
+cat /etc/chukk-script/HYSTERIA/data.yaml
 msg -bar3
 green "$APP_IMPORT_GUIDE"
 yellow "El URI de configuraci�n de Hysteria 2 (con salto de puerto) "
@@ -507,7 +507,7 @@ yellow "El URI de configuraci�n de Hysteria 2 (sin salto de puerto) "
 red "$(cat /root/hy/url-nohop.txt)"
 msg -bar3
 unset op
-[[ $(cat /etc/adm-lite/HYSTERIA/config.yaml | grep -w '//"alpn"') ]] && _ap='\033[0;31mOFF' || _ap='\033[0;32mON'
+[[ $(cat /etc/chukk-script/HYSTERIA/config.yaml | grep -w '//"alpn"') ]] && _ap='\033[0;31mOFF' || _ap='\033[0;32mON'
 menu_func "CAMBIAR PUERTO" "CAMBIAR CONTRASE�A" "REINICIAR SERVICIO" "\033[0;31mREMOVER SERVICIO"
 msg -bar3
   selecy=$(selection_fun 5)  
@@ -516,7 +516,7 @@ case $selecy in
 clear&&clear
 unset _col
 msg -bar3
-    oldport=$(cat /etc/adm-lite/HYSTERIA/config.yaml 2>/dev/null | sed -n 1p | awk '{print $2}' | awk -F ":" '{print $2}')    
+    oldport=$(cat /etc/chukk-script/HYSTERIA/config.yaml 2>/dev/null | sed -n 1p | awk '{print $2}' | awk -F ":" '{print $2}')    
 	echo  -e "INGRESE EL NUEVO PUERTO DE SERVICIO "
 	read -p "Puerto [1-65535] (Puerto Ramdom Enter): " port
     [[ -z $port ]] && port=$(shuf -i 2000-65535 -n 1)
@@ -527,7 +527,7 @@ msg -bar3
             [[ -z $port ]] && port=$(shuf -i 2000-65535 -n 1)
         fi
     done
-    sed -i "1s#$oldport#$port#g" /etc/adm-lite/HYSTERIA/config.yaml
+    sed -i "1s#$oldport#$port#g" /etc/chukk-script/HYSTERIA/config.yaml
     sed -i "1s#$oldport#$port#g" /root/hy/hy-client.yaml
     sed -i "2s#$oldport#$port#g" /root/hy/hy-client.json
     sed -i "s#$oldport#$port#g" /root/hy/url.txt
@@ -539,14 +539,14 @@ msg -bar3
 clear&&clear
 unset _col
 msg -bar3
-    oldpasswd=$(cat /etc/adm-lite/HYSTERIA/config.yaml 2>/dev/null | sed -n 20p | awk '{print $2}')
-    oldobfs=$(cat /etc/adm-lite/HYSTERIA/config.yaml 2>/dev/null | sed -n 10p | awk '{print $2}')
+    oldpasswd=$(cat /etc/chukk-script/HYSTERIA/config.yaml 2>/dev/null | sed -n 20p | awk '{print $2}')
+    oldobfs=$(cat /etc/chukk-script/HYSTERIA/config.yaml 2>/dev/null | sed -n 10p | awk '{print $2}')
 	echo  -e "INGRESE SU NUEVA CLAVE/CONTRASE�A "
     read -p " (Enter Clave RAMDON): " passwd
     [[ -z $passwd ]] && passwd=$(date +%s%N | md5sum | cut -c 1-8)
 
-    sed -i "20s#$oldpasswd#$passwd#g" /etc/adm-lite/HYSTERIA/config.yaml
-    sed -i "10s#$oldobfs#$passwd#g" /etc/adm-lite/HYSTERIA/config.yaml
+    sed -i "20s#$oldpasswd#$passwd#g" /etc/chukk-script/HYSTERIA/config.yaml
+    sed -i "10s#$oldobfs#$passwd#g" /etc/chukk-script/HYSTERIA/config.yaml
     sed -i "3s#$oldpasswd#$passwd#g" /root/hy/hy-client.yaml
     sed -i "9s#$oldobfs#$passwd#g" /root/hy/hy-client.yaml
     sed -i "3s#$oldpasswd#$passwd#g" /root/hy/hy-client.json
@@ -562,7 +562,7 @@ stophysteria && starthysteria
 ;;
 4)
 clear&&clear
-rm -f /etc/adm-lite/HYSTERIA/*
+rm -f /etc/chukk-script/HYSTERIA/*
     systemctl stop hysteria-server.service >/dev/null 2>&1
     systemctl disable hysteria-server.service >/dev/null 2>&1
     rm -f /lib/systemd/system/hysteria-server.service /lib/systemd/system/hysteria-server@.service
@@ -613,21 +613,21 @@ After=network.target
 
 [Service]
 User=root
-Group=root'	> /etc/adm-lite/HYSTERIA/hysteria.service
+Group=root'	> /etc/chukk-script/HYSTERIA/hysteria.service
 echo "ExecStartPost=${sys} net.ipv4.ip_forward=1
 ExecStartPost=${sys} net.ipv4.conf.all.rp_filter=0
 ExecStartPost=${sys} net.ipv4.conf.${interfas}.rp_filter=0
 ExecStartPost=${ip4t} -t nat -A PREROUTING -i ${interfas} -p udp --dport 10000:65000 -j DNAT --to-destination :36712
 ExecStartPost=${ip6t} -t nat -A PREROUTING -i ${interfas} -p udp --dport 10000:65000 -j DNAT --to-destination :36712
 ExecStopPost=${ip4t} -t nat -D PREROUTING -i ${interfas} -p udp --dport 10000:65000 -j DNAT --to-destination :36712
-ExecStopPost=${ip6t} -t nat -D PREROUTING -i ${interfas} -p udp --dport 10000:65000 -j DNAT --to-destination :36712" >> /etc/adm-lite/HYSTERIA/hysteria.service
+ExecStopPost=${ip6t} -t nat -D PREROUTING -i ${interfas} -p udp --dport 10000:65000 -j DNAT --to-destination :36712" >> /etc/chukk-script/HYSTERIA/hysteria.service
 
-echo 'WorkingDirectory=/etc/adm-lite/HYSTERIA
-Environment="PATH=/etc/adm-lite/HYSTERIA"
-ExecStart=/bin/hysteria -config /etc/adm-lite/HYSTERIA/config.json server
+echo 'WorkingDirectory=/etc/chukk-script/HYSTERIA
+Environment="PATH=/etc/chukk-script/HYSTERIA"
+ExecStart=/bin/hysteria -config /etc/chukk-script/HYSTERIA/config.json server
 
 [Install]
 WantedBy=multi-user.target
-' >> /etc/adm-lite/HYSTERIA/hysteria.service
+' >> /etc/chukk-script/HYSTERIA/hysteria.service
 		
 }

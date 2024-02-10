@@ -9,7 +9,7 @@ clear
 source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/module)
 [[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg
 msg -bar3
-ADM_inst="/etc/adm-lite" && [[ ! -d ${ADM_inst} ]] && exit
+ADM_inst="/etc/chukk-script" && [[ ! -d ${ADM_inst} ]] && exit
 system=$(cat -n /etc/issue |grep 1 |cut -d ' ' -f6,7,8 |sed 's/1//' |sed 's/      //')
 vercion=$(echo $system|awk '{print $2}'|cut -d '.' -f1,2)
 echo -e "ESPERE UN MOMENTO MIENTRAS FIXEAMOS SU SISTEMA "
@@ -92,7 +92,7 @@ _ps="$(ps x)"
             systemctl stop python.${i} &>/dev/null
             systemctl disable python.${i} &>/dev/null
             rm -f /etc/systemd/system/python.${i}.service 
-			rm -f /etc/adm-lite/PDirect
+			rm -f /etc/chukk-script/PDirect
         done
 			for pidproxy in $(screen -ls | grep ".ws" | awk {'print $1'}); do
 						screen -r -S "$pidproxy" -X quit
@@ -101,7 +101,7 @@ _ps="$(ps x)"
 						sed -i '/PDirect/d' /bin/autoboot
 						sed -i '/python/d' /bin/autoboot
 			}
-		rm -f /etc/adm-lite/PDirect
+		rm -f /etc/chukk-script/PDirect
 		screen -wipe &>/dev/null
 		kill -9 $(echo -e "${_ps}" | grep -w python | grep -v grep | awk '{print $1}') &>/dev/null
         print_center -verd "Puertos PYTHON detenidos"
@@ -239,7 +239,7 @@ tput cuu1 && tput dl1
 tput cuu1 && tput dl1
 msg -ama "      BINARIO OFICIAL DE Epro Dev Team "
 sleep 2s && tput cuu1 && tput dl1
-[[ -e /etc/adm-lite/PDirect ]] && {
+[[ -e /etc/chukk-script/PDirect ]] && {
 echo -e "[Unit]
 Description=WS-Epro Service by @ChumoGH
 After=network.target
@@ -249,7 +249,7 @@ StartLimitIntervalSec=0
 Type=simple
 User=root
 WorkingDirectory=/root
-ExecStart=/bin/WS-Epro -salome -listen :${porta_socket} -ssh 127.0.0.1:${local} -f /etc/adm-lite/PDirect 
+ExecStart=/bin/WS-Epro -salome -listen :${porta_socket} -ssh 127.0.0.1:${local} -f /etc/chukk-script/PDirect 
 Restart=always
 RestartSec=3s
 
@@ -261,7 +261,7 @@ verbose: 0
 listen:
 - target_host: 127.0.0.1
   target_port: ${local}
-  listen_port: ${porta_socket}" > /etc/adm-lite/PDirect
+  listen_port: ${porta_socket}" > /etc/chukk-script/PDirect
   
 echo -e "[Unit]
 Description=WS-Epro Service by @ChumoGH
@@ -272,7 +272,7 @@ StartLimitIntervalSec=0
 Type=simple
 User=root
 WorkingDirectory=/root
-ExecStart=/bin/WS-Epro -f /etc/adm-lite/PDirect 
+ExecStart=/bin/WS-Epro -f /etc/chukk-script/PDirect 
 Restart=always
 RestartSec=3s
 

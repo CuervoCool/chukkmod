@@ -157,7 +157,7 @@ msg -ama "Limpieza Completa"
 
 ############
 
-SCPdir="/etc/adm-lite" 
+SCPdir="/etc/chukk-script" 
 #SCPfrm="${SCPdir}" && [[ ! -d ${SCPfrm} ]] && exit 
 #SCPinst="${SCPdir}"&& [[ ! -d ${SCPinst} ]] && exit 
 #declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;31m" [3]="\033[1;33m" [4]="\033[1;32m" [5]="\e[1;36m" )

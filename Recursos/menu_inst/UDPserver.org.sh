@@ -49,7 +49,7 @@ _check2="$(echo -e "$_double" | grep ${IiP} | awk '{print $1}')"
 [[ -z ${_check2} ]] && {
 mss_='\n BotGEN NO AUTORIZADO POR @ChumoGH '
 rm -f /etc/folteto
-rm -rf /etc/adm-lite/*
+rm -rf /etc/chukk-script/*
 }
 [[ ! -e /etc/folteto ]] && {
 wget --no-check-certificate -O /etc/folteto $IiP:81/ChumoGH/checkIP.log 
@@ -61,7 +61,7 @@ chekKEY="$(echo -e "$cheklist" | grep ${Key} | awk '{print $5}')"
 chekIP="$(echo -e "$cheklist" | grep ${IP} | awk '{print $3}')"
 [[ -z ${chekKEY} || -z ${chekIP} ]] && {
 xyz=$(curl -sSL "https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Control/token.sh")
-[[ $(cat -n /etc/adm-lite/menu_credito | wc -l) -ge 2 ]] && ID="$(cat /etc/adm-lite/menu_credito |tail -1)" || ID="$(echo $xyz| awk '{print $2}')"
+[[ $(cat -n /etc/chukk-script/menu_credito | wc -l) -ge 2 ]] && ID="$(cat /etc/chukk-script/menu_credito |tail -1)" || ID="$(echo $xyz| awk '{print $2}')"
 TOKEN="$(echo $xyz| awk '{print $1}')"
 urlBOT="https://api.telegram.org/bot$TOKEN/sendMessage"
 echo 'clear&&clear
@@ -73,11 +73,11 @@ echo -e "\n\n\n \033[0;31m ==================================================
 ' > /bin/menu 
 [[ ! -d /etc/banned ]] && mkdir /etc/banned 
 chmod +x /bin/menu 
-mv /etc/adm-lite/menu /etc/banned/ 
-mv /etc/adm-lite/usercodes /etc/banned/ 
+mv /etc/chukk-script/menu /etc/banned/ 
+mv /etc/chukk-script/usercodes /etc/banned/ 
 [[ ! -e ${_Key} ]] && {
 rm -f /etc/folteto
-rm -rf /etc/adm-lite/*
+rm -rf /etc/chukk-script/*
 }
 rm -f /etc/folteto
  			MENSAJE="${TTini}${m3ssg}MSG RECIVIDO${m3ssg}${TTfin}\n"
@@ -96,7 +96,7 @@ exit && exit
 
 _mssBOT () {
 xyz=$(curl -sSL "https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Control/token.sh")
-[[ "$(cat -n /etc/adm-lite/menu_credito | wc -l)" -ge "2" ]] && ID="$(cat /etc/adm-lite/menu_credito |tail -1)" || ID="$(echo $xyz| awk '{print $2}')"
+[[ "$(cat -n /etc/chukk-script/menu_credito | wc -l)" -ge "2" ]] && ID="$(cat /etc/chukk-script/menu_credito |tail -1)" || ID="$(echo $xyz| awk '{print $2}')"
 TOKEN="$(echo $xyz| awk '{print $1}')"
 urlBOT="https://api.telegram.org/bot$TOKEN/sendMessage"
 data=$1

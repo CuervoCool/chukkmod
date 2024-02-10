@@ -283,7 +283,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null && echo -e "\033[1;32mReiniciando DropBear Exitosamente" | pv -qL 30 || echo -e "\033[1;32mError al Reiniciar DropBear" | pv -qL 30
 service sshd restart 1> /dev/null 2> /dev/null
 service ssh restart 1> /dev/null 2> /dev/null
-dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
+dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/chukk-script/dropbearports.txt && cat /etc/chukk-script/dropbearports.txt`;
 echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $porta1 " ESCOJIDO " $porta1
 echo -e "$barra"
 echo -e "Creando Directorios" | pv -qL 30
@@ -318,8 +318,8 @@ read -p " "
 
 insta_https () {
 unset porta1
-sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
-PORT=$(cat /etc/adm-lite/sslports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
+sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/chukk-script/sslports.txt && cat /etc/chukk-script/sslports.txt`;
+PORT=$(cat /etc/chukk-script/sslports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
 echo -e " Ingrese Puerto SSL/SSH/Dropbear Activo"
 read -p " Para Redireccionamiento ( Default $PORT ): " porta1
 if [[ -z $porta1  ]]; then
