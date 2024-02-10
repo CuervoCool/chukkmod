@@ -1,6 +1,6 @@
 #!/bin/bash
 #CREADOR Henry Chumo | 06/06/2022
-#Alias : @ChumoGH
+#Alias : @drowkid01
 
 # NUNCA  DEJES DE APRENDER
 # POWER BY @CHUMOGH
@@ -71,7 +71,7 @@ _userlock="${i}"
 _tuser="\033[1;31m$(echo -e "${users}" | wc -l)"
 }
 
-[[ -e /etc/adm-lite/modulos ]] && function_onlines &> /dev/null 
+[[ -e /etc/chukk-script/modulos ]] && function_onlines &> /dev/null 
 
 if ! [ $(id -u) = 0 ]; then
 clear
@@ -130,7 +130,7 @@ sed '/echo/ d' /root/.bashrc.cp > /root/.bashrc
 rm -f /root/.bashrc.cp /root/.bashrc.cp1
 [[ -e $HOME/exito ]] && rm -f /root/exito $HOME/name > /dev/null 2>&1
 echo -e "${cor[5]} SUCESS! :D${cor[0]}"
-[[ -e /etc/adm-lite ]] && rm -rf /etc/adm-lite
+[[ -e /etc/chukk-script ]] && rm -rf /etc/chukk-script
 echo -e "\033[0m"
  msg -bar3
  exit
@@ -144,7 +144,7 @@ echo -e "\033[0m"
 clear
 #DECLARA VARIABLES DE ENTORNO
 dir_user="./userDIR"
-dir="/etc/adm-lite"
+dir="/etc/chukk-script"
 
 _on="\033[0;31m [\033[0;32mON\033[0;31m]"
 _off="\033[0;31m [OFF]"
@@ -154,7 +154,7 @@ unset limiter_on
 [[ -e /etc/openvpn/server.conf ]] && {
 [[ -e /etc/openvpn/openvpn-status.log ]] && OPENVPN="on" || echo -e "OPENVPN ERROR"
 }
-[[ -e /etc/adm-lite/modulos ]] && VERIFICAR_PID="$_on" || VERIFICAR_PID="$_off"
+[[ -e /etc/chukk-script/modulos ]] && VERIFICAR_PID="$_on" || VERIFICAR_PID="$_off"
 
 [[ -e /etc/systemd/system/killadm.service ]] &&  limiter_on="\033[1;32mON"
 [[ -z $_os ]] && _os="\033[1;31m$(cat /etc/issue | cut -d " " -f 1,2 | head -1| tr a-z A-Z)"
@@ -165,7 +165,7 @@ unset limiter_on
 [[ -z $(dpkg -l | grep fail2ban | grep ii) ]] && fail_b="$_off" || fail_b="$_on"
 [[ -e /bin/ejecutar/uskill ]] && ukk="\033[1;31m$(cat /bin/ejecutar/uskill)" || ukk="\033[1;31m0"
 v1=$(cat /bin/ejecutar/v-new.log)
-v2=$(cat /etc/adm-lite/v-local.log)
+v2=$(cat /etc/chukk-script/v-local.log)
 if [ -e /etc/squid/squid.conf ]; then
 squid_var="/etc/squid/squid.conf"
 elif [ -e /etc/squid3/squid.conf ]; then
@@ -181,14 +181,14 @@ echo -e $(echo "$1"| sed 's/../\\x&/g;s/$/ /') && return 0 || return 1
 }
 
 funcao_verificacao () {
-  [[ -e /etc/adm-lite/modulos ]] && {
+  [[ -e /etc/chukk-script/modulos ]] && {
   for _pids_ in `atq | awk '{print $1}'`; do
    atrm $_pids_
   done
   [[ -e ./vencidos ]] && rm ./vencidos
   [[ -e ./onlines ]] && rm ./onlines
   [[ -e ./total ]] && rm ./total
-  rm -f /etc/adm-lite/modulos
+  rm -f /etc/chukk-script/modulos
   rm -f /bin/ejecutar/usCONEXT
   rm -f /bin/ejecutar/usCONEXC
   echo " CONTADOR ONLINE DESACTIVADO !!"
@@ -197,7 +197,7 @@ funcao_verificacao () {
   return
     } || {
 	clear&&clear
-  echo "VERIFICAR" > /etc/adm-lite/modulos 
+  echo "VERIFICAR" > /etc/chukk-script/modulos 
 unset sshsn
 unset sin_nao
 msg -bar3
@@ -236,7 +236,7 @@ tput cuu1 >&2 && tput dl1 >&2
 unset sshsn
 unset sin_nao
 }
-  chmod 777 /etc/adm-lite/*
+  chmod 777 /etc/chukk-script/*
   echo -e " CONTADOR ONLINE ACTIVADO !!"
   echo -e " RECUERDA QUE PARA EL CONTROLADOR DE \n CONSUMO DE USUARIOS"
   echo -e " ES NECESARIO QUE TENGAS EL KILL MULTILOGIN ACTIVADO"
@@ -265,16 +265,16 @@ mostrar_menu_numerado() {
     echo -e " - LISTA DE USUARIOS DISPONIBLES -"
 	msg -bar3
     while IFS= read -r nombre; do
-        [[ -e /etc/adm-lite/userDIR/$nombre ]] && { 
-		local lmt="$(cat /etc/adm-lite/userDIR/$nombre | grep "limite" | awk '{print $2}')"
+        [[ -e /etc/chukk-script/userDIR/$nombre ]] && { 
+		local lmt="$(cat /etc/chukk-script/userDIR/$nombre | grep "limite" | awk '{print $2}')"
 		[[ $(passwd --status $nombre|cut -d ' ' -f2) = "L" ]] && {
 		echo -e "\033[0;35m [\033[0;36m$contador\033[0;35m]\033[0;31m ➮\033[0;38m $nombre \033[1;34m<--\033[1;31m LOCK" 
 			} || {
 			[[ $(echo -e ${lmt} |sed -e 's/[^0-9]//ig') ]] && { 
 					echo -e "\033[0;35m [\033[0;36m$contador\033[0;35m]\033[0;31m ➮\033[0;38m $nombre" 
 				} || {
-					[[ "$(echo -e ${lmt})" = "HWID" ]] && echo -e "\033[0;35m [\033[0;36m$contador\033[0;35m]\033[0;31m ➮${cor[5]} $(cat /etc/adm-lite/userDIR/$nombre | grep "senha" | awk '{print $2}') ${cor[1]}-> \033[0;35m #[${cor[3]}${lmt}\033[0;35m] \n    ⤷  ${cor[2]}$nombre" |column -s "#"  -t 
-					[[ "$(echo -e ${lmt})" = "TOKEN" ]] && echo -e "\033[0;35m [\033[0;36m$contador\033[0;35m]\033[0;31m ➮${cor[5]} $(cat /etc/adm-lite/userDIR/$nombre | grep "senha" | awk '{print $2}') ${cor[1]}-> \033[0;35m #[${cor[3]}${lmt}\033[0;35m] \n    ⤷  ${cor[2]}$nombre" |column -s "#"  -t 
+					[[ "$(echo -e ${lmt})" = "HWID" ]] && echo -e "\033[0;35m [\033[0;36m$contador\033[0;35m]\033[0;31m ➮${cor[5]} $(cat /etc/chukk-script/userDIR/$nombre | grep "senha" | awk '{print $2}') ${cor[1]}-> \033[0;35m #[${cor[3]}${lmt}\033[0;35m] \n    ⤷  ${cor[2]}$nombre" |column -s "#"  -t 
+					[[ "$(echo -e ${lmt})" = "TOKEN" ]] && echo -e "\033[0;35m [\033[0;36m$contador\033[0;35m]\033[0;31m ➮${cor[5]} $(cat /etc/chukk-script/userDIR/$nombre | grep "senha" | awk '{print $2}') ${cor[1]}-> \033[0;35m #[${cor[3]}${lmt}\033[0;35m] \n    ⤷  ${cor[2]}$nombre" |column -s "#"  -t 
 				}
 			}
 		}
@@ -368,7 +368,7 @@ clear&&clear
 #upFILE=$(curl -sSL "https://www.dropbox.com/s/uyyme71yu6942vb/update.txt") 
 #echo -e "$upFILE"
 msg -bar3
-cd /etc/adm-lite
+cd /etc/chukk-script
 chmod 777 ./*
 echo -e "${cor[3]} ¿DESEAS CONTINUAR CON UPDATE DEL SCRIPT ? "
 read -p " [S/N]: " -e -i s sshsn
@@ -436,7 +436,7 @@ usermod -p $(openssl passwd -1 $senha) $CLIENT
   echo -e "\033[1;32m ALOJAR ONLINE ( * menu * opcion 2 * opcion 8 )"
   }
 rm -f ./$CLIENT.ovpn
-cd /etc/adm-lite
+cd /etc/chukk-script
 echo "senha: $senha" > $dir_user/$CLIENT
 echo "limite: $limit" >> $dir_user/$CLIENT
 echo "data: $valid" >> $dir_user/$CLIENT
@@ -445,7 +445,7 @@ echo "data: $valid" >> $dir_user/$CLIENT
 open_2 () {
 CLIENT="$1"
 userdel --force $CLIENT
-cd /etc/adm-lite
+cd /etc/chukk-script
 [[ -e $dir_user/$CLIENT ]] && rm $dir_user/$CLIENT
 }
 
@@ -594,7 +594,7 @@ declare -A cpu_model=$(uname -m)
 meu_ip
 [[ -e /root/name ]] && figlet -p -f smslant < /root/name | lolcat || echo -e "\033[7;49;35m    ${TTini} ChumoGH${TTcent}VPS  ${TTfin}      "
 msg -bar3
-[[ -e /etc/adm-lite/modulos ]] && echo -e "${cor[2]} ${pPIniT} \033[1;37mONLINES: ${_onlin}${cor[2]} ${pPIniT} \033[1;37mEXP: ${_userexp} ${cor[2]}${pPIniT}\033[1;37m KILL: $ukk ${cor[2]}${pPIniT}\033[1;37m TOTAL: ${_tuser}"
+[[ -e /etc/chukk-script/modulos ]] && echo -e "${cor[2]} ${pPIniT} \033[1;37mONLINES: ${_onlin}${cor[2]} ${pPIniT} \033[1;37mEXP: ${_userexp} ${cor[2]}${pPIniT}\033[1;37m KILL: $ukk ${cor[2]}${pPIniT}\033[1;37m TOTAL: ${_tuser}"
 echo -e "${cor[2]} ${pPIniT} \033[1;37mS.O: ${_os} ${cor[2]}${pPIniT} \033[1;37mBase:\033[1;31m${cpu_model} ${cor[2]}${pPIniT} \033[1;37mCores:\033[1;31m ${cpu_core} "
 echo -e "${cor[2]} ${pPIniT} \033[1;37mIP:\033[1;31m ${IP} ${cor[2]}${pPIniT} \033[1;37mFECHA: \033[1;31m$(date +"%d/%m/%Y")-$(date +"%H:%M")" 
 msg -bar3

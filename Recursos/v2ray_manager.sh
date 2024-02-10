@@ -1,7 +1,5 @@
 #!/bin/bash
 #By @drowkid01|Plus
-#Autor: Henry Chumo 
-#Alias : ChuKK-SCRIPT
 
 #DE FELICIDAD LANZA EN SUS GitHub LOS CODIGOS LIBRES
 

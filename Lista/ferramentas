@@ -1,7 +1,7 @@
 #!/bin/bash
 start_menu () {
-source /etc/adm-lite/cabecalho
-echo -e "${cor[2]} ⌐╦╦═─ ${cor[5]} MENÚ HERRAMIENTAS By $(cat /etc/adm-lite/menu_credito|head -1)"
+source /etc/chukk-script/cabecalho
+echo -e "${cor[2]} ⌐╦╦═─ ${cor[5]} MENÚ HERRAMIENTAS By $(cat /etc/chukk-script/menu_credito|head -1)"
 msg -bar 
 echo -e "\033[0;35m [\033[0;36m1\033[0;35m]\033[0;31m ➮${cor[3]} Bloqueo Torrent y Palabras Claves \033[0;33m( #BETA )"
 echo -e "\033[0;35m [\033[0;36m2\033[0;35m]\033[0;31m ➮${cor[3]} FIX PassWD Vultr"
@@ -72,7 +72,7 @@ echo -e "${cor[4]} Este Script fue proyectado"
 echo -e "${cor[4]} Para Mejorar La Latencia"
 echo -e "${cor[4]} y velocidad del servidor!"
 msg -bar 
-echo -e "${cor[5]} ANALIZADO POR @ChumoGH"
+echo -e "${cor[5]} ANALIZADO POR @drowkid01"
 sleep 1s
 if [[ `grep -c "^#ADM" /etc/sysctl.conf` -eq 0 ]]; then
 #INSTALA
@@ -472,7 +472,7 @@ name=$(echo $valor1 | awk -F "/" '{print $2'})
 if [ "$name" = "" ]; then
 name=$(echo $valor1 | awk -F "/" '{print $1'})
 fi
-esquelet="/etc/adm-lite/payloads"
+esquelet="/etc/chukk-script/payloads"
 sed -s "s;realData;abc;g" $esquelet > $HOME/$name.txt
 sed -i "s;netData;abc;g" $HOME/$name.txt
 sed -i "s;raw;abc;g" $HOME/$name.txt

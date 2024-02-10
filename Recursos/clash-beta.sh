@@ -1,6 +1,4 @@
 #!/bin/sh
-#Autor: Henry Chumo 
-#Alias : ChuKK-SCRIPT
 #SCRIPT OFICIAL ChuKK-SCRIPT|Plus
 clear&&clear
 fun_ip () {

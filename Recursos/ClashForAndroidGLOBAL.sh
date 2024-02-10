@@ -1,6 +1,4 @@
 #!/bin/sh
-#Autor: Henry Chumo 
-#Alias : ChuKK-SCRIPT
 #SCRIPT OFICIAL ChuKK-SCRIPT|Plus
 # Formato Creado por @drowkid01 | '593987072611 Whatsapp Personal
 clear&&clear

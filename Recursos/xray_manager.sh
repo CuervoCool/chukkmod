@@ -1,6 +1,4 @@
 #!/bin/sh
-#Autor: Henry Chumo 
-#Alias : ChuKK-SCRIPT
 clear
 config="/etc/xray/config.json"
 configLOCK="/etc/xray/config.json.lock"

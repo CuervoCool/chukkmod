@@ -1,6 +1,4 @@
 #!/bin/sh
-#Autor: Henry Chumo 
-#Alias : ChuKK-SCRIPT
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/
 
 echo '@drowkid01 ' > /var/log/auth.log

@@ -1,11 +1,10 @@
 #!/bin/sh
-#Autor: Henry Chumo 
 #Alias : ChumoGH
-source <(curl -sL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/msg-bar/msg)
+source <(curl -sL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg)
 
 _mssBOT () {
 xyz=$(curl -sSL "https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Control/token.sh")
-[[ "$(cat -n /etc/adm-lite/menu_credito | wc -l)" -ge "2" ]] && ID="$(cat /etc/adm-lite/menu_credito |tail -1)" || ID="$(echo $xyz| awk '{print $2}')"
+[[ "$(cat -n /etc/chukk-script/menu_credito | wc -l)" -ge "2" ]] && ID="$(cat /etc/chukk-script/menu_credito |tail -1)" || ID="$(echo $xyz| awk '{print $2}')"
 TOKEN="$(echo $xyz| awk '{print $1}')"
 urlBOT="https://api.telegram.org/bot$TOKEN/sendMessage"
 data=$1
@@ -18,7 +17,7 @@ MENSAJE="${TTini}${m3ssg}MSG RECIBIDO${m3ssg}${TTfin}\n"
 			MENSAJE+="$(msg -br)\n"
 			MENSAJE+=" HORA : $(printf '%(%D-%H:%M:%S)T')\n"
 			MENSAJE+="       ${rUlq} Bot generador de key ${rUlq}\n"
-			MENSAJE+="           ${pUn5A} By @ChumoGH ${pUn5A} \n"
+			MENSAJE+="           ${pUn5A} By @drowkid01 ${pUn5A} \n"
 			MENSAJE+="$(msg -br)\n"	
 curl -s --max-time 10 -d "chat_id=$ID&disable_web_page_preview=1&text=$(echo -e "$MENSAJE")" $urlBOT &>/dev/null 	
 }

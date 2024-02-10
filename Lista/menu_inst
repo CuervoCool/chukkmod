@@ -7,7 +7,7 @@ clear&&clear
 #chmod +x /bin/protoADM
 #echo -e 'protoADM' > /ADMcgh/menu_inst
 #}
-source /etc/adm-lite/cabecalho "ports_"
+source /etc/chukk-script/cabecalho "ports_"
 _SFTP="$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | grep apache2)"
 portFTP=$(echo -e "$_SFTP" |cut -d: -f2 | cut -d' ' -f1 | uniq)
 portFTP=$(echo ${portFTP} | sed 's/\s\+/,/g' | cut -d , -f1)
@@ -1212,7 +1212,7 @@ trojan()
 msg -bar3 
 echo -e "${cor[2]} Trojan-Go ACTIVO en Puertos: $trojanports "
 msg -bar3
-echo -e " \033[0;35m[\033[0;36m1\033[0;35m] \033[0;34m<\033[0;33m CONTROL PANNEL \033[0;32m(#OFICIAL by @ChumoGH)" 
+echo -e " \033[0;35m[\033[0;36m1\033[0;35m] \033[0;34m<\033[0;33m CONTROL PANNEL \033[0;32m(#OFICIAL by @drowkid01)" 
 echo -e " \033[0;35m[\033[0;36m2\033[0;35m] \033[0;34m<\033[0;33m ELIMINAR TROJAN-GO (s)" 
 msg -bar3   
 selection=$(selection_fun 2)
@@ -1245,7 +1245,7 @@ return 0
 ssl_stunel() {
 unset selection
 msg -bar3 
-echo -e "${cor[2]} Certificado SSL/TLS ( Default: @ChumoGH ) " 
+echo -e "${cor[2]} Certificado SSL/TLS ( Default: @drowkid01 ) " 
 msg -bar3
 echo -e " \033[0;35m[\033[0;36m1\033[0;35m] \033[0;34m${flech}\033[0;33m SSL - STUNNEL 4  \033[0;32m(#OFICIAL)" 
 echo -e " \033[0;35m[\033[0;36m2\033[0;35m] \033[0;34m${flech}\033[0;33m SSL - STUNNEL 5  \033[0;32m(#OFICIAL)"
@@ -1345,7 +1345,7 @@ return 0
 ;;
 2)
 echo ""
-echo -e  "               Creditos a @ChumoGH "
+echo -e  "               Creditos a @drowkid01 "
 msg -bar3
 read -p " Presiona Enter para continuar "
 source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu_inst/zerossl.sh)
@@ -1375,7 +1375,7 @@ esac
 unset lang
 figlet " SSL / TLS " | boxes -d stone -p a2v1
 msg -bar3 
-echo -e "${cor[2]} Certificado SSL/TLS ( Default: @ChumoGH ) " 
+echo -e "${cor[2]} Certificado SSL/TLS ( Default: @drowkid01 ) " 
 msg -bar3
 echo -e " \033[0;35m[\033[0;36m1\033[0;35m] \033[0;34m${flech}\033[0;33m Crear Su Certificado SSL  \033[0;32m(#OFICIAL)" 
 echo -e " \033[0;35m[\033[0;36m2\033[0;35m] \033[0;34m${flech}\033[0;33m Certificado AUTOMATICO    \033[0;32m(#OFICIAL)"
@@ -1435,7 +1435,7 @@ msg -bar3
 fun_bar "apt install stunnel4 -y"
 echo -e "cert = /etc/stunnel/stunnel.pem\nclient = no\nsocket = a:SO_REUSEADDR=1\nsocket = l:TCP_NODELAY=1\nsocket = r:TCP_NODELAY=1\n\n[stunnel]\nconnect = 127.0.0.1:${DPORT}\naccept = ${SSLPORT}" > /etc/stunnel/stunnel.conf
 openssl genrsa -out key.pem 2048 > /dev/null 2>&1
-(echo "$(curl -sSL ipinfo.io > info && cat info | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')" ; echo "" ; echo "$(cat < /bin/ejecutar/IPcgh):81" ; echo "" ; echo "" ; echo "" ; echo "@ChumoGH")|openssl req -new -x509 -key key.pem -out cert.pem -days 1095 > /dev/null 2>&1
+(echo "$(curl -sSL ipinfo.io > info && cat info | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')" ; echo "" ; echo "$(cat < /bin/ejecutar/IPcgh):81" ; echo "" ; echo "" ; echo "" ; echo "@drowkid01")|openssl req -new -x509 -key key.pem -out cert.pem -days 1095 > /dev/null 2>&1
 cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 service stunnel4 restart > /dev/null 2>&1
@@ -1588,7 +1588,7 @@ return 0
 5)
 #echo -e  "  ESTE MINI SCRIPT ES FUE DESARROLLADO POR @KillShito "
 echo ""
-echo -e  "               Creditos a @ChumoGH "
+echo -e  "               Creditos a @drowkid01 "
 msg -bar3
 read -p " Presiona Enter para continuar "
 source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu_inst/zerossl.sh)
@@ -1750,7 +1750,7 @@ esac
 unset lang
 figlet " STUNNEL5 " | boxes -d stone -p a2v1
 msg -bar3 
-echo -e "${cor[2]} Certificado SSL/TLS ( Default: @ChumoGH ) " 
+echo -e "${cor[2]} Certificado SSL/TLS ( Default: @drowkid01 ) " 
 msg -bar3
 echo -e " \033[0;35m[\033[0;36m1\033[0;35m] \033[0;34m${flech}\033[0;33m Certificado AUTOMATICO    \033[0;32m(#OFICIAL)"
 echo -e " \033[0;35m[\033[0;36m2\033[0;35m] \033[0;34m${flech}\033[0;33m Certificado con DOMINIO   \033[0;32m(#OFICIAL)"
@@ -1809,7 +1809,7 @@ cert = /usr/local/etc/stunnel/stunnel.cert
 key = /usr/local/etc/stunnel/stunnel.key
 " > /usr/local/etc/stunnel/stunnel.conf
 openssl genrsa -out key.pem 2048 > /dev/null 2>&1
-(echo "$(curl -sSL ipinfo.io > info && cat info | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')" ; echo "" ; echo "$(cat < /bin/ejecutar/IPcgh):81" ; echo "" ; echo "" ; echo "" ; echo "@ChumoGH")|openssl req -new -x509 -key key.pem -out cert.pem -days 1095 > /dev/null 2>&1
+(echo "$(curl -sSL ipinfo.io > info && cat info | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')" ; echo "" ; echo "$(cat < /bin/ejecutar/IPcgh):81" ; echo "" ; echo "" ; echo "" ; echo "@drowkid01")|openssl req -new -x509 -key key.pem -out cert.pem -days 1095 > /dev/null 2>&1
 [[ -d /usr/local/etc/stunnel ]] && cat cert.pem > /usr/local/etc/stunnel/stunnel.cert
 [[ -d /usr/local/etc/stunnel ]] && cat key.pem > /usr/local/etc/stunnel/stunnel.key
 [[ -e /usr/local/share/doc/stunnel/examples/stunnel.init ]] && cp /usr/local/share/doc/stunnel/examples/stunnel.init /etc/init.d/stunnel5
@@ -2289,7 +2289,7 @@ fi
   clear && clear
   msg -bar3
   tittle
-  msg -ama "  PSIPHONE-SERVER | @ChumoGH"
+  msg -ama "  PSIPHONE-SERVER | @drowkid01"
   msg -bar3
   if [[ ! -e /bin/psiphond ]]; then
     curl -o /bin/psiphond https://raw.githubusercontent.com/Psiphon-Labs/psiphon-tunnel-core-binaries/master/psiphond/psiphond &>/dev/null
@@ -2502,7 +2502,7 @@ x-ui enable > /dev/null 2>&1
 [[ ! -d /etc/x-ui ]] && mkdir /etc/x-ui
 [[ -d /etc/x-ui ]] && cd /etc/x-ui
 openssl genrsa -out key.key 2048 > /dev/null 2>&1
-(echo "$(curl -sSL ipinfo.io > info && cat info | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')"; echo ""; echo "$(cat < /bin/ejecutar/IPcgh):81"; echo ""; echo ""; echo ""; echo "@ChumoGH")|openssl req -new -x509 -key /etc/x-ui/cert.key -out /etc/x-ui/cert.crt -days 1095 > /dev/null 2>&1
+(echo "$(curl -sSL ipinfo.io > info && cat info | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')"; echo ""; echo "$(cat < /bin/ejecutar/IPcgh):81"; echo ""; echo ""; echo ""; echo "@drowkid01")|openssl req -new -x509 -key /etc/x-ui/cert.key -out /etc/x-ui/cert.crt -days 1095 > /dev/null 2>&1
 cd $HOME
 fun_bar
 echo -e "CERTIFICADO GENERADO"
@@ -2572,7 +2572,7 @@ echo -e ""
 echo -e "Si es un panel de actualización, acceda al panel como lo hizo antes, \n A continuacion crearemos su Certificado SSL"
 echo -e ""
 msg -bar3
-echo -e " WELCOME TO V2RAY-UI, MOD ChumoGH-ADM \n \033[1;36mREAD THE INSTRUCTIONS CAREFULLY BEFORE CONTINUING....."
+echo -e " WELCOME TO V2RAY-UI, MOD ChuKK-SCRIPT \n \033[1;36mREAD THE INSTRUCTIONS CAREFULLY BEFORE CONTINUING....."
 msg -bar3
 echo -e " \033[0;35m[\033[0;36m1\033[0;35m] \033[0;34m${flech}\033[0;33m  Certificado AUTOMATICO    \033[0;32m(#OFICIAL)" 
 echo -e " \033[0;35m[\033[0;36m2\033[0;35m] \033[0;34m${flech}\033[0;33m  Crear Su Certificado SSL  \033[0;32m(#OFICIAL)"
@@ -2674,9 +2674,9 @@ msg -bar3
 echo -e "MOTOR DE INSTALACION DE PANNEL WEB Y CONSOLA DE V2RAY Y XRAY"
 msg -bar3
 echo -e " \033[0;35m[\033[0;36m1\033[0;35m] \033[0;34m${flech}\033[0;33m  Original (Todo en Consola)   \033[0;32m(#OFICIAL)" 
-echo -e " \033[0;35m[\033[0;36m2\033[0;35m] \033[0;34m${flech}\033[0;33m  MENU Rufu99 Mod @ChumoGH     \033[0;32m(#OFICIAL)   " #\033[0;33m(#EXPERIMENTAL)"
-echo -e " \033[0;35m[\033[0;36m3\033[0;35m] \033[0;34m${flech}\033[0;33m  MENU Reforma @ChumoGH        \033[0;32m(#OFICIAL)"
-echo -e " \033[0;35m[\033[0;36m4\033[0;35m] \033[0;34m${flech}\033[0;33m  Pannel WEB ( X-RAY ) Traduccion @ChumoGH  \033[0;32m(#OFICIAL)"
+echo -e " \033[0;35m[\033[0;36m2\033[0;35m] \033[0;34m${flech}\033[0;33m  MENU Rufu99 Mod @drowkid01     \033[0;32m(#OFICIAL)   " #\033[0;33m(#EXPERIMENTAL)"
+echo -e " \033[0;35m[\033[0;36m3\033[0;35m] \033[0;34m${flech}\033[0;33m  MENU Reforma @drowkid01        \033[0;32m(#OFICIAL)"
+echo -e " \033[0;35m[\033[0;36m4\033[0;35m] \033[0;34m${flech}\033[0;33m  Pannel WEB ( X-RAY ) Traduccion @drowkid01  \033[0;32m(#OFICIAL)"
 echo -e " \033[0;35m[\033[0;36m5\033[0;35m] \033[0;34m${flech}\033[0;33m  REMOVED V2RAY BASE "
 #echo -e " \033[0;35m[\033[0;36m6\033[0;35m] \033[0;34m${flech}\033[0;33m  FIX PARA INSTALLS FAILS DE V2RAY  "
 msg -bar3 
