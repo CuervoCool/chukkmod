@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-[[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg || source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/msg-bar/msg)
+[[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg)
 
 cd $HOME
 selection_fun () {
@@ -117,7 +117,7 @@ print_center(){
 
 ############
 
-SCPdir="/etc/adm-lite" 
+SCPdir="/etc/chukk-script" 
 #SCPfrm="${SCPdir}" && [[ ! -d ${SCPfrm} ]] && exit 
 #SCPinst="${SCPdir}"&& [[ ! -d ${SCPinst} ]] && exit 
 declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;31m" [3]="\033[1;33m" [4]="\033[1;32m" [5]="\e[1;36m" )
@@ -215,7 +215,7 @@ unset x
 [[ -d /data ]] && rm -rf /data
 echo -e " CREAREMOS EL CERTIFICADO BETA EN /data" 
 read -p " PRESIONA ENTER PARA CONTINUAR O Cntrol + X para salir" 
-source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/certificadossl.sh)
+source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/certificadossl.sh)
 }
 msg -bar
 ip4=`curl -s -4 ipip.ooo`
@@ -295,7 +295,7 @@ joker log `joker last`
 if [ -n "$ip4" ]; then
 echo;
 echo -e "$PC"">>> brook link -s ws://$ip4:$puerto -p '$password'""$NC"
-brook link --server ws://$sni:${puerto} -p "$password" -u "@ChumoGH" --address "$domain" --name "@ChumoGH" --insecure 
+brook link --server ws://$sni:${puerto} -p "$password" -u "@drowkid01" --address "$domain" --name "@drowkid01" --insecure 
 fi
 if [ -n "$ip6" ]; then
 echo;
@@ -328,7 +328,7 @@ echo;
 echo -e "$PC"">>> brook link -s wss://$domain:${puerto} -p '$password'""$NC"
 msg -bar 
 echo
-brook link --server wss://$sni:${puerto} -p "$password" -u "@ChumoGH" --address "$domain" --name "@ChumoGH" --insecure
+brook link --server wss://$sni:${puerto} -p "$password" -u "@drowkid01" --address "$domain" --name "@drowkid01" --insecure
 echo
 msg -bar
 

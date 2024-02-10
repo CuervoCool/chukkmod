@@ -1,5 +1,5 @@
 #!/bin/bash
-[[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg || source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/msg-bar/msg)
+[[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg)
 
 selection_fun () {
 local selection="null"
@@ -92,12 +92,12 @@ read -p " "
 return 0
 }
 shadowe_fun () {
-#source /etc/adm-lite/cabelcaho
+#source /etc/chukk-script/cabelcaho
 while true; do
 clear&&clear
 _tm=$(timedatectl | grep "Time zone")
 unset selection
-echo -e " \033[1;36m ZONA HORARIO \033[1;32m[ChumoGH-ADM]"
+echo -e " \033[1;36m ZONA HORARIO \033[1;32m[ChuKK-SCRIPT]"
 msg -bar
 echo -e "${_tm}"
 msg -bar

@@ -1,6 +1,6 @@
 function fixsources19(){
 echo -e "Reinstalando fuentes (sources)"
-curl -o /etc/apt/sources.list https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/menu/Ubuntu19.10.list && apt-get update && apt-get upgrade -y
+curl -o /etc/apt/sources.list https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu/Ubuntu19.10.list && apt-get update && apt-get upgrade -y
 echo -e "Reinstalacion completada"
 echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
 read -p " "
@@ -8,7 +8,7 @@ menu
 }
 function fixsources18(){
 echo -e "Reinstalando fuentes (sources)"
-curl -o /etc/apt/sources.list https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/menu/Ubuntu18.04.list && apt-get update && apt-get upgrade -y
+curl -o /etc/apt/sources.list https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu/Ubuntu18.04.list && apt-get update && apt-get upgrade -y
 echo -e "Reinstalacion completada"
 echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
 read -p " "
@@ -16,7 +16,7 @@ menu
 }
 function fixsources16(){
 echo -e "Reinstalando fuentes (sources)"
-curl -o /etc/apt/sources.list https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/menu/Ubuntu16.04.list && apt-get update && apt-get upgrade -y
+curl -o /etc/apt/sources.list https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu/Ubuntu16.04.list && apt-get update && apt-get upgrade -y
 echo -e "Reinstalacion completada"
 echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
 read -p " "
@@ -27,9 +27,9 @@ clear
 if [[ $1 == "" ]]
 then
 figlet -p -f slant < /root/name | lolcat
-echo -e "\033[1;37m      【     ★ ChumoGH Packet 2020 ★     】\033[0m"
+echo -e "\033[1;37m      【     ★ ChuKK-SCRIPT Packet 2020 ★     】\033[0m"
 echo -e "[\033[1;31m-\033[1;33m]\033[1;30m ───────────────── /// ─────────────────\033[1;33m"
-echo -e "\033[1;37m       ChumoGH-ADM @ FIX SOURCES \033[0m"
+echo -e "\033[1;37m       ChuKK-SCRIPT @ FIX SOURCES \033[0m"
 echo -e "[\033[1;31m-\033[1;33m]\033[1;31m ───────────────── /// ─────────────────\033[1;33m"
 echo -e "\033[1;37mSeleccione una opcion:    Para Salir Ctrl + C\033[1;33m
 [\033[1;32m1\033[1;33m]   › FIX SOURCES UBUNTU 16.04 \033[1;33m

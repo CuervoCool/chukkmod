@@ -1,6 +1,6 @@
 #!/bin/bash
 #19/12/2019
-source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/msg-bar/msg2)
+source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg2)
 clear
 msg -bar 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
@@ -347,7 +347,7 @@ Update_Shell(){
 start_menu(){
 clear
 msg -bar
-echo -e " TCP Aceleración (BBR/Plus) ADM-ChumoGH By @ChumoGH ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
+echo -e " TCP Aceleración (BBR/Plus) ADM-ChuKK-SCRIPT By @drowkid01 ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
 $(msg -bar)
  ${Green_font_prefix}0.${Font_color_suffix} Script de actualización
 ————————————Gestión del Núcleo————————————

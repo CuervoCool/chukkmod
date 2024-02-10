@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source <(curl -sL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/msg-bar/msg)
+source <(curl -sL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg)
 
 newDNS(){
 	del 3

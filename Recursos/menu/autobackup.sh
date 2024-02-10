@@ -7,7 +7,7 @@ _SFTP="$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep 
 [[ ! -e ${_Key} ]] && exit 
 
 dir_user="/userDIR"
-dir="/etc/adm-lite"
+dir="/etc/chukk-script"
 name=$(cat < /bin/ejecutar/autt)
 bc="$HOME/$name"
 arquivo_move="$name"

@@ -1,6 +1,6 @@
 #!/bin/sh
 #Autor: Henry Chumo 
-#Alias : ChumoGH
+#Alias : ChuKK-SCRIPT
 clear
 config="/usr/local/etc/trojan/config.json"
 temp="/etc/trojan/temp.json"
@@ -14,7 +14,7 @@ if [[ $(cat $trojdir/conf | grep "autBackup") = "" ]]; then
 fi
 unset barra
 barra="\033[0;34m•••••••••••••••••••••••••••••••••••••••••••••••••\033[0m"
-[[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg || source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/msg-bar/msg)
+[[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg)
 numero='^[0-9]+$'
 hora=$(printf '%(%H:%M:%S)T') 
 fecha=$(printf '%(%D)T')
@@ -22,7 +22,7 @@ fecha=$(printf '%(%D)T')
 
 trojan() 
 {
-wget -q https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/trojango.sh; chmod +x trojango.sh; ./trojango.sh
+wget -q https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/trojango.sh; chmod +x trojango.sh; ./trojango.sh
 rm -f trojango.sh
 }
 
@@ -107,7 +107,7 @@ read inst
 
  
 enon(){
-echo "source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/menu/mod-v2ray.sh)" > /bin/troj.sh
+echo "source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu/mod-v2ray.sh)" > /bin/troj.sh
 chmod +x /bin/troj.sh
 		clear
 		echo -e $barra
@@ -210,12 +210,12 @@ continuar(){
 }
 
 title2(){
-trojanports=`lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | grep trojan | awk '{print substr($9,3); }' > /tmp/trojan.txt && echo | cat /tmp/trojan.txt | tr '\n' ' ' > /etc/adm-lite/trojanports.txt && cat /etc/adm-lite/trojanports.txt` > /dev/null 2>&1 
-	v1=$(cat /etc/adm-lite/v-local.log)
+trojanports=`lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | grep trojan | awk '{print substr($9,3); }' > /tmp/trojan.txt && echo | cat /tmp/trojan.txt | tr '\n' ' ' > /etc/chukk-script/trojanports.txt && cat /etc/chukk-script/trojanports.txt` > /dev/null 2>&1 
+	v1=$(cat /etc/chukk-script/v-local.log)
 	v2=$(cat /bin/ejecutar/v-new.log)
-	echo -e "\033[7;49;35m  =====>>►► 🐲 Menu TROJAN ChumoGH💥VPS 🐲 ◄◄<<=====    \033[0m"
+	echo -e "\033[7;49;35m  =====>>►► 🐲 Menu TROJAN ChuKK-SCRIPT💥VPS 🐲 ◄◄<<=====    \033[0m"
 	echo -e $barra
-	[[ $v1 = $v2 ]] && echo -e "        \e[97m\033[1;41mProyecto Trojan by @ChumoGH  [$v1]  \033[0m" || echo -e "   \e[97m\033[1;41mProyecto Trojan by @ChumoGH [$v1] >> \033[1;92m[$v2]  \033[0m"
+	[[ $v1 = $v2 ]] && echo -e "        \e[97m\033[1;41mProyecto Trojan by @drowkid01  [$v1]  \033[0m" || echo -e "   \e[97m\033[1;41mProyecto Trojan by @drowkid01 [$v1] >> \033[1;92m[$v2]  \033[0m"
 	[[ $trojanports > 0 ]] && echo -e "          \e[97m\033[1;41mPuerta Activa en menu : \033[0m \033[3;32m $trojanports\033[3;32m" ||  echo -e "        \e[97m\033[1;41mERROR A INICIAR TROJAN : \033[0m \033[3;32m FAIL\033[3;32m"
 }
 
@@ -377,7 +377,7 @@ read foo
 }
 
 autoDel(){
-source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/trojango-sh/trojan-sh/autodel-trojan.sh)
+source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/trojango-sh/trojan-sh/autodel-trojan.sh)
 	}
 
 dell_user(){
@@ -578,8 +578,8 @@ continuar
 }
 
 view_user(){
-trojanport=`lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | grep trojan | awk '{print substr($9,3); }' > /tmp/trojan.txt && echo | cat /tmp/trojan.txt | tr '\n' ' ' > /etc/adm-lite/trojanports.txt && cat /etc/adm-lite/trojanports.txt`;
-trojanport=$(cat /etc/adm-lite/trojanports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
+trojanport=`lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | grep trojan | awk '{print substr($9,3); }' > /tmp/trojan.txt && echo | cat /tmp/trojan.txt | tr '\n' ' ' > /etc/chukk-script/trojanports.txt && cat /etc/chukk-script/trojanports.txt`;
+trojanport=$(cat /etc/chukk-script/trojanports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
 	unset seg
 	seg=$(date +%s)
 	while :

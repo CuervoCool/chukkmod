@@ -1,6 +1,6 @@
 #!/bin/bash
 #Autor: Henry Chumo 
-#Alias : ChumoGH
+#Alias : ChuKK-SCRIPT
 # -*- ENCODING: UTF-8 -*-
 
 # verificacion primarias
@@ -25,7 +25,7 @@ fun_limpram() {
 	killall ksoftirqd >/dev/null 2>&1 &
 	#apt purge rsyslog -y > /dev/null 2>&1
 	rm -f /var/log/*.log.* 
-	[[ -e /var/log/auth.log ]] && echo "@ChumoGH "> /var/log/auth.log
+	[[ -e /var/log/auth.log ]] && echo "@drowkid01 "> /var/log/auth.log
 	rm -f /var/log/*.1
 	systemctl restart rsyslog.service
 	systemctl restart systemd-journald.service
@@ -74,7 +74,7 @@ function checkON () {
 #[[ ! -e /etc/fixrsyslog ]] && aguarde
 #find . -type f -size +10M -exec rm {} \;
 echo -ne " COMPILANDO BINARIO DE AUTOPTIMIZACIONES "
-if wget https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/menu/killram.sh &>/dev/null -O /bin/automatizar.sh &>/dev/null ; then
+if wget https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu/killram.sh &>/dev/null -O /bin/automatizar.sh &>/dev/null ; then
 echo -e "\033[1;32m DONE \n" && msg -bar3 
 chmod +x /bin/automatizar.sh &>/dev/null 
 else
@@ -84,7 +84,7 @@ sleep 2s
 return
 fi
 echo -ne " COMPILANDO BINARIO DE AUTOPLIMPIEZAS "
-if wget https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/menu/killram.sh &>/dev/null -O /bin/gnula.sh &>/dev/null ; then
+if wget https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu/killram.sh &>/dev/null -O /bin/gnula.sh &>/dev/null ; then
 echo -e " \033[1;32m DONE \n" && msg -bar3 
 chmod +x /bin/gnula.sh &>/dev/null 
 else
