@@ -373,7 +373,7 @@ chmod 777 ./*
 echo -e "${cor[3]} ¿DESEAS CONTINUAR CON UPDATE DEL SCRIPT ? "
 read -p " [S/N]: " -e -i s sshsn
 [[ "$sshsn" = @(s|S|y|Y) ]] && {
-source <(curl -sSL https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Recursos/cabecalho/updateadm) "alx"
+source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/cabecalho/updateadm) "alx"
 exit&&exit
 }
 #read -p " PRESIONA ENTER PARA CONTINUAR !!"
