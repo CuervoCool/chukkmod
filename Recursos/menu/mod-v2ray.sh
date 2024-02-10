@@ -258,7 +258,7 @@ autoDel
 		unset seg_exp
 		unset exp
 
-		[[ $i = "chumoghscript" ]] && {
+		[[ $i = "chukkscript" ]] && {
 			n=0
 			i="ADM-SCRIPT"
 			a='◈'
@@ -398,7 +398,7 @@ dell_user(){
 		unset seg_exp
 		unset exp
 
-		[[ $i = "chumoghscript" ]] && {
+		[[ $i = "chukkscript" ]] && {
 			i="ADM-SCRIPT"
 			a='◈'
 			DateExp="【 I N D E F I N I D O 】"
@@ -601,7 +601,7 @@ trojanport=$(cat /etc/chukk-script/trojanports.txt  | sed 's/\s\+/,/g' | cut -d 
 			i="$(cat < ${user_conf}adm)"
 			DateExp="【 I N D E F I N I D O 】"
 			} || {
-		[[ $i = "chumoghscript" ]] && {
+		[[ $i = "chukkscript" ]] && {
 			i="ADM-SCRIPT"
 			DateExp="【 I N D E F I N I D O 】"
 		} || {
