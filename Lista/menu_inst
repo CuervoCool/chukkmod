@@ -12,11 +12,6 @@ _SFTP="$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep 
 portFTP=$(echo -e "$_SFTP" |cut -d: -f2 | cut -d' ' -f1 | uniq)
 portFTP=$(echo ${portFTP} | sed 's/\s\+/,/g' | cut -d , -f1)
 
-function chekKEY {
-Key="$(cat /etc/cghkey)"
-[[ -z $Key ]] && exit&&exit
-}
-
 number_var () {
 unset var_number
 if (echo "$1" | egrep '[^0-9]' &> /dev/null); then
@@ -42,6 +37,7 @@ done
 echo -e " \033[1;33m[\033[1;31m########################################\033[1;33m] - \033[1;32m100%\033[0m" 
 sleep 1s 
 } 
+
 sslkk (){
 sslports=`netstat -tunlp | grep stunnel | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /ADMcgh/sslports.txt && cat /ADMcgh/sslports.txt`;
 pt=$(netstat -nplt |grep 'sshd' | awk -F ":" NR==1{'print $2'} | cut -d " " -f 1)
@@ -3005,7 +3001,7 @@ fun_chisel() {
 			sleep 1
 			fi
     }
-while true; do	
+while true; do
 #FUNCOES
 cor[0]="\033[0m"
 cor[1]="\033[1;34m"

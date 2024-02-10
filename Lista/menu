@@ -3,7 +3,7 @@
 # NUNCA  DEJES DE APRENDER
 # POWER BY @CHUMOGH
 
-function chekKEY {
+function chekKeY {
 [[ -z ${IP} ]] && IP=$(cat < /bin/ejecutar/IPcgh)
 [[ -z ${IP} ]] && IP=$(wget -qO- ifconfig.me)
 kernelV=$(cat /linux-kernel)
