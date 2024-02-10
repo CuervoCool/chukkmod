@@ -1,5 +1,4 @@
 #!/bin/bash
-#Autor: Henry Chumo 
 #Alias : ChuKK-SCRIPT
 # -*- ENCODING: UTF-8 -*-
 

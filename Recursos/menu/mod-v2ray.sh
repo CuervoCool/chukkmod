@@ -1,5 +1,4 @@
 #!/bin/sh
-#Autor: Henry Chumo 
 #Alias : ChuKK-SCRIPT
 clear
 config="/usr/local/etc/trojan/config.json"
