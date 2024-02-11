@@ -3,18 +3,6 @@
 [[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg)
 
 cd $HOME
-selection_fun () {
-local selection="null"
-local range
-for((i=0; i<=$1; i++)); do range[$i]="$i "; done
-while [[ ! $(echo ${range[*]}|grep -w "$selection") ]]; do
-echo -ne "\033[1;37m Opcion: " >&2
-read selection
-tput cuu1 >&2 && tput dl1 >&2
-done
-echo $selection
-}
-
 fun_barin () {
 #==comando a ejecutar==
 comando="$1"
@@ -343,7 +331,7 @@ read -p "  COPIA TU CONFIG WSS"
 
 
 
-check_keyoficial () {   
+chEck_keyoficial () {   
 IP=$(wget -qO- ifconfig.me)   
 IP2="$IP"   
 permited=$(curl -sSL "https://www.dropbox.com/s/a7551062y9ge8bd/RegKeyID")   
@@ -510,10 +498,10 @@ echo -ne "\033[1;31m ╰══════╣ OPCION :" && read -p "" opt
 
 
 
-msg -bar
+#msg -bar
 _ports 
-msg -bar
+#msg -bar
 fun_ports
-read -p "D"
+#read -p "D"
  #echo "MPORTAS1 ORIGINAL"
  #mportas1

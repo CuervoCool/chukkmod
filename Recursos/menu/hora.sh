@@ -1,18 +1,6 @@
 #!/bin/bash
 [[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg)
 
-selection_fun () {
-local selection="null"
-local range
-for((i=0; i<=$1; i++)); do range[$i]="$i "; done
-while [[ ! $(echo ${range[*]}|grep -w "$selection") ]]; do
-echo -ne "\033[1;31m NUMERO DE OPCION : " >&2
-read selection
-tput cuu1 >&2 && tput dl1 >&2
-done
-echo $selection
-}
-
 act_hora () {
 echo "America/Chihuahua"
 echo "America/Chihuahua" > /etc/timezone
