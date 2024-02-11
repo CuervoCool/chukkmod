@@ -302,9 +302,8 @@ while true; do
 [[ -e ${ADM_slow}/protc ]] && PRT=$(cat ${ADM_slow}/protc | tr [:lower:] [:upper:]) || PRT='NULL' 
 [[ -e ${ADM_slow}/puerto ]] && PT=$(cat ${ADM_slow}/puerto) || PT='NULL' 
 [[ $(ps x | grep dns-server | grep -v grep) ]] && MT=$(msg -verd "ACTIVO!!!" ) || MT=$(msg -verm "INACTIVO!!!")
-  msg -bar
   tittle
-  msg -ama "         INSTALADOR SLOWDNS | @ChumoGH${p1t0}Plus"
+  msg -ama "         INSTALADOR SLOWDNS |"
   msg -bar #
   echo -e " SlowDNS +" "${PRT} ""->" "${PT}"  "| ESTADO -> ${MT}"
   msg -bar
