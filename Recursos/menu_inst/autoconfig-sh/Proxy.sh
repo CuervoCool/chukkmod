@@ -83,7 +83,7 @@ echo -e "$BARRA"
                     echo -e "      -s|--start\n finaliza el ingresos de datos y continua con\n la ejecucion del script\n ej: Proxy.sh -i rufu99 --start\n"
                     echo '                        ejemplo practico'
                     echo '=========================================================================='
-                    echo '/bin/ejecutar/PDirect.py -p 8080 -pl 443 -i ChumoGH -tc "<font color="red">VPS</font>" --start'
+                    echo '/bin/ejecutar/PDirect.py -p 8080 -pl 443 -i drowkid01 -tc "<font color="red">VPS</font>" --start'
                     echo '=========================================================================='
                     shift
                     exit
@@ -99,7 +99,7 @@ echo -e "$BARRA"
 
 clear
 cowsay -f tux "Con esta herramienta podra cambia el texto y el color al status de conexion tambien podra agregar una contraseña a tu payload para mayor seguridad...." | lolcat 
-figlet __ADMcgh__ | lolcat
+tittle
 
 [[ -z $port ]] && {
 echo -e "$BARRA"

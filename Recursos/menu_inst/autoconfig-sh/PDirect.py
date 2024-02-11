@@ -15,7 +15,7 @@ BUFLEN = 4096 * 4
 TIMEOUT = 60
 DEFAULT_HOST = '127.0.0.1:22'
 #MSG = '<span style=color: #ff0000;><strong><span style=color: #ff9900;>By</span>-<span style=color: #008000;>@ChumoGH</span>-ADM</strong></span>'
-MSG = '<span style=color: #ff0000;><strong><span style="color: #ff0000;">C</span><span style="color: #ff9900;">h</span><span style="color: #008000;">u</span><span style="color: #0000ff;">m</span><span style="color: #ff0000;">o</span><span style="color: #ff9900;">G</span><span style="color: #008000;">H</span><span style="color: #0000ff;">°</span><span style="color: #ff0000;">P</span><span style="color: #ff9900;">l</span><span style="color: #008000;">u</span><span style="color: #0000ff;">s</span></strong></span>'
+MSG = '<span style=color: #ff0000;><strong><span style="color: #ff0000;">✧</span><span style="color: #ff9900;"> |</span><span style="color: #008000;">ᴅ</span><span style="color: #0000ff;">ʀ</span><span style="color: #ff0000;">ᴏ</span><span style="color: #ff9900;">ᴡ</span><span style="color: #008000;">ᴋ</span><span style="color: #0000ff;">ɪ</span><span style="color: #ff0000;">ᴅ</span><span style="color: #ff9900;">| </span><span style="color: #008000;">✧</span><span style="color: #0000ff;"></span></strong></span>'
 
 STATUS_RESP = '101'
 FTAG = '\r\nContent-length: 0\r\n\r\nHTTP/1.1  Connection established\r\n\r\n'
@@ -265,7 +265,7 @@ def main(host=LISTENING_ADDR, port=LISTENING_PORT):
     print "\033[0;34m━"*8,"\033[1;32m PROXY PYTHON WEBSOCKET","\033[0;34m━"*8,"\n"
     print "\033[1;33mIP:\033[1;32m " + LISTENING_ADDR
     print "\033[1;33mPORTA:\033[1;32m " + str(LISTENING_PORT) + "\n"
-    print "\033[0;34m━"*10,"\033[1;32m ChumoGH ADM - LITE","\033[0;34m━\033[1;37m"*11,"\n"
+    print "\033[0;34m━"*10,"\033[1;32m ChuKK-SCRIPT - LITE","\033[0;34m━\033[1;37m"*11,"\n"
     
     server = Server(LISTENING_ADDR, LISTENING_PORT)
     server.start()
