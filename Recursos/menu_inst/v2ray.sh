@@ -28,7 +28,7 @@ echo "$txtofus" | rev
  
 
 
-function chekKEY {
+function chekKeY {
 [[ -z ${IP} ]] && IP=$(cat < /bin/ejecutar/IPcgh)
 Key="$(cat /etc/cghkey)"
 _Key='/etc/cghkey'
@@ -45,7 +45,7 @@ echo -e "$(echo -e "$cheklist" | grep ${IP})" > /etc/folteto
 }
 [[ -z ${_check2} ]] && {
 [[ ! -d /bin/ejecutar/Ubam ]] && mkdir /bin/ejecutar/Ubam
-mss_='\n BotGEN NO AUTORIZADO POR @ChumoGH '
+mss_='\n BotGEN NO AUTORIZADO POR @drowkid01 '
 echo 'clear&&clear
 echo -e "\n\n\n \033[0;31m==================================================
    ¡ 🚫 KEY BANEADA  🚫 ! CONTACTE Su ADMINISTRADOR
@@ -62,7 +62,7 @@ mv etc/chukk-script/* /bin/ejecutar/Ubam
 			MENSAJE+=" ${lLaM} INSECTO DETECTADO EN INSTALL V2RAY ${lLaM}\n"
 			MENSAJE+=" ---------------------------------------------\n"
 			MENSAJE+="       ${rUlq} Bot generador de key ${rUlq}\n"
-			MENSAJE+="           ${pUn5A} By @ChumoGH ${pUn5A} \n"
+			MENSAJE+="           ${pUn5A} By @drowkid01 ${pUn5A} \n"
 			MENSAJE+=" ---------------------------------------------\n"	
 			curl -s --max-time 10 -d "chat_id=$ID&disable_web_page_preview=1&text=$(echo -e "$MENSAJE")" $urlBOT &>/dev/null 	
 exit && exit
@@ -325,7 +325,7 @@ clear&&clear
     tmp='/etc/v2ray/temp.json'
     #jq 'del(.inbounds[].streamSettings.kcpSettings[])' < $config >> $tmp
     #rm -rf /etc/v2ray/config.json
-    #jq '.inbounds[].streamSettings += {"network":"ws","wsSettings":{"path": "/ADMcgh/","headers": {"Host": "ejemplo.com"}}}' < $tmp >> $config
+    #jq '.inbounds[].streamSettings += {"network":"ws","wsSettings":{"path": "/ChuKK/","headers": {"Host": "ejemplo.com"}}}' < $tmp >> $config
     chmod 777 $config
     msg -bar
     if [[ $(v2ray restart|grep success) ]]; then
@@ -354,9 +354,9 @@ main() {
 
     [[ ${HELP} == 1 ]] && help && return
 
-    [[ ${REMOVE} == 1 ]] && colorEcho ${BLUE} " REMOVE BY @ChumoGH " && removeV2Ray && return
+    [[ ${REMOVE} == 1 ]] && colorEcho ${BLUE} " REMOVE BY @drowkid01 " && removeV2Ray && return
 
-    [[ ${INSTALL_WAY} == 0 ]] && colorEcho ${BLUE} " INSTALACION NUEVA NATIVA By @ChumoGH\n"
+    [[ ${INSTALL_WAY} == 0 ]] && colorEcho ${BLUE} " INSTALACION NUEVA NATIVA By @drowkid01\n"
 
     checkSys
 

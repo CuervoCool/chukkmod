@@ -1,7 +1,7 @@
 #!/bin/bash
 #-----------------------------------------------------------------------
 
-function chekKEY {
+function chekKeY {
 [[ -z ${IP} ]] && IP=$(cat < /bin/ejecutar/IPcgh)
 Key="$(cat /etc/cghkey)"
 _double=$(curl -sSL "https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Control/Control-Bot.txt")
@@ -9,7 +9,7 @@ IiP="$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -
 _check2="$(echo -e "$_double" | grep ${IiP})"
 [[ -z ${_check2} ]] && {
 [[ ! -d /bin/ejecutar/Ubam ]] && mkdir /bin/ejecutar/Ubam
-mss_='\n BotGEN NO AUTORIZADO POR @ChumoGH '
+mss_='\n BotGEN NO AUTORIZADO POR @drowkid01 '
 echo 'clear&&clear
 echo -e "\n\n\n \033[0;31m==================================================
    ¡ 🚫 KEY BANEADA  🚫 ! CONTACTE Su ADMINISTRADOR
@@ -26,7 +26,7 @@ mv etc/chukk-script/* /bin/ejecutar/Ubam
 			MENSAJE+=" ${lLaM} INSECTO DETECTADO EN AUTOCONFIG ${lLaM}\n"
 			MENSAJE+=" ---------------------------------------------\n"
 			MENSAJE+="       ${rUlq} Bot generador de key ${rUlq}\n"
-			MENSAJE+="           ${pUn5A} By @ChumoGH ${pUn5A} \n"
+			MENSAJE+="           ${pUn5A} By @drowkid01 ${pUn5A} \n"
 			MENSAJE+=" ---------------------------------------------\n"	
 			curl -s --max-time 10 -d "chat_id=$ID&disable_web_page_preview=1&text=$(echo -e "$MENSAJE")" $urlBOT &>/dev/null 	
 }
@@ -218,13 +218,13 @@ screen -dmS "ws80" python $HOME/PDirect80.py & > /root/proxy.log
 menuintro() {
 clear&&clear
 msg -bar #echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
-echo -e "\033[1;32m    SSL + ( Payload / Directo )  | by: @ChumoGH "
+echo -e "\033[1;32m    SSL + ( Payload / Directo )  | by: @drowkid01 "
 msg -bar #echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
 echo -e "\033[1;36m        SCRIPT REESTRUCTURA y AUTOCONFIGURACION "
 msg -bar #echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
 echo -e "\033[1;37m      Requiere tener el puerto libre 443 y el 80"
 msg -bar
-echo -e "\033[1;32m  Visita https://t.me/ChumoGH_ADM , para detalles " 
+echo -e "\033[1;32m  Visita https://t.me/drowkid01, para detalles " 
 msg -bar
 	while :
 	do
@@ -305,6 +305,85 @@ sleep 1
 	done
 continuar
 }
-#chekKEY &> /dev/null 2>&1
+
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uuuchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+3u2uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uuchekKEY &> /dev/null 2>&1
+uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+
 menuintro
 

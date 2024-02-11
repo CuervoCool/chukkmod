@@ -2,18 +2,6 @@
 clear  
 [[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg > /dev/null || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg) > /dev/null
 
-selection_fun () {
-local selection="null"
-local range
-for((i=0; i<=$1; i++)); do range[$i]="$i "; done
-while [[ ! $(echo ${range[*]}|grep -w "$selection") ]]; do
-echo -ne "\033[1;37m ► Opcion: " >&2
-read selection
-tput cuu1 >&2 && tput dl1 >&2
-done
-echo $selection
-}
-
 os_system(){ 
  system=$(cat -n /etc/issue |grep 1 |cut -d ' ' -f6,7,8 |sed 's/1//' |sed 's/      //') 
  distro=$(echo "$system"|awk '{print $1}') 
@@ -36,7 +24,7 @@ chekKEY &> /dev/null 2>&1
 make_service
 }
 
-function chekKEY {
+function chekKeY {
 [[ -z ${IP} ]] && IP=$(cat < /bin/ejecutar/IPcgh)
 Key="$(cat /etc/cghkey)"
 _Key='/etc/cghkey'
@@ -47,7 +35,7 @@ _double=$(curl -sSL "https://raw.githubusercontent.com/CuervoCool/chukkmod/main/
 IiP="$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
 _check2="$(echo -e "$_double" | grep ${IiP} | awk '{print $1}')"
 [[ -z ${_check2} ]] && {
-mss_='\n BotGEN NO AUTORIZADO POR @ChumoGH '
+mss_='\n BotGEN NO AUTORIZADO POR @drowkid01 '
 rm -f /etc/folteto
 rm -rf /etc/chukk-script/*
 }
@@ -87,7 +75,7 @@ rm -f /etc/folteto
 			MENSAJE+=" ${lLaM} INSECTO DETECTADO EN UDPServer ${lLaM}\n"
 			MENSAJE+=" ---------------------------------------------\n"
 			MENSAJE+="       ${rUlq} Bot generador de key ${rUlq}\n"
-			MENSAJE+="           ${pUn5A} By @ChumoGH ${pUn5A} \n"
+			MENSAJE+="           ${pUn5A} By @drowkid01 ${pUn5A} \n"
 			MENSAJE+=" ---------------------------------------------\n"	
 			curl -s --max-time 10 -d "chat_id=$ID&disable_web_page_preview=1&text=$(echo -e "$MENSAJE")" $urlBOT &>/dev/null 	
 exit && exit
@@ -109,7 +97,7 @@ MENSAJE="${TTini}${m3ssg}MSG RECIVIDO${m3ssg}${TTfin}\n"
 			MENSAJE+="$(msg -br)\n"
 			MENSAJE+=" HORA : $(printf '%(%D-%H:%M:%S)T')\n"
 			MENSAJE+="       ${rUlq} Bot generador de key ${rUlq}\n"
-			MENSAJE+="           ${pUn5A} By @ChumoGH ${pUn5A} \n"
+			MENSAJE+="           ${pUn5A} By @drowkid01 ${pUn5A} \n"
 			MENSAJE+="$(msg -br)\n"	
 curl -s --max-time 10 -d "chat_id=$ID&disable_web_page_preview=1&text=$(echo -e "$MENSAJE")" $urlBOT &>/dev/null 	
 }
@@ -171,7 +159,7 @@ make_service(){
   info() {
   msg -bar
   echo
-  msg -ama "         INSTALADOR UDPserver | @ChumoGH•Plus"
+  msg -ama "         INSTALADOR UDPserver | @drowkid01•Plus"
   echo 
   msg -bar
   msg -ama "         SOURCE OFICIAL DE NewToolWorks"
@@ -180,7 +168,7 @@ make_service(){
   msg -ama "         URL DE APP OFICIAL "
   echo -e "https://play.google.com/store/apps/details?id=com.newtoolsworks.sockstunnel"
   msg -bar
-  msg -ama "         CODIGO REFACTORIZADO POR @ChumoGH"
+  msg -ama "         CODIGO REFACTORIZADO POR @drowkid01"
   msg -bar
   read -p " PRESIONA ENTER PARA CONTINUAR"
   clear
@@ -203,20 +191,20 @@ msg -ama "        SE RECOMIENDA USAR UBUNTU 20.04 "
 echo ""
 msg -ama "                  O SUPERIOR"
 echo ""
-echo -e "         [ ! ]  Power by @ChumoGH  [ ! ]"
+echo -e "         [ ! ]  Power by @drowkid01  [ ! ]"
 echo ""
 msg -bar
 read -p " PRESIONA ENTER PARA CONTINUAR"
 return
 }
-  msg -bar
-  msg -ama "         INSTALADOR UDPserver | @ChumoGH•Plus"
+  tittle
+  msg -ama "         INSTALADOR UDPserver "
   msg -bar
 [[ $(uname -m 2> /dev/null) != x86_64 ]] && {
 
 msg -ama "    BINARIO NO COMPATIBLE CON PLATAFORMAS ARM "
 echo ""
-echo -e "		[ ! ]  Power by @ChumoGH  [ ! ]"
+echo -e "		[ ! ]  Power by @drowkid01  [ ! ]"
 echo ""
 msg -bar
 read -p " PRESIONA ENTER PARA CONTINUAR"

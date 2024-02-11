@@ -15,18 +15,6 @@
 		done
 	}
 
-selection_fun () {
-local selection="null"
-local range
-for((i=0; i<=$1; i++)); do range[$i]="$i "; done
-while [[ ! $(echo ${range[*]}|grep -w "$selection") ]]; do
-echo -ne "\033[1;31m OPCION : " >&2
-read selection
-tput cuu1 >&2 && tput dl1 >&2
-done
-echo $selection
-}
-
 fun_openssh() {
 		clear
 		echo -e "\E[44;1;37m            OPENSSH             \E[0m\n"
@@ -186,7 +174,7 @@ sleep 0.5
 done 
 echo -ne "\033[1;33m]" 
 sleep 1s 
-echo tput cuu1 tput dl1 
+echo ;tput cuu1 ; tput dl1 
 done 
 echo -e " \033[1;33m[\033[1;31m########################################\033[1;33m] - \033[1;32m100%\033[0m" 
 sleep 1s 
@@ -234,9 +222,9 @@ fi
 clear&&clear
 [[ -e /etc/wireguard/params ]] && _wir="\e[32m[ ON ] " || _wir="\e[31m[ OFF ]" 
 [[ $(ps x | grep filebrowser | grep -v grep) ]] && file="\e[32m[ ON ] " || file="\e[31m[ OFF ]" 
-msg -bar2
-echo -e " \033[7;49;35m =>►► 🐲 FUNCIONES ALTERNS ChumoGH💥VPS 🐲 ◄◄<= \033[0m\033[1;31m"
-msg -bar2
+tittle
+echo -e " \033[7;49;35m =>►►  🦖 FUNCIONES ALTERNS 🦖  ◄◄<= \033[0m\033[1;31m"
+msg -bar
 echo -e " \033[0;35m[\033[0;36m1\033[0;35m] \033[0;34m➮\033[0;33m PUERTO APACHE CUSTOM ${_apa}      "
 echo -e " \033[0;35m[\033[0;36m2\033[0;35m] \033[0;34m➮\033[0;33m LIMPIAR RAM && PAQUETES ANTIGUOS  "
 echo -e " \033[0;35m[\033[0;36m3\033[0;35m] \033[0;34m➮\033[0;31m ADD / REMOVE PORTS CUSTOM BADVPN  "
@@ -245,9 +233,9 @@ echo -e " \033[0;35m[\033[0;36m5\033[0;35m] \033[0;34m➮\033[0;31m TROJAN GO - 
 echo -e " \033[0;35m[\033[0;36m6\033[0;35m] \033[0;34m➮\033[0;31m CREAR CERTIFICADO CON DOMINIO     "
 echo -e " \033[0;35m[\033[0;36m7\033[0;35m] \033[0;34m➮\033[0;31m Modulo WireGuard VPN Client ${_wir}    "
 echo -e " \033[0;35m[\033[0;36m8\033[0;35m] \033[0;34m➮\033[0;31m FIILEMANAGER WEB ${file}    "
-msg -bar2
+msg -bar
 echo -e " \033[0;35m[\033[0;36m0\033[0;35m] \033[0;34m➮\033[0;33m $(msg -bra "\033[1;41m[ REGRESAR ]\e[0m")  "
-msg -bar2
+msg -bar
   selection=$(selection_fun 8)
 case ${selection} in
 0)

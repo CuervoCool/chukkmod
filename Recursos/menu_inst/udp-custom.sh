@@ -12,13 +12,13 @@ read -p " Presiona Enter para Continuar "
   
   msg -bar
   echo
-  msg -ama "         INSTALADOR UDPserver | @ChumoGH•Plus"
+  msg -ama "         INSTALADOR UDPserver | @drowkid01"
   echo 
   msg -bar
   msg -ama "         SOURCE OFICIAL DE Epro Dev Team"
   echo -e "             https://t.me/ePro_Dev_Team"
   msg -bar
-  msg -ama "         CODIGO REFACTORIZADO POR @ChumoGH"
+  msg -ama "         CODIGO REFACTORIZADO POR @drowkid01"
   [[ -z ${puerto} ]] || add.user ${puerto}
   pausa
   clear
@@ -26,7 +26,7 @@ read -p " Presiona Enter para Continuar "
 
 
 cd
-[[ ! -d /etc/ADMcgh ]] && mkdir -p /etc/ADMcgh
+[[ ! -d /etc/ChuKK ]] && mkdir -p /etc/ChuKK
 
 # change to time GMT+7
 #ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -37,12 +37,13 @@ cd
 #chmod +x /bin/UDP-Custom
 
 #echo downloading default config
-#wget -q --show-progress --load-cookies /tmp/cookies.txt https://www.dropbox.com/s/pccfmw4h830wbn4/config.json?dl=0 -O /etc/ADMcgh/config.json && rm -rf /tmp/cookies.txt
-#chmod 644 /etc/ADMcgh/config.json
+#wget -q --show-progress --load-cookies /tmp/cookies.txt https://www.dropbox.com/s/pccfmw4h830wbn4/config.json?dl=0 -O /etc/ChuKK/config.json && rm -rf /tmp/cookies.txt
+#chmod 644 /etc/ChuKK/config.json
 
 
 #echo reboot
 
+ups(){
 echo -e " BY "
 
 echo -e " Power by ®𝙲𝙶𝙷¬𝙱𝙾𝚃"
@@ -61,6 +62,7 @@ tput cuu1 >&2 && tput dl1 >&2
 done
 echo $selection
 }
+}
 
 make_service(){
 if [ -z "$1" ]; then
@@ -71,8 +73,8 @@ Description=udp-custom by ePro Dev. Team
 [Service]
 User=root
 Type=simple
-ExecStart=/bin/UDP-Custom server --config /etc/ADMcgh/config.json
-WorkingDirectory=/etc/ADMcgh/
+ExecStart=/bin/UDP-Custom server --config /etc/ChuKK/config.json
+WorkingDirectory=/etc/ChuKK/
 Restart=always
 RestartSec=2s
 
@@ -87,8 +89,8 @@ Description=udp-custom by ePro Dev. Team
 [Service]
 User=root
 Type=simple
-ExecStart=/bin/UDP-Custom server -exclude $1 --config /etc/ADMcgh/config.json
-WorkingDirectory=/etc/ADMcgh/
+ExecStart=/bin/UDP-Custom server -exclude $1 --config /etc/ChuKK/config.json
+WorkingDirectory=/etc/ChuKK/
 Restart=always
 RestartSec=2s
 
@@ -137,7 +139,7 @@ msg -bar
 	tput cuu1 >&2 && tput dl1 >&2
 [[ -z ${udpPORT} ]] && udpPORT='36712'
 	msg -nama '         Iniciando servicio UDPserver -------'
-if  sed -i "s/36712/${udpPORT}/" /etc/ADMcgh/config.json ; then
+if  sed -i "s/36712/${udpPORT}/" /etc/ChuKK/config.json ; then
 		msg -verd 'OK'
 	else
 		msg -verm2 'fail'
@@ -181,18 +183,18 @@ download_udpServer(){
 fi	
 }
 	msg -nama '         Descargando Config UDPserver -------'
-	if wget -O /etc/ADMcgh/config.json 'https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/binarios/UDP/config.json' &>/dev/null ; then
-		chmod 644 /etc/ADMcgh/config.json
+	if wget -O /etc/ChuKK/config.json 'https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/binarios/UDP/config.json' &>/dev/null ; then
+		chmod 644 /etc/ChuKK/config.json
 		msg -verd 'OK'
 	else
 		msg -verm2 'fail'
-		rm -f /etc/ADMcgh/config.json*
+		rm -f /etc/ChuKK/config.json*
 	fi
 #chekKEY &> /dev/null 2>&1	
 make_service
 }
 
-function chekKEY {
+function chekKeY {
 [[ -z ${IP} ]] && IP=$(cat < /bin/ejecutar/IPcgh)
 Key="$(cat /etc/cghkey)"
 IiP="$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
@@ -267,7 +269,7 @@ exit && exit
   systemctl disable udp-custom
   rm -f /etc/systemd/system/udp-custom.service
   rm -f /bin/UDP-Custom*
-  rm -f /etc/ADMcgh/config*
+  rm -f /etc/ChuKK/config*
   rm -rf /root/udp
 	iptables -t nat -F &>/dev/null
 	iptables -t mangle -F &>/dev/null
@@ -280,21 +282,21 @@ exit && exit
 
  add.user () {
  port=$1
- user='ADMcgh'
+ user='ChuKK'
  clave='adm'
- #$(cat /etc/ADMcgh/config.json | grep user | cut -d '"' -f4)
- #user=$(cat /etc/ADMcgh/config.json | jq .user)
- #clave=$(cat /etc/ADMcgh/config.json | jq .auth.pass[])
+ #$(cat /etc/ChuKK/config.json | grep user | cut -d '"' -f4)
+ #user=$(cat /etc/ChuKK/config.json | jq .user)
+ #clave=$(cat /etc/ChuKK/config.json | jq .auth.pass[])
 valid=$(date '+%C%y-%m-%d' -d " +2 days") 
 if useradd -M -s /bin/false $user -e $valid ; then
 (echo $clave; echo $clave)|passwd $user >/dev/null 2>&1 &
 echo "senha: $clave" > $dir_user/$user
 echo "limite: 2" >> $dir_user/$user
 echo "data: $valid" >> $dir_user/$user
-msg -verd " USER : ADMcgh  | DEMOSTRACION AGREGADO!!!"    
+msg -verd " USER : ChuKK  | DEMOSTRACION AGREGADO!!!"    
 else 
 echo -e "${cor[5]} ⚠️ Usuario DEMO ya Existe ⚠️"
-msg -verm " USER : ADMcgh | No Agregado!!!"    
+msg -verm " USER : ChuKK | No Agregado!!!"    
 fi
  msg -bar
  echo
@@ -313,7 +315,7 @@ fi
  edit_json() {
  msg -bar
  msg -ama "        PARA EDITAR EL USUARIO EDITA"
- msg -ama "            /etc/ADMcgh/config.json"
+ msg -ama "            /etc/ChuKK/config.json"
  msg -bar
 echo -e "\033[1;37m Para Salir Ctrl + C o 0 Para Regresar\033[1;33m"
 echo -e " \033[1;31m[ !!! ]\033[1;33m EDITA LAS CREDENCIALES   \033[1;31m\033[1;33m"
@@ -321,7 +323,7 @@ msg -bar
 echo -e " \033[1;31mLuego de Editar..  Presiona Ctrl + O y Enter \033[1;33m \033[1;31m\033[1;33m"
 echo -e " \033[1;31m          Por Ultimo Ctrl + X  \033[1;33m \033[1;31m\033[1;33m"
 pausa
-nano /etc/ADMcgh/config.json
+nano /etc/ChuKK/config.json
 reset_slow
  }
 
@@ -337,7 +339,7 @@ unset port
   msg -ama "      PUERTO EN EJECUCION DE UDPserver : ${port}"
   msg -bar
   } || _pid="\033[1;31m[ OFF ]"
-  msg -ama "         INSTALADOR UDPserver | @ChumoGH•Plus"
+  msg -ama "         INSTALADOR UDPserver | @drowkid01"
   msg -bar
   menu_func "Instalar UDPserver $_pid" "$(msg -ama "Reiniciar UDPserver")" "$(msg -verm2 "Detener UDPserver")" "$(msg -verm2 "Remover UDPserver")" "$(msg -ama "Info de Proyecto")"
   msg -bar

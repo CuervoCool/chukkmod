@@ -19,7 +19,7 @@ clear
 [[ ! -e ${_Key} ]] && exit 
 
 clear
-function chekKEY {
+function chekKeY {
 [[ -z ${IP} ]] && IP=$(cat < /bin/ejecutar/IPcgh)
 [[ -z ${IP} ]] && IP=$(wget -qO- ifconfig.me)
 Key="$(cat /etc/cghkey)"
@@ -316,7 +316,6 @@ while true; do
 #echo -e "\033[1;32mÎ”  Visita https://t.me/ChumoGH_ADM , para detalles " 
 #msg -bar
 #read -p "ENTER PARA CONTINUAR"
-#chekKEY &> /dev/null 2>&1
 #exit
 #}
 msg -bar
@@ -335,6 +334,60 @@ msg -bar
   0)break;;
   esac  
 done
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uuchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uu2uchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
 
 ofus () {
 unset txtofus

@@ -2,18 +2,6 @@
 #
 [[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg)
 
-selection_fun () {
-local selection="null"
-local range
-for((i=0; i<=$1; i++)); do range[$i]="$i "; done
-while [[ ! $(echo ${range[*]}|grep -w "$selection") ]]; do
-echo -ne "\033[1;37m Opcion: " >&2
-read selection
-tput cuu1 >&2 && tput dl1 >&2
-done
-echo $selection
-}
-
 #!/bin/bash 
 #25/01/2021 by @Kalix1 
 clear 
@@ -51,7 +39,7 @@ sleep 0.5
 done 
 echo -ne "\033[1;33m]" 
 sleep 1s 
-echo tput cuu1 tput dl1 
+echo ;tput cuu1; tput dl1 
 done 
 echo -e " \033[1;33m[\033[1;31m########################################\033[1;33m] - \033[1;32m100%\033[0m" 
 sleep 1s 
@@ -111,7 +99,7 @@ apt-get install stunnel4 -y > /dev/null 2>&1
 echo -e "client = no\n[SSL]\ncert = /etc/stunnel/stunnel.pem\naccept = ${SSLPORT}\nconnect = 127.0.0.1:${DPORT}" > /etc/stunnel/stunnel.conf 
 ####Coreccion2.0#####  
 openssl genrsa -out stunnel.key 2048 > /dev/null 2>&1  
-(echo "$(curl -sSL ipinfo.io > info && cat info | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')" ; echo "" ; echo "$(wget -qO- ifconfig.me):81" ; echo "" ; echo "" ; echo "" ; echo "@ChumoGH")|openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt > /dev/null 2>&1  
+(echo "$(curl -sSL ipinfo.io > info && cat info | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')" ; echo "" ; echo "$(wget -qO- ifconfig.me):81" ; echo "" ; echo "" ; echo "" ; echo "@drowkid01")|openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt > /dev/null 2>&1  
 cat stunnel.crt stunnel.key > stunnel.pem   
 mv stunnel.pem /etc/stunnel/ 
 ######------- 
@@ -185,7 +173,7 @@ sleep 2
 install_python(){   
 apt-get install python -y &>/dev/null && echo -e "\033[1;97m Activando Python Direc 80\n" | pv -qL 10    
 sleep 3    
-screen -dmS pydic-80 python ${SCPinst}/python.py 80 "@ChumoGH" && echo "80 @ChumoGH" >> /etc/chukk-script/PySSL.log
+screen -dmS pydic-80 python ${SCPinst}/python.py 80 "@drowkid01" && echo "80 @drowkid01" >> /etc/chukk-script/PySSL.log
 msg -bar
  }     
 
@@ -194,7 +182,7 @@ apt-get install stunnel4 -y &>/dev/null && echo -e "\033[1;97m Activando Servici
 apt-get install stunnel4 -y > /dev/null 2>&1   
 echo -e "client = no\n[SSL]\ncert = /etc/stunnel/stunnel.pem\naccept = 443\nconnect = 127.0.0.1:80" > /etc/stunnel/stunnel.conf   
 openssl genrsa -out stunnel.key 2048 > /dev/null 2>&1   
-(echo "$(curl -sSL ipinfo.io > info && cat info | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')" ; echo "" ; echo "$(wget -qO- ifconfig.me):81" ; echo "" ; echo "" ; echo "" ; echo "@ChumoGH")|openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt > /dev/null 2>&1  
+(echo "$(curl -sSL ipinfo.io > info && cat info | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')" ; echo "" ; echo "$(wget -qO- ifconfig.me):81" ; echo "" ; echo "" ; echo "" ; echo "@drowkid01")|openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt > /dev/null 2>&1  
 cat stunnel.crt stunnel.key > stunnel.pem     
 mv stunnel.pem /etc/stunnel/   
 ######-------   
@@ -289,12 +277,12 @@ datfr2=$(echo "$dat2w"|awk '{print $2}')
 datfr3=$(echo "$dat2w"|awk '{print $3}') 
 echo -ne "${datfr1}\n${datfr2}\n${datfr3}" >/var/www/html/.well-known/pki-validation/$keyy.txt 
 msg -bar 
-echo -e "\e[1;37m VERIFIQUE EN LA PÃGINA ZEROSSL \e[0m" 
+echo -e "\e[1;37m VERIFIQUE EN LA PAGINA ZEROSSL \e[0m" 
 msg -bar 
 read -p " ENTER PARA CONTINUAR" 
 clear
 msg -bar 
-echo -e "\e[1;33mðŸ‘‡ LINK DEL CERTIFICADO ðŸ‘‡       \n     \e[0m" 
+#echo -e "\e[1;33mðŸ‘‡ LINK DEL CERTIFICADO ðŸ‘‡       \n     \e[0m" 
 echo -e "\e[1;36m LINK \e[37m: \e[34m\c" 
 read link 
 
@@ -352,7 +340,7 @@ fi
 msg -bar 
 msg -bar3 
 msg -tit 
-echo -e "${cor[3]}         INSTALADOR MULTI SSL  By @ChumoGH" 
+echo -e "${cor[3]}         INSTALADOR MULTI SSL  By @drowkid01" 
 msg -bar 
 echo -e "${cor[1]}            Escoja la opcion deseada." 
 msg -bar

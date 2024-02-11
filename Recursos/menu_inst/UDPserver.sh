@@ -1,4 +1,4 @@
-#By @ChumoGH|Plus
+#By @drowkid01|Plus
 clear&&clear
 
 [[ -e /bin/ejecutar/msg ]] && source /bin/ejecutar/msg > /dev/null || source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg) > /dev/null
@@ -111,7 +111,7 @@ if wget -O /bin/Hysteria2 https://github.com/apernet/hysteria/releases/download/
 fi
 echo "
 [Unit]
-Description=Hysteria2 Server Service ChumoGH
+Description=Hysteria2 Server Service drowkid01
 After=network.target
 
 [Service]
@@ -146,8 +146,8 @@ msg -bar3
 echo -e "INGRESA SU SNI ( HOST FAKE ) "
 msg -bar3
     echo -e "Ingrese su Sitio WEB Falso A Hysteria 2 (elimine https://) "
-	read -rp  " [Default : plus.admcgh.online]: " proxysite
-    [[ -z $proxysite ]] && proxysite='plus.admcgh.online'
+	read -rp  " [Default : chukk.plus.online ]: " proxysite
+    [[ -z $proxysite ]] && proxysite='chukk.plus.online'
 }
 
 inst_cert(){
@@ -283,7 +283,7 @@ echo " Authentication : ${auth_pwd}" >> /etc/chukk-script/HYSTERIA/data.yaml
 echo " PUERTO : ${port}" >> /etc/chukk-script/HYSTERIA/data.yaml
 echo " SNI : ${proxysite}" >> /etc/chukk-script/HYSTERIA/data.yaml
 echo " RANGO DE PUERTOS : 10000:65000" >> /etc/chukk-script/HYSTERIA/data.yaml
-echo -e " \n 	Power By @ChumoGH" >> /etc/chukk-script/HYSTERIA/data.yaml
+echo -e " \n 	Power By @drowkid01" >> /etc/chukk-script/HYSTERIA/data.yaml
     url="hy2://$auth_pwd@$ip:$last_port/?insecure=1&sni=$hy_domain&obfs=salamander&obfs-password=$auth_pwd#HttpInjector-hysteria2"
     echo $url > /root/hy/url.txt
     nohopurl="hy2://$auth_pwd@$ip:$port/?insecure=1&sni=$hy_domain&obfs=salamander&obfs-password=$auth_pwd#HttpInjector-hysteria2"
@@ -308,7 +308,7 @@ msg -bar3
     red "$(cat /root/hy/url.txt)"
     yellow "El URI de configuraci�n de Hysteria 2 (sin salto de puerto) "
     red "$(cat /root/hy/url-nohop.txt)"
-read -p "$(green "Hysteria 2 Modulos UDP By @ChumoGH Finalizado ") "
+read -p "$(green "Hysteria 2 Modulos UDP By @drowkid01 Finalizado ") "
 }
 
 _hysteria(){
@@ -327,7 +327,7 @@ ip4t=$(which iptables)
 ip6t=$(which ip6tables)
 
 #OBFS=$(head /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 10)
-OBFS='ADMcghPLUS'
+OBFS='ChuKKPLUS'
 
 msg -nama '   INGRESA TU SUBDOMINIO/DOMINIO  \n'
 #msg -nama '              Prederteminado ( ENTER )\n'
@@ -340,13 +340,13 @@ msg -verd ' OK'
 } || {
 #(
 #openssl genrsa -out /etc/chukk-script/HYSTERIA/udpmod.ca.key 2048  2048
-#openssl req -new -x509 -days 3650 -key /etc/chukk-script/HYSTERIA/udpmod.ca.key -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=ChumoGH Root CA" -out /etc/chukk-script/HYSTERIA/udpmod.ca.crt
-#openssl req -newkey rsa:2048 -nodes -keyout /etc/chukk-script/HYSTERIA/udp.server.key -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=${domain}" -out /etc/chukk-script/HYSTERIA/udpmod.server.csr
+#openssl req -new -x509 -days 3650 -key /etc/chukk-script/HYSTERIA/udpmod.ca.key -subj "/C=CN/ST=GD/L=SZ/O=drowkid01, Inc./CN=drowkid01 Root CA" -out /etc/chukk-script/HYSTERIA/udpmod.ca.crt
+#openssl req -newkey rsa:2048 -nodes -keyout /etc/chukk-script/HYSTERIA/udp.server.key -subj "/C=CN/ST=GD/L=SZ/O=drowkid01, Inc./CN=${domain}" -out /etc/chukk-script/HYSTERIA/udpmod.server.csr
 #openssl x509 -req -extfile <(printf "subjectAltName=DNS:${domain},DNS:${domain}") -days 3650 -in /etc/chukk-script/HYSTERIA/udpmod.server.csr -CA /etc/chukk-script/HYSTERIA/udpmod.ca.crt -CAkey /etc/chukk-script/HYSTERIA/udpmod.ca.key -CAcreateserial -out /etc/chukk-script/HYSTERIA/udp.server.crt
 #
 (openssl genpkey -algorithm RSA -out /etc/chukk-script/HYSTERIA/udpmod.ca.key
-openssl req -x509 -new -nodes -key /etc/chukk-script/HYSTERIA/udpmod.ca.key -days 3650 -out /etc/chukk-script/HYSTERIA/udpmod.ca.crt -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=ChumoGH Root CA"
-openssl req -newkey rsa:2048 -nodes -keyout /etc/chukk-script/HYSTERIA/udp.server.key -subj "/C=CN/ST=GD/L=SZ/O=ChumoGH, Inc./CN=${domain}" -out /etc/chukk-script/HYSTERIA/udpmod.server.csr
+openssl req -x509 -new -nodes -key /etc/chukk-script/HYSTERIA/udpmod.ca.key -days 3650 -out /etc/chukk-script/HYSTERIA/udpmod.ca.crt -subj "/C=CN/ST=GD/L=SZ/O=drowkid01, Inc./CN=drowkid01 Root CA"
+openssl req -newkey rsa:2048 -nodes -keyout /etc/chukk-script/HYSTERIA/udp.server.key -subj "/C=CN/ST=GD/L=SZ/O=drowkid01, Inc./CN=${domain}" -out /etc/chukk-script/HYSTERIA/udpmod.server.csr
 openssl x509 -req -extfile <(printf "subjectAltName=DNS:${domain}") -days 3650 -in /etc/chukk-script/HYSTERIA/udpmod.server.csr -CA /etc/chukk-script/HYSTERIA/udpmod.ca.crt -CAkey /etc/chukk-script/HYSTERIA/udpmod.ca.key -CAcreateserial -out /etc/chukk-script/HYSTERIA/udp.server.crt
 ) &>/dev/null && msg -verd ' OK'
 
@@ -375,7 +375,7 @@ if wget -O /etc/chukk-script/HYSTERIA/config.json https://raw.githubusercontent.
 fi
 sleep 4s && del 1
 msg -nama '     COMPILANDO GoLang AUTHSSH '
-#if wget -O /bin/authSSH https://raw.githubusercontent.com/ChumoGH/ADMcgh/main/Plugins/authSSH &>/dev/null ; then
+#if wget -O /bin/authSSH https://raw.githubusercontent.com/drowkid01/ChuKK/main/Plugins/authSSH &>/dev/null ; then
 if wget -O /bin/authSSH https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu_inst/UDPserver-sh/authSSH &>/dev/null ; then
 		chmod +x /bin/authSSH
 		msg -verd ' OK'
@@ -412,7 +412,7 @@ echo " OBFS : ${OBFS}" >> /etc/chukk-script/HYSTERIA/data
 echo " PUERTO : 36712" >> /etc/chukk-script/HYSTERIA/data
 echo " ALPN : h3" >> /etc/chukk-script/HYSTERIA/data
 echo " RANGO DE PUERTOS : 10000:65000" >> /etc/chukk-script/HYSTERIA/data
-echo -e " \n 	Power By @ChumoGH" >> /etc/chukk-script/HYSTERIA/data
+echo -e " \n 	Power By @drowkid01" >> /etc/chukk-script/HYSTERIA/data
 msg -bar3
 echo ""
 echo " --- TUS DATOS DE SERVICIO SON ---"
@@ -608,7 +608,7 @@ done
 pruebas(){
 
 echo '[Unit]
-Description=HysteriaUDP MOD Service BY @ChumoGH
+Description=HysteriaUDP MOD Service BY @drowkid01
 After=network.target
 
 [Service]

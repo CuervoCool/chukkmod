@@ -1,4 +1,4 @@
-#By @ChumoGH|Plus
+#By @drowkid01|Plus
 #19/05/2020
 #UPDATE 01/03/2023
 #NUNCA DEJES DE APRENDER!!
@@ -216,7 +216,7 @@ msg -bar3
         py="python3"
         IP=$(fun_ip)
     elif [[ $conect = "PGet" ]]; then
-        echo "master=ChumoGH" > ${ADM_tmp}/pwd.pwd
+        echo "master=drowkid01" > ${ADM_tmp}/pwd.pwd
         while read service; do
             [[ -z $service ]] && break
             echo "127.0.0.1:$(echo $service|cut -d' ' -f2)=$(echo $service|cut -d' ' -f1)" >> ${ADM_tmp}/pwd.pwd
@@ -227,6 +227,7 @@ msg -bar3
     else
         py="python"
     fi
+#[[ -z ${texto_soket} ]] && texto_soket='<span style=color: #ff0000;><strong><span style="color: #ff0000;">C</span><span style="color: #ff9900;">h</span><span style="color: #008000;">u</span><span style="color: #0000ff;">m</span><span style="color: #ff0000;">o</span><span style="color: #ff9900;">G</span><span style="color: #008000;">H</span><span style="color: #0000ff;">�</span><span style="color: #ff0000;">P</span><span style="color: #ff9900;">l</span><span style="color: #008000;">u</span><span style="color: #0000ff;">s</span></strong></span>'
 [[ -z ${texto_soket} ]] && texto_soket='<span style=color: #ff0000;><strong><span style="color: #ff0000;">C</span><span style="color: #ff9900;">h</span><span style="color: #008000;">u</span><span style="color: #0000ff;">m</span><span style="color: #ff0000;">o</span><span style="color: #ff9900;">G</span><span style="color: #008000;">H</span><span style="color: #0000ff;">�</span><span style="color: #ff0000;">P</span><span style="color: #ff9900;">l</span><span style="color: #008000;">u</span><span style="color: #0000ff;">s</span></strong></span>'
 
 mod1() {
@@ -241,7 +242,7 @@ msg -ama "      BINARIO OFICIAL DE Epro Dev Team "
 sleep 2s && tput cuu1 && tput dl1
 [[ -e /etc/chukk-script/PDirect ]] && {
 echo -e "[Unit]
-Description=WS-Epro Service by @ChumoGH
+Description=WS-Epro Service by @drowkid01
 After=network.target
 StartLimitIntervalSec=0
 
@@ -264,7 +265,7 @@ listen:
   listen_port: ${porta_socket}" > /etc/chukk-script/PDirect
   
 echo -e "[Unit]
-Description=WS-Epro Service by @ChumoGH
+Description=WS-Epro Service by @drowkid01
 After=network.target
 StartLimitIntervalSec=0
 
@@ -606,7 +607,7 @@ msg -bar3
 chmod +x ${ADM_inst}/$1.py
 
 echo -e "[Unit]
-Description=$1 Parametizado Service by @ChumoGH
+Description=$1 Parametizado Service by @drowkid01
 After=network.target
 StartLimitIntervalSec=0
 
@@ -1052,7 +1053,74 @@ case ${selection} in
 esac
 return 1
 }
+
+
 chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+uuchekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+chekKEY &> /dev/null 2>&1
+
 iniciarsocks
 
 ofus () {

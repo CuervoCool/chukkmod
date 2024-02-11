@@ -1990,7 +1990,8 @@ if [[ "${action}" == "clearall" ]]; then
 elif [[ "${action}" == "monitor" ]]; then
 	crontab_monitor_ssr
 else
-echo -e "\033[1;37m       =====>>►► 🐲 PANEL VPS•MX 🐲 ◄◄<<=====       \033[1;37m"
+#echo -e "\033[1;37m       =====>>►►  ◄◄<<=====       \033[1;37m"
+tittle
 msg -bar
 echo -e "        Controlador de ShadowSock-R  ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
 $(msg -bar)
