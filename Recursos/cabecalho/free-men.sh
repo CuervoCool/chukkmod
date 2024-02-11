@@ -1,6 +1,4 @@
 #!/bin/sh
-#Autor: Henry Chumo 
-#Alias : ChumoGH
 ## 1 - "LIMPEZA DE DNS"
 ip -s -s neigh flush all &> /dev/null
 ip neigh flush dev $(ip route | grep default | awk '{print $5}' | head -1) &> /dev/null
