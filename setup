@@ -11,7 +11,7 @@ rm -f instala.*
 [[ -e /etc/folteto ]] && rm -f /etc/folteto
 [[ -e /bin/ejecutar/IPcgh ]] && rm -f /bin/ejecutar/IPcgh
 [[ ! -z $1 ]] && {
-[[ "$1" == '--ADMcgh' ]] && echo -e " ESPERE UN MOMENTO $1" || {
+[[ "$1" == '--chukk-mod' ]] && echo -e " ESPERE UN MOMENTO $1" || {
 
 exit&&exit
 }
