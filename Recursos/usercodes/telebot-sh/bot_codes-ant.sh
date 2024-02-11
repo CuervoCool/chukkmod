@@ -61,7 +61,7 @@ fi
 
 name=$(echo $valor1 | awk -F "/" '{print $2'})
 [[ "$name" = "" ]] && name=$(echo $valor1 | awk -F "/" '{print $1'})
-esquelet="/etc/adm-lite/payloads"
+esquelet="/etc/chukk-script/payloads"
 sed -s "s;realData;abc;g" $esquelet > $HOME/$name.txt
 sed -i "s;netData;abc;g" $HOME/$name.txt
 sed -i "s;raw;abc;g" $HOME/$name.txt
@@ -239,7 +239,7 @@ usermod -p $(openssl passwd -1 $senha) $CLIENT
 if [[ "$sen" = "s" || "$sen" = "S" ]]; then
 fun_sem $CLIENT $senha 
 fi
-cd /etc/adm-lite
+cd /etc/chukk-script
 echo "senha: $senha" > $dir_user/$CLIENT
 echo "limite: $limit" >> $dir_user/$CLIENT
 echo "data: $valid" >> $dir_user/$CLIENT
@@ -258,7 +258,7 @@ cp /etc/openvpn/easy-rsa/pki/crl.pem /etc/openvpn/crl.pem
 chown nobody:$GROUPNAME /etc/openvpn/crl.pem
 echo ""
 userdel --force $CLIENT
-cd /etc/adm-lite
+cd /etc/chukk-script
 if [ -e $dir_user/$CLIENT ]; then
 rm $dir_user/$CLIENT
 fi

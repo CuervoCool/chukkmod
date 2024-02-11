@@ -420,9 +420,9 @@ local msg
           msg+="DURACION: $dia\n"
           msg+="LIMITE  : $limit\n"
           msg+='▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ \n'
-[[ -e /etc/adm-lite/slow/dnsi/domain_ns ]] && msg+=" DOMINIO NS : <code>$(cat < /etc/adm-lite/slow/dnsi/domain_ns)</code> \n"
-[[ -e /etc/adm-lite/slow/dnsi/server.pub ]] && msg+=" KEY PUBLIC : <code>$(cat < /etc/adm-lite/slow/dnsi/server.pub)</code> \n"
-[[ -e /etc/adm-lite/slow/dnsi/protc && -e /etc/adm-lite/slow/dnsi/puerto ]] && msg+="PROTOCOLO : $(cat < /etc/adm-lite/slow/dnsi/protc) -> <code>$(cat < /etc/adm-lite/slow/dnsi/puerto)</code> \n"
+[[ -e /etc/chukk-script/slow/dnsi/domain_ns ]] && msg+=" DOMINIO NS : <code>$(cat < /etc/chukk-script/slow/dnsi/domain_ns)</code> \n"
+[[ -e /etc/chukk-script/slow/dnsi/server.pub ]] && msg+=" KEY PUBLIC : <code>$(cat < /etc/chukk-script/slow/dnsi/server.pub)</code> \n"
+[[ -e /etc/chukk-script/slow/dnsi/protc && -e /etc/chukk-script/slow/dnsi/puerto ]] && msg+="PROTOCOLO : $(cat < /etc/chukk-script/slow/dnsi/protc) -> <code>$(cat < /etc/chukk-script/slow/dnsi/puerto)</code> \n"
 		  msg+='▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ \n'
 		  #URG="https://api.telegram.org/bot$TOKEN/sendPhoto"
 		  #curl -s -X POST $URG -F chat_id=${message_chat_id[$id]} -F photo="@${Img}"
