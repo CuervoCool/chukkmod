@@ -210,7 +210,6 @@ sysctl -w net.ipv6.conf.default.disable_ipv6=1 &> /dev/null
 sysctl -w net.ipv6.conf.lo.disable_ipv6=1 &> /dev/null
 
 [[ -d /bin/ejecutar ]] && {
-[[ ! -e /etc/cghkey ]] && rm -rf /etc/chukk-script
 [[ -e /bin/ejecutar/msg ]] || wget -q -O /bin/ejecutar/msg https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg
 } || mkdir /bin/ejecutar
 cor[0]="\033[0m"
