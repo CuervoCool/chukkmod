@@ -27,6 +27,7 @@ os_system(){
  #esac 
  }
 
+
 rutaSCRIPT () {
 rm -f setup*
 act_ufw() {
@@ -96,6 +97,7 @@ echo -e "  ${cor[5]} NewScriptADM Mod ChuKK-SCRIPT REFACTORIZADO "
 msg -bar
 echo -e "${cor[3]}     DESENCADENANDO FICHEROS DE LA KEY "
 echo ""
+
 echo '#!/bin/bash
 # Creado por @drowkid01
 SCPdir="/etc/chukk-script"
@@ -110,7 +112,10 @@ SCPdir="/etc/chukk-script"
 cd ${SCPdir} && ./menu' > /bin/adm && chmod +x /bin/adm
 msg -bar
 echo ""
+
 [[ -e ${SCPdir}/menu_credito ]] && ress="$(cat ${SCPdir}/menu_credito) " || ress="NULL ( no found ) "
+adminkey=$ress
+bot='◍ ᴅᴏɴᴘᴀᴛᴏʙᴏᴛ ◍'
 echo -ne "${cor[2]}\n\033[1;37m  BOT ->  : " | pv -qL 50 && sleep 1s && echo -e "\033[0;35m$bot" | pv -qL 50
 echo -ne "${cor[2]}\n\033[1;37m  ADMIN  : " | pv -qL 50 && sleep 1s && echo -e "\033[0;35m$adminkey" | pv -qL 50
 echo -ne "${cor[2]}\n\033[1;37m  RESELLER  : " | pv -qL 50 && sleep 1s && echo -e "\033[0;35m$ress" | pv -qL 50
