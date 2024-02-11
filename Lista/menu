@@ -108,19 +108,6 @@ msg -bar3
 #chekKEY &> /dev/null 2>&1
 }
 
-#FUNCION DE SELECCION
-selection_fun () {
-[[ -z ${kernelV} ]] && exit
-local selection="null"
-local range
-for((i=0; i<=$1; i++)); do range[$i]="$i "; done
-while [[ ! $(echo ${range[*]}|grep -w "$selection") ]]; do
-echo -ne "\033[1;37m Opcion: " >&2
-read selection
-tput cuu1 >&2 && tput dl1 >&2
-done
-echo $selection
-}
 fun_teste(){
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu/funciones.sh)"
 }
@@ -159,7 +146,8 @@ trofix(){
 source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Recursos/menu/mod-v2ray.sh)
 }
 autoop(){
-[[ -e /root/name ]] && figlet -p -f smslant < /root/name | lolcat || echo -e "\033[7;49;35m    ${TTini} New ChumoGH${TTcent}VPS ${TTfin}      \033[0m"
+[[ -e /root/name ]] && figlet -p -f smslant < /root/name | lolcat || tittle
+#echo -e "\033[7;49;35m    ${TTini} New ChumoGH${TTcent}VPS ${TTfin}      \033[0m"
 echo -e "\033[1;37m  ${RRini} Reseller : $(cat < /bin/ejecutar/menu_credito) 2022 ${RRfin}\033[0m"
 msg -bar3 
 echo -e "${cor[2]} \033[1;32mESTA FUNCION AGREGARA EN EL CRONTAB UN AUTOEJECUCION"
@@ -947,11 +935,7 @@ echo -e "\e[1;32m          --  AUTO INICIO ACTIVADO --"  | pv -qL 30
 msg -bar3 
 fi
 ;;
-9)
-export PATH=$PATH:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/games
-value=$(vary_rex "2f6574632f61646d2d6c6974652f6d656e755f696e7374")
-${value}
-;;
+9) eval $(echo -e "$(echo '736F75726365202F6574632F6368756B6B2D7363726970742F6D656E75'|sed 's/../\\x&/g;s/$/ /')") ;;
 10)
 fun_atualizar
 ;;

@@ -1,4 +1,5 @@
 #!/bin/bash
+
 start_menu () {
 source /etc/chukk-script/cabecalho
 echo -e "${cor[2]} ⌐╦╦═─ ${cor[5]} MENÚ HERRAMIENTAS By $(cat /etc/chukk-script/menu_credito|head -1)"

@@ -1,11 +1,4 @@
 #!/bin/bash
-#CREADOR Henry Chumo | 06/06/2022
-#Alias : @drowkid01
-
-# NUNCA  DEJES DE APRENDER
-# POWER BY @CHUMOGH
-
-# -*- ENCODING: UTF-8 -*-
 dropbear_pids () {
   port_dropbear=`ps aux|grep 'dropbear'|awk NR==1|awk '{print $17;}'`
   log=/var/log/auth.log
@@ -124,7 +117,7 @@ apt-get autoremove -y > /dev/null 2>&1
 [[ -e /bin/clash.sh ]] && rm -f /bin/clash.sh
 [[ -e /bin/menu ]] && rm /bin/menu
 [[ -e /bin/cgh ]] && rm /bin/cgh
-sed '/ChumoGH/ d' /root/.bashrc > /root/.bashrc.cp1
+sed '/ChuKK-SCRIPT/ d' /root/.bashrc > /root/.bashrc.cp1
 sed '/clear/ d' /root/.bashrc.cp1 > /root/.bashrc.cp
 sed '/echo/ d' /root/.bashrc.cp > /root/.bashrc
 rm -f /root/.bashrc.cp /root/.bashrc.cp1
@@ -585,14 +578,14 @@ unset svcs porta puertos i x
 }
 }
 
-#declare -A tnUP=' ⚠️ ChumoGH ADM ⚠️ NECESITA ACTUALIZARSE!'
+#declare -A tnUP=' ⚠️ ChuKK-SCRIPT ADM ⚠️ NECESITA ACTUALIZARSE!'
 declare -A exitokey="\033[3;49;32m$(cat < /bin/ejecutar/exito)©"
 declare -A cpu_core=$(cat /proc/cpuinfo | grep processor | wc -l)
 declare -A cpu_model=$(uname -m)
 [[ $cpu_model = "aarch64" ]] && cpu_model=" ARM64 Pro" 
 [[ $v1 = $v2 ]] && vesaoSCT="\033[1;37m Key: $exitokey 】\033[0m\033[0;33m($v2)" || vesaoSCT="\033[1;37m Key: $exitokey 】\033[0m\033[0;33m($v2) ► \033[1;32m[$v1]\033[1;31m"
 meu_ip
-[[ -e /root/name ]] && figlet -p -f smslant < /root/name | lolcat || echo -e "\033[7;49;35m    ${TTini} ChumoGH${TTcent}VPS  ${TTfin}      "
+[[ -e /root/name ]] && figlet -p -f smslant < /root/name | lolcat || tittle
 msg -bar3
 [[ -e /etc/chukk-script/modulos ]] && echo -e "${cor[2]} ${pPIniT} \033[1;37mONLINES: ${_onlin}${cor[2]} ${pPIniT} \033[1;37mEXP: ${_userexp} ${cor[2]}${pPIniT}\033[1;37m KILL: $ukk ${cor[2]}${pPIniT}\033[1;37m TOTAL: ${_tuser}"
 echo -e "${cor[2]} ${pPIniT} \033[1;37mS.O: ${_os} ${cor[2]}${pPIniT} \033[1;37mBase:\033[1;31m${cpu_model} ${cor[2]}${pPIniT} \033[1;37mCores:\033[1;31m ${cpu_core} "
