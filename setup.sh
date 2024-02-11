@@ -1,7 +1,5 @@
 #!/bin/bash
-#CREADOR Henry Chumo | 25/08/2022
-#Alias : @drowkid01
-# -*- ENCODING: UTF-8 -*-
+
 export PATH=$PATH:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/games;
 fecha=`date +"%d-%m-%y"`;
 SCPdir="/etc/chukk-script"
@@ -13,7 +11,8 @@ rm -f wget*
 echo -e " ESPERE UN MOMENTO "
 apt-get install curl -y &>/dev/null
 apt install sudo -y &> /dev/null
-source <(curl -sSL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/msg-bar/msg)
+#source <(curl -sSL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/msg-bar/msg)
+source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg)
 COLS=$(tput cols)
 os_system(){ 
  system=$(cat -n /etc/issue |grep 1 |cut -d ' ' -f6,7,8 |sed 's/1//' |sed 's/      //') 
@@ -90,7 +89,7 @@ fun_ip
 valid_fun () {
 msg -bar
 echo -e ""
-echo -e "${cor[2]}\n\033[1;37m  Script Patrocinado por: @drowkid01 - Henry Chumo" | pv -qL 12
+echo -e "${cor[2]}\n\033[1;37m  Script Patrocinado por: @drowkid01  - " | pv -qL 12
 echo -e ""
 msg -bar
 echo -e "  ${cor[5]} NewScriptADM Mod ChuKK-SCRIPT REFACTORIZADO " 
@@ -104,7 +103,7 @@ cd ${SCPdir} && ./menu' > /bin/menu && chmod +x /bin/menu
 echo '#!/bin/bash
 # Creado por @drowkid01
 SCPdir="/etc/chukk-script"
-cd ${SCPdir} && ./menu' > /bin/cgh && chmod +x /bin/cgh
+cd ${SCPdir} && ./menu' > /bin/chukk && chmod +x /bin/chukk
 echo '#!/bin/bash
 # Creado por @drowkid01
 SCPdir="/etc/chukk-script"
@@ -112,6 +111,8 @@ cd ${SCPdir} && ./menu' > /bin/adm && chmod +x /bin/adm
 msg -bar
 echo ""
 [[ -e ${SCPdir}/menu_credito ]] && ress="$(cat ${SCPdir}/menu_credito) " || ress="NULL ( no found ) "
+echo -ne "${cor[2]}\n\033[1;37m  BOT ->  : " | pv -qL 50 && sleep 1s && echo -e "\033[0;35m$bot" | pv -qL 50
+echo -ne "${cor[2]}\n\033[1;37m  ADMIN  : " | pv -qL 50 && sleep 1s && echo -e "\033[0;35m$adminkey" | pv -qL 50
 echo -ne "${cor[2]}\n\033[1;37m  RESELLER  : " | pv -qL 50 && sleep 1s && echo -e "\033[0;35m$ress" | pv -qL 50
 echo ""
 [[ -e ${SCPdir}/cabecalho ]] && bash ${SCPdir}/cabecalho --instalar
@@ -177,12 +178,12 @@ cd $HOME
 [[ -e /bin/v2r.sh ]] && rm -f /bin/v2r.sh
 [[ -e /bin/clash.sh ]] && rm -f /bin/clash.sh
 rm -f instala.*  > /dev/null
-rm -f /bin/cgh > /dev/null
+rm -f /bin/chukk > /dev/null
 rm -rf /bin/ejecutar > /dev/null
 figlet " Key Invalida" | boxes -d stone -p a2v1 > error.log
 msg -bar >> error.log
 echo "  Key Invalida, Contacta con tu Provehedor" >> error.log
-echo -e ' https://t.me/ChumoGH  - @drowkid01' >> error.log
+echo -e ' https://t.me/botlatmx  - @drowkid01' >> error.log
 msg -bar >> error.log
 cat error.log | lolcat
 #msg -bar
@@ -246,7 +247,7 @@ IP=$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o 
    done
 if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") ]]; then
 [[ -e ${SCPdir}/menu ]] && {
-echo $Key > /etc/cghkey
+echo $Key > /etc/chukkkey
 clear
 rm -f $HOME/log.txt
 } || { 
@@ -332,7 +333,7 @@ echo -ne " \033[1;41m Key : \033[0;33m" && read Key
 tput cuu1 && tput dl1
 done
 Key="$(echo "$Key" | tr -d '[[:space:]]')"
-echo -e "${Key}" > /etc/cghkey
+echo -e "${Key}" > /etc/chukkkey
 IiP="$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
 wget -q --no-check-certificate -O /etc/folteto $IiP:81/ChumoGH/checkIP.log 
 cheklist="$(cat /etc/folteto)"
@@ -386,7 +387,7 @@ function printTitle
 killall apt apt-get &> /dev/null
 TIME_START="$(date +%s)"
 DOWEEK="$(date +'%u')"
-[[ -e $HOME/cgh.sh ]] && rm $HOME/cgh.*
+[[ -e $HOME/chukk.sh ]] && rm $HOME/chukk.*
 
 fun_bar () {
 comando[0]="$1"
@@ -494,7 +495,7 @@ echo $selection
 
 
 tittle () {
-[[ -z $1 ]] && rt='chukk-script' || rt='ADMcgh'
+[[ -z $1 ]] && rt='chukk-script' || rt='ADMchukk'
     clear&&clear
     msg -bar
     echo -e "\033[1;44;44m   \033[1;33m=====>>►► 🐲 ChumoGH 💥 Plus 🐲 ◄◄<<=====  \033[0m \033[0;33m[$(less /etc/${rt}/v-local.log)]"
