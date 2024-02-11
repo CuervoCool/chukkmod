@@ -9,7 +9,7 @@ clear
 #Modificado el 06-04-2023
 
 dir_user="/userDIR"
-dir="/etc/adm-lite"
+dir="/etc/chukk-script"
 
 fun_ip () {
 MEU_IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
@@ -127,11 +127,11 @@ echo "$user" |cut -d: -f3 1> /dev/null 2>/dev/null
   useradd -M -s /bin/false $usuario
   (echo $senha ; echo $senha) | passwd $usuario > /dev/null 2> /dev/null
   limit $usuario $limite 1> /dev/null 2> /dev/null
-  [[ $(echo $limite) = "HWID" ]] && echo "senha: $usrHT" > /etc/adm-lite/userDIR/$usuario
-  [[ $(echo $limite) = "TOKEN" ]] && echo "senha: $usrHT" > /etc/adm-lite/userDIR/$usuario
-  [[ "$limite" =~ ^[0-9]+$ ]] && echo "senha: $senha" > /etc/adm-lite/userDIR/$usuario
-  echo "limite: $limite" >> /etc/adm-lite/userDIR/$usuario
-  echo "data: $valid" >> /etc/adm-lite/userDIR/$usuario
+  [[ $(echo $limite) = "HWID" ]] && echo "senha: $usrHT" > /etc/chukk-script/userDIR/$usuario
+  [[ $(echo $limite) = "TOKEN" ]] && echo "senha: $usrHT" > /etc/chukk-script/userDIR/$usuario
+  [[ "$limite" =~ ^[0-9]+$ ]] && echo "senha: $senha" > /etc/chukk-script/userDIR/$usuario
+  echo "limite: $limite" >> /etc/chukk-script/userDIR/$usuario
+  echo "data: $valid" >> /etc/chukk-script/userDIR/$usuario
   chage -E $valid $usuario 2> /dev/null
     [[ $(echo $limite) = "HWID" ]] && echo -e "\033[1;31m$usrHT \033[1;37mRESTORE: \033[1;31m$limite - \033[1;37m[\033[1;31mOk\033[1;37m] \033[1;37mcon\033[1;31m $data \033[1;37m Dias\033[0m"
     [[ $(echo $limite) = "TOKEN" ]] && echo -e "\033[1;31m$usrHT \033[1;37mRESTORE: \033[1;31m$limite - \033[1;37m[\033[1;31mOk\033[1;37m] \033[1;37mcon\033[1;31m $data \033[1;37m Dias\033[0m"
@@ -142,7 +142,7 @@ echo "$user" |cut -d: -f3 1> /dev/null 2>/dev/null
  [[ $(echo $limite) = "HWID" ]] && echo -e "\033[1;31m$usrHT \033[1;37mRESTORE: \033[1;31m$limite - \033[1;37m[\033[1;31mOk\033[1;37m] \033[1;37mcon\033[1;31m $data \033[1;37m Dias\033[0m"
  [[ $(echo $limite) = "TOKEN" ]] && echo -e "\033[1;31m$usrHT \033[1;37mRESTORE: \033[1;31m$limite - \033[1;37m[\033[1;31mOk\033[1;37m] \033[1;37mcon\033[1;31m $data \033[1;37m Dias\033[0m"
  [[ "$limite" =~ ^[0-9]+$ ]] && echo -e "\033[1;31m$usuario \033[1;37mRESTORE: \033[1;31m$senha - \033[1;37m[\033[1;31mOk\033[1;37m] \033[1;37mcon\033[1;31m $data \033[1;37m Dias\033[0m"
-  echo "limite: $limite" >> /etc/adm-lite/userDIR/$usuario
+  echo "limite: $limite" >> /etc/chukk-script/userDIR/$usuario
   chage -E $valid $usuario 2> /dev/null  
   fi
 fi
@@ -184,11 +184,11 @@ echo "$user" |cut -d: -f3 1> /dev/null 2>/dev/null
   useradd -M -s /bin/false $usuario
   (echo $senha ; echo $senha) | passwd $usuario > /dev/null 2> /dev/null
   limit $usuario $limite 1> /dev/null 2> /dev/null
-  [[ $(echo $limite) = "HWID" ]] && echo "senha: $usrHT" > /etc/adm-lite/userDIR/$usuario
-  [[ $(echo $limite) = "TOKEN" ]] && echo "senha: $usrHT" > /etc/adm-lite/userDIR/$usuario
-  [[ "$limite" =~ ^[0-9]+$ ]] && echo "senha: $senha" > /etc/adm-lite/userDIR/$usuario
-  echo "limite: $limite" >> /etc/adm-lite/userDIR/$usuario
-  echo "data: $valid" >> /etc/adm-lite/userDIR/$usuario
+  [[ $(echo $limite) = "HWID" ]] && echo "senha: $usrHT" > /etc/chukk-script/userDIR/$usuario
+  [[ $(echo $limite) = "TOKEN" ]] && echo "senha: $usrHT" > /etc/chukk-script/userDIR/$usuario
+  [[ "$limite" =~ ^[0-9]+$ ]] && echo "senha: $senha" > /etc/chukk-script/userDIR/$usuario
+  echo "limite: $limite" >> /etc/chukk-script/userDIR/$usuario
+  echo "data: $valid" >> /etc/chukk-script/userDIR/$usuario
   chage -E $valid $usuario 2> /dev/null
     [[ $(echo $limite) = "HWID" ]] && echo -e "\033[1;31m$usrHT \033[1;37mRESTORE: \033[1;31m$limite - \033[1;37m[\033[1;31mOk\033[1;37m] \033[1;37mcon\033[1;31m $data \033[1;37m Dias\033[0m"
     [[ $(echo $limite) = "TOKEN" ]] && echo -e "\033[1;31m$usrHT \033[1;37mRESTORE: \033[1;31m$limite - \033[1;37m[\033[1;31mOk\033[1;37m] \033[1;37mcon\033[1;31m $data \033[1;37m Dias\033[0m"
@@ -199,7 +199,7 @@ echo "$user" |cut -d: -f3 1> /dev/null 2>/dev/null
  [[ $(echo $limite) = "HWID" ]] && echo -e "\033[1;31m$usrHT \033[1;37mRESTORE: \033[1;31m$limite - \033[1;37m[\033[1;31mOk\033[1;37m] \033[1;37mcon\033[1;31m $data \033[1;37m Dias\033[0m"
  [[ $(echo $limite) = "TOKEN" ]] && echo -e "\033[1;31m$usrHT \033[1;37mRESTORE: \033[1;31m$limite - \033[1;37m[\033[1;31mOk\033[1;37m] \033[1;37mcon\033[1;31m $data \033[1;37m Dias\033[0m"
  [[ "$limite" =~ ^[0-9]+$ ]] && echo -e "\033[1;31m$usuario \033[1;37mRESTORE: \033[1;31m$senha - \033[1;37m[\033[1;31mOk\033[1;37m] \033[1;37mcon\033[1;31m $data \033[1;37m Dias\033[0m"
-  echo "limite: $limite" >> /etc/adm-lite/userDIR/$usuario
+  echo "limite: $limite" >> /etc/chukk-script/userDIR/$usuario
   chage -E $valid $usuario 2> /dev/null  
   fi
 fi

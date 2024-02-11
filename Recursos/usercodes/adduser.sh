@@ -77,7 +77,7 @@ title2(){
 	v1=$(cat /etc/chukk-script/v-local.log)
 	v2=$(cat /bin/ejecutar/v-new.log)
 	echo -e $barra
-	#[[ $v1 = $v2 ]] && echo -e "   \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @ChumoGH [$v1] \033[0m" || echo -e " \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @ChumoGH [$v1] >> \033[1;92m[$v2] \033[0m"
+	#[[ $v1 = $v2 ]] && echo -e "   \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @drowkid01 [$v1] \033[0m" || echo -e " \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @drowkid01 [$v1] >> \033[1;92m[$v2] \033[0m"
 	tittle
 }
 

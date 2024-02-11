@@ -130,7 +130,7 @@ start(){
     rm -rf /etc/systemd/system/chekuser.service
 
     echo -e "[Unit]
-Description=chekuser Service by @ChumoGH
+Description=chekuser Service by @drowkid01
 After=network.target
 StartLimitIntervalSec=0
 
@@ -189,7 +189,7 @@ _onli() {
     rm -rf /etc/systemd/system/onliuser.service
 
     echo -e "[Unit]
-Description=onliuser Service by @ChumoGH
+Description=onliuser Service by @drowkid01
 After=network.target
 StartLimitIntervalSec=0
 
