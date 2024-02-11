@@ -2,7 +2,7 @@
 user=$1
 type=$2
 
-database="/etc/adm-lite/userDIR/" 
+database="/etc/chukk-script/userDIR/" 
 
 user_exist() {
     [[ "$(grep -wc $user /etc/passwd)" != '0' ]] && {
