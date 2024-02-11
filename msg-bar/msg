@@ -44,11 +44,7 @@ echo $selection
 tittle () {
 [[ -z $1 ]] && rt='chukk-script' || rt='ChuKK'
     clear&&clear
-    echo -nE "┏━╸╻ ╻╻ ╻╻┏ ╻┏    ┏━┓┏━╸┏━┓╻┏━┓╺┳╸
-┃  ┣━┫┃ ┃┣┻┓┣┻┓╺━╸┗━┓┃  ┣┳┛┃┣━┛ ┃ 
-┗━╸╹ ╹┗━┛╹ ╹╹ ╹   ┗━┛┗━╸╹┗╸╹╹   ╹"|lolcat;echo -ne "  $ress
-"|lolcat
-
+    toilet -f future 'ChuKK-SCRIPT' | lolcat
     msg -bar3
 }
 in_opcion(){
