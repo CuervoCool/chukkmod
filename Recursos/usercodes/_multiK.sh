@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function chekKEY {
+function chekKeY {
 _off="\033[1;31mOFF\033[0m"
 _on="\033[1;32mON\033[0m"
 Key="$(cat /etc/cghkey)" 
@@ -51,8 +51,8 @@ if [ "$select_name" = "" ]; then
 return
 fi
 namer="$select_name"
-[[ $(cat /etc/adm-lite/userDIR/$namer | grep "limite" | awk '{print $2}') = "HWID" ]] && nameFX="$(cat /etc/adm-lite/userDIR/$u | grep "senha" | awk '{print $2}')" || nameFX=$namer
-[[ $(cat /etc/adm-lite/userDIR/$namer | grep "limite" | awk '{print $2}') = "TOKEN" ]] && nameFX="$(cat /etc/adm-lite/userDIR/$u | grep "senha" | awk '{print $2}')" || nameFX=$namer
+[[ $(cat /etc/chukk-script/userDIR/$namer | grep "limite" | awk '{print $2}') = "HWID" ]] && nameFX="$(cat /etc/chukk-script/userDIR/$u | grep "senha" | awk '{print $2}')" || nameFX=$namer
+[[ $(cat /etc/chukk-script/userDIR/$namer | grep "limite" | awk '{print $2}') = "TOKEN" ]] && nameFX="$(cat /etc/chukk-script/userDIR/$u | grep "senha" | awk '{print $2}')" || nameFX=$namer
 msg -bar
 echo -e "${cor[5]} RECUERDE QUE EL LOG SE ALMACENA EN /root/limiter.log"
 msg -bar

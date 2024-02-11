@@ -1,6 +1,4 @@
 #!/bin/sh
-#Autor: Henry Chumo 
-#Alias : ChumoGH
 config="/etc/v2ray/config.json"
 temp="/etc/v2ray/temp.json"
 v2rdir="/etc/v2r" && [[ ! -d $v2rdir ]] && mkdir $v2rdir
@@ -76,10 +74,11 @@ continuar(){
 }
 
 title2(){
-	v1=$(cat /etc/adm-lite/v-local.log)
+	v1=$(cat /etc/chukk-script/v-local.log)
 	v2=$(cat /bin/ejecutar/v-new.log)
 	echo -e $barra
-	[[ $v1 = $v2 ]] && echo -e "   \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @ChumoGH [$v1] \033[0m" || echo -e " \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @ChumoGH [$v1] >> \033[1;92m[$v2] \033[0m"
+	#[[ $v1 = $v2 ]] && echo -e "   \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @ChumoGH [$v1] \033[0m" || echo -e " \e[97m\033[1;41m V2ray by @Rufu99 Remasterizado @ChumoGH [$v1] >> \033[1;92m[$v2] \033[0m"
+	tittle
 }
 
 title(){
