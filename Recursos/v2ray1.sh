@@ -1165,8 +1165,7 @@ _tconex=$(netstat -nap | grep "$_v2rayports" | grep v2ray | grep ESTABLISHED |gr
 #SPR & 
 msg -bar3
 msg -bar
-msg -tit
-msg -ama "      PANNEL V2RAY Mod ChuKK-SCRIPT ${vesaoSCT} "
+tittle
 [[ ! -z $_v2rayports ]] && echo -e "       \e[97m\033[1;41mPUERTO ACTIVO :\033[0m \033[3;32m$_v2rayports\033[0m   \e[97m\033[1;41m ACTIVOS:\033[0m \033[3;32m\e[97m\033[1;41m $_tconex " ||  echo -e "  \e[97m\033[1;41mERROR A INICIAR V2RAY : \033[0m \033[3;32m FAIL\033[3;32m"
 msg -bar
 bg=0

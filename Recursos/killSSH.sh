@@ -1,10 +1,5 @@
 #!/bin/bash
-#CREADOR Henry Chumo | 06/06/2022
-#REFACTORY | 16/10/2022
-#Alias : @drowkid01
-# NUNCA  DEJES DE APRENDER
-# POWER BY @CHUMOGH
-# -*- ENCODING: UTF-8 -*-
+
 [[ $(dpkg --get-selections|grep -w "tcpdump"|head -1) ]] || apt-get install tcpdump -y &>/dev/null
 [[ -e /bin/ejecutar/limFIX ]] && _limTOP="$(cat < /bin/ejecutar/limFIX)" || _limTOP='1'
 time=$(date +%s)

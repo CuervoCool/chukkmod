@@ -1,6 +1,8 @@
 #!/bin/sh
 #SCRIPT OFICIAL ChuKK-SCRIPT|Plus
+
 clear&&clear
+
 fun_ip () {
 MEU_IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
 MEU_IP2=$(wget -qO- ipv4.icanhazip.com)
@@ -10,6 +12,7 @@ troport=$(cat /bin/ejecutar/trojanports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
 portFTP=$(lsof -V -i tcp -P -n | grep apache2 | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | cut -d: -f2 | cut -d' ' -f1 | uniq)
 portFTP=$(echo ${portFTP} | sed 's/\s\+/,/g' | cut -d , -f1)
 }
+
 #FUN_BAR
 fun_bar () { 
 comando="$1"  
@@ -23,7 +26,7 @@ sleep 0.5
 done 
 echo -ne "\033[1;33m]" 
 sleep 1s 
-echo tput cuu1 tput dl1 
+echo ;tput cuu1 && tput dl1 
 done 
 echo -e " \033[1;33m[\033[1;31m########################################\033[1;33m] - \033[1;32m100%\033[0m" 
 sleep 1s 
@@ -2059,7 +2062,7 @@ tmpdirt="$backdir/tmp"
 			unset seg_exp
 			unset exp
 
-			[[ $i = chumoghscript ]] && {
+			[[ $i = chukkscript ]] && {
 				Usr="Admin"
 				DateExp=" Ilimitado"
 			} || {

@@ -1,8 +1,4 @@
 #!/bin/bash
-#By @drowkid01|Plus
-
-#DE FELICIDAD LANZA EN SUS GitHub LOS CODIGOS LIBRES
-
 ofus () {
 unset txtofus
 number=$(expr length $1)
@@ -30,7 +26,7 @@ echo "$txtofus" | rev
 
 
 clear
-function chekKEY {
+function chekKeY {
 [[ -z ${IP} ]] && IP=$(cat < /bin/ejecutar/IPcgh)
 [[ -z ${IP} ]] && IP=$(wget -qO- ifconfig.me)
 Key="$(cat /etc/cghkey)"
@@ -104,7 +100,7 @@ numero='^[0-9]+$'
 hora=$(printf '%(%H:%M:%S)T') 
 fecha=$(printf '%(%D)T')
 
-fun_bar () {
+fUn_bar () {
 #==comando a ejecutar==
 comando="$1"
 #==interfas==

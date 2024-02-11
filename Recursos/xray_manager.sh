@@ -23,7 +23,7 @@ numero='^[0-9]+$'
 hora=$(printf '%(%H:%M:%S)T') 
 fecha=$(printf '%(%D)T')
 
-fun_bar () {
+Fun_bar () {
 #==comando a ejecutar==
 comando="$1"
 #==interfas==
