@@ -1,5 +1,5 @@
 #!/bin/bash
-#by @ChumoGH Oficial 
+#by @drowkid01 Oficial 
 
 #jq
 [[ $(dpkg --get-selections|grep -w "jq"|head -1) ]] || apt-get install jq -y &>/dev/null
@@ -32,7 +32,7 @@ done
 echo "$txtofus" | rev
 }
 
-function chekKEY {
+function chekKeY {
 [[ -z ${IP} ]] && IP=$(cat < /bin/ejecutar/IPcgh)
 [[ -z ${IP} ]] && IP=$(wget -qO- ifconfig.me)
 Key="$(cat /etc/cghkey)"
@@ -49,7 +49,7 @@ cheklist="$(cat /etc/folteto)"
 echo -e "$(echo -e "$cheklist" | grep ${IP})" > /etc/folteto
 }
 [[ -z ${_check2} ]] && {
-mss_='\n BotGEN NO AUTORIZADO POR @ChumoGH '
+mss_='\n BotGEN NO AUTORIZADO POR @drowkid01 '
 cat <<EOF >/bin/menu
 clear && clear
 echo -e "\n\n\033[1;31m==================================================\n ¡¡ 🚫 KEY BANEADA  🚫 ! CONTACTE Su ADMINISTRADOR! \n==================================================\n ¡¡ FECHA DE BANEO :$(date +%d/%m/%Y) HORA :$(date +%H:%M:%S) \n==================================================\n\n¡¡ ${mss_} \n\n==================================================\n"
@@ -57,11 +57,11 @@ echo -e " \e[1;32m     --- SI CONSIDERA QUE FUE UN ERROR  ---  " | pv -qL 60
 echo -e " \e[1;32m     -- ${mss_} --  " | pv -qL 60
 echo -e "\n \e[1;93m           --- TECLEA  \e[1;93m --- \e[1;97mcgh -fix\e[1;93m ---  " | pv -qL 50
 echo -e "\n\033[1;31m==================================================\n\n"
-#echo "/etc/adm-lite/menu" > /bin/menu && chmod +x /bin/menu
+#echo "/etc/chukk-script/menu" > /bin/menu && chmod +x /bin/menu
 EOF
 
 rm -f /etc/folteto
-rm -f /etc/adm-lite/menu*
+rm -f /etc/chukk-script/menu*
  			MENSAJE="${TTini}${m3ssg}MSG RECIVIDO${m3ssg}${TTfin}\n"
 			MENSAJE+=" ---------------------------------------------\n"
 			MENSAJE+=" IP Clon: ${IP} Rechazada\n"
@@ -73,7 +73,7 @@ rm -f /etc/adm-lite/menu*
 			MENSAJE+=" HORA : $(printf '%(%D-%H:%M:%S)T')\n"
 			MENSAJE+=" ---------------------------------------------\n"
 			MENSAJE+="       ${rUlq} Bot ADMcgh de keyS ${rUlq}\n"
-			MENSAJE+="           ${pUn5A} By @ChumoGH ${pUn5A} \n"
+			MENSAJE+="           ${pUn5A} By @drowkid01 ${pUn5A} \n"
 			MENSAJE+=" ---------------------------------------------\n"	
 			curl -s --max-time 10 -d "chat_id=$ID&disable_web_page_preview=1&text=$(echo -e "$MENSAJE")" $urlBOT &>/dev/null 
 exit && exit
@@ -93,7 +93,7 @@ sleep 0.5
 done 
 echo -ne "\033[1;33m]" 
 sleep 1s 
-echo tput cuu1 tput dl1 
+echo; tput cuu1 ;tput dl1 
 done 
 echo -e " \033[1;33m[\033[1;31m########################################\033[1;33m] - \033[1;32m100%\033[0m" 
 sleep 1s 
@@ -192,11 +192,11 @@ if [[ ! $PIDGEN ]]; then
 sed -i '/trojanserv/d' /bin/autoboot
 echo -e "netstat -tlpn | grep -w ${trojanport} > /dev/null || { screen -r -S 'trojanserv' -X quit;  screen -dmS trojanserv trojan --config /usr/local/etc/trojan/config.json >>  /root/server.log & }" >>/bin/autoboot 
 [[ -z ${_apTT} ]] && {
-echo -e "netstat -tlpn | grep -w 80 > /dev/null || { screen -r -S 'ws80' -X quit;  screen -dmS ws80 python /etc/adm-lite/PDirect.py 80 ; }" >>/bin/autoboot 
-screen -dmS ws80 python /etc/adm-lite/PDirect.py 80 ;
+echo -e "netstat -tlpn | grep -w 80 > /dev/null || { screen -r -S 'ws80' -X quit;  screen -dmS ws80 python /etc/chukk-script/PDirect.py 80 ; }" >>/bin/autoboot 
+screen -dmS ws80 python /etc/chukk-script/PDirect.py 80 ;
 }
 echo -e "[Unit]
-Description=Trojan Service by @ChumoGH
+Description=Trojan Service by @drowkid01
 Documentation=https://trojan-gfw.github.io/trojan/config https://github.com/p4gefau1t/trojan/
 After=network.target network-online.target nss-lookup.target mysql.service mariadb.service mysqld.service
 StartLimitIntervalSec=0
@@ -217,13 +217,13 @@ WantedBy=multi-user.target" > /etc/systemd/system/trojan.service
 sed -i '/trojanserv/d' /bin/autoboot
 [[ ${MENU_OPTION} = 2 ]] && {
 	[[ -z ${_apTT} ]] && {
-	echo -e "netstat -tlpn | grep -w 80 > /dev/null || { screen -r -S 'ws80' -X quit;  screen -dmS ws80 python /etc/adm-lite/PDirect.py 80 ; }" >>/bin/autoboot 
-	screen -dmS ws80 python /etc/adm-lite/PDirect.py 80 ;
+	echo -e "netstat -tlpn | grep -w 80 > /dev/null || { screen -r -S 'ws80' -X quit;  screen -dmS ws80 python /etc/chukk-script/PDirect.py 80 ; }" >>/bin/autoboot 
+	screen -dmS ws80 python /etc/chukk-script/PDirect.py 80 ;
 		}
 }
 echo -e "netstat -tlpn | grep -w ${trojanport} > /dev/null || { screen -r -S 'trojanserv' -X quit;  screen -dmS trojanserv trojan --config /usr/local/etc/trojan/config.json >> /root/server.log & }" >>/bin/autoboot
 echo -e "[Unit]
-Description=Trojan Service by @ChumoGH
+Description=Trojan Service by @drowkid01
 Documentation=https://trojan-gfw.github.io/trojan/config https://github.com/p4gefau1t/trojan/
 After=network.target network-online.target nss-lookup.target mysql.service mariadb.service mysqld.service
 StartLimitIntervalSec=0
@@ -246,7 +246,7 @@ print_center -verd " AUTORESTARTS DE TROJAN-GO ENCENDIDO "
 sed -i '/trojanserv/d' /bin/autoboot
 echo -e "netstat -tlpn | grep -w ${trojanport} > /dev/null || { screen -r -S 'trojanserv' -X quit;  screen -dmS trojanserv trojan --config /usr/local/etc/trojan/config.json >> /root/server.log & }" >>/bin/autoboot
 echo -e "[Unit]
-Description=Trojan Service by @ChumoGH
+Description=Trojan Service by @drowkid01
 Documentation=https://trojan-gfw.github.io/trojan/config https://github.com/p4gefau1t/trojan/
 After=network.target network-online.target nss-lookup.target mysql.service mariadb.service mysqld.service
 StartLimitIntervalSec=0
@@ -271,7 +271,7 @@ chmod +x /bin/autodel-trojan.sh
 chattr +i /bin/autodel-trojan.sh
 fi
 echo -e "[Unit]
-Description=UsersKillTrojan Service by @ChumoGH
+Description=UsersKillTrojan Service by @drowkid01
 After=network.target
 StartLimitIntervalSec=0
 
@@ -458,7 +458,7 @@ mkdir /etc/trojan
 (
 openssl genrsa -out /etc/trojan/private.key 2048 > /dev/null 2>&1
 chmod 400 /etc/trojan/private.key > /dev/null 2>&1
-(echo "$(curl -sSL ipinfo.io | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')"; echo ""; echo "$(wget -qO- ifconfig.me)"; echo ""; echo ""; echo ""; echo "@ChumoGH")|openssl req -new -x509 -nodes -sha256 -days 365 -key /etc/trojan/private.key -out /etc/trojan/fullchain.cer > /dev/null 2>&1
+(echo "$(curl -sSL ipinfo.io | grep country | awk '{print $2}' | sed -e 's/[^a-z0-9 -]//ig')"; echo ""; echo "$(wget -qO- ifconfig.me)"; echo ""; echo ""; echo ""; echo "@drowkid01")|openssl req -new -x509 -nodes -sha256 -days 365 -key /etc/trojan/private.key -out /etc/trojan/fullchain.cer > /dev/null 2>&1
 ) && echo -e "\033[1;32m [OK]" || echo -e "\033[1;31m [FAIL]"
 #echo -e "\033[1;37mÎ” Generando Configuracion"
 #sed -i '13i        "cert":"/etc/trojan/fullchain.cer",' /usr/local/etc/trojan/config.json
@@ -476,7 +476,7 @@ msg -bar3
 }
 
 
-[[ -e /etc/adm-lite/menu_credito ]] && nomkey="$(cat < /etc/adm-lite/menu_credito|head -1)" || nomkey="$(curl -sSL "https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Lista/menu_credito")"
+[[ -e /etc/chukk-script/menu_credito ]] && nomkey="$(cat < /etc/chukk-script/menu_credito|head -1)" || nomkey="$(curl -sSL "https://raw.githubusercontent.com/emirjorge/Script-Z/master/CHUMO/Lista/menu_credito")"
 IP=$(wget -qO- ifconfig.me)
 fun_ip () {
 MEU_IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
