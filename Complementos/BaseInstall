@@ -2,18 +2,9 @@
 #By @drowkid01|Plus}
 
 
-[[ -e /file ]] && _double=$(cat < /file) ||  {
-_double=$(curl -sSL "https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Control/Control-Bot.txt")
-echo -e "$(echo -e "$_double" | grep ${IiP})" > /file
-}
-[[ -z ${_check2} ]] && {
-echo -e " BINARY NO FOUND"
-exit
-}
-
 install_fim () {
 fecha=`date +"%d-%m-%y"`;
-[[ ! -d /etc/ADMcgh ]] && mkdir /etc/ADMcgh
+[[ ! -d /etc/ChuKK ]] && mkdir /etc/ChuKK
 unset name
 [[ -d /bin/ejecutar ]] && rm -rf /bin/ejecutar
 [[ -e /etc/chukk-script/gerar.sh ]] && rm -f /etc/chukk-script/gerar.sh
@@ -32,13 +23,13 @@ crontab /root/cron &>/dev/null
 rm -f /root/cron
 echo "* * * * * root bash  /bin/autoboot" >> /etc/crontab
 service cron restart >/dev/null 2>&1
-if cat /etc/bash.bashrc | grep ADMcgh; then
-sed -i "/ADMcgh/d" /etc/bash.bashrc
+if cat /etc/bash.bashrc | grep ChuKK; then
+sed -i "/ChuKK/d" /etc/bash.bashrc
 echo 'export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/
 [[ -z $(locale | grep "LANG=" | cut -d "=" -f2) ]] && export LANG=en_US.UTF-8 
 DATE=$(date +"%d-%m-%y")
 TIME=$(date +"%T") 
-figlet -f slant "ChumoGH" | lolcat 
+figlet -f slant "ChuKK-SCRIPT" | lolcat 
 echo -e "" 
 killall menu &> /dev/null
 /bin/autoboot &> /dev/null
@@ -50,25 +41,25 @@ echo -e " MEMORIA RAM LIBRE : $(cat < /bin/ejecutar/raml)"
 echo -e " Fecha/Hora del Servidor : $DATE" 
 echo -e " Hora del Servidor : $TIME" 
 echo -e "" 
-echo -e "\tRESELLER: \e[1;31m$(cat /etc/chukk-script/menu_credito|head -1)"
+echo -e "\tRESELLER: \e[1;31m$(cat /etc/chukk-script/menu_credito)"
 echo -e "\033[1;39m" 
 echo -e " Bienvenido!"
-echo -e "\033[1;43m Teclee cgh , menu o adm para ver el MENU\033[0m." 
+echo -e "\033[1;43m Teclee chukk , menu o adm para ver el MENU\033[0m." 
 echo -e "" 
-' > /etc/ADMcgh/bashrc
+' > /etc/ChuKK/bashrc
 echo "STARTUP AGREGADO EXITOSAMENTE"
-echo -e 'source /etc/ADMcgh/bashrc' >> /etc/bash.bashrc
+echo -e 'source /etc/ChuKK/bashrc' >> /etc/bash.bashrc
 else
 #echo ""
 #echo -e "\t\033[92mRESELLER : "
 #echo -e "\t\e[1;33mVERSION: \e[1;31m$(cat /etc/)"
 #echo -e "\t\033[1;100mPARA MOSTAR PANEL BASH ESCRIBA:\e[0m\e[1;41m sudo menu \e[0m"
-sed -i "/ADMcgh/d" /etc/bash.bashrc
+sed -i "/ChuKK/d" /etc/bash.bashrc
 echo 'export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/
 [[ -z $(locale | grep "LANG=" | cut -d "=" -f2) ]] && export LANG=en_US.UTF-8 
 DATE=$(date +"%d-%m-%y")
 TIME=$(date +"%T") 
-figlet -f slant "ChumoGH" | lolcat 
+figlet -f slant "ChuKK-SCRIPT" | lolcat 
 echo -e "" 
 killall menu &> /dev/null
 /bin/autoboot &> /dev/null
@@ -83,12 +74,12 @@ echo -e ""
 echo -e "\tRESELLER: \e[1;31m$(cat /etc/chukk-script/menu_credito|head -1)"
 echo -e "\033[1;39m" 
 echo -e " Bienvenido!"
-echo -e "\033[1;43m Teclee cgh , menu o adm para ver el MENU\033[0m." 
+echo -e "\033[1;43m Teclee chukk , menu o adm para ver el MENU\033[0m." 
 echo -e "" 
-' > /etc/ADMcgh/bashrc
-#echo -e 'source /etc/ADMcgh/bashrc' >> /etc/bash.bashrc
+' > /etc/ChuKK/bashrc
+#echo -e 'source /etc/ChuKK/bashrc' >> /etc/bash.bashrc
 echo " STARTUP AGREGADO EXITOSAMENTE"
-echo -e 'source /etc/ADMcgh/bashrc' >> /etc/bash.bashrc
+echo -e 'source /etc/ChuKK/bashrc' >> /etc/bash.bashrc
 fi
 [[ -e $HOME/lista ]] && rm $HOME/lista
 echo -e "0" > /bin/ejecutar/uskill
@@ -137,7 +128,7 @@ echo -e "${cor[3]} ChuKK-SCRIPT Configurado Exitosamente!"
 msg -bar3
 echo -e "${cor[3]} |∆| ${cor[2]} Ahora puedes acceder al PANNEL"
 msg -bar3
-echo -e " \033[1;41m Use los Comandos: cgh, menu, adm"
+echo -e " \033[1;41m Use los Comandos: chukk, menu, adm"
 msg -bar3
 echo -e "${cor[2]} Para acceder al MENU, DISFRUTA LA ESTANCIA!"
 echo -e "${cor[2]} Reinicie para completar Instalacion - OPCIONAL - "
@@ -330,8 +321,6 @@ msg -bar3
 }
 
 valid_fun () {
-_check2BOT="$(echo -e "$_double" | grep ${IiP} | awk '{print $5}')"
-_check2RES="$(echo -e "$_double" | grep ${IiP} | awk '{print $7}')"
 msg -bar3
 echo -e ""
 echo -e "${cor[2]}\n\033[1;37m  SCRIPT DESARROLLADO por: @drowkid01 - Henry Chumo" | pv -qL 12
@@ -345,9 +334,8 @@ msg -bar3
 echo -ne "${cor[2]}\n\033[1;37m  RESELLER  : " | pv -qL 50 && sleep 1s && echo -e "\033[0;35m$ress" | pv -qL 50
 echo
 msg -bar3
-echo -ne "${cor[2]}\033[1;37m BOT -> " && sleep 1s && echo -ne "\033[0;35m$_check2BOT" | pv -qL 30 | lolcat 
-echo -ne "${cor[2]}\033[1;37m  ADMIN : " && sleep 1s && echo -ne "\033[0;35m$_check2RES" | pv -qL 30 | lolcat
-echo ""
+#echo -ne "${cor[2]}\033[1;37m BOT -> " && sleep 1s && echo -ne "\033[0;35m$_check2BOT" | pv -qL 30 | lolcat 
+#echo -ne "${cor[2]}\033[1;37m  ADMIN : " && sleep 1s && echo -ne "\033[0;35m$_check2RES" | pv -qL 30 | lolcat
 
 [[ ! -e /bin/autoboot ]] && {
 echo '#!/bin/bash
@@ -386,7 +374,7 @@ rm -f /var/log/auth.log*
 echo '' > /var/log/auth.log
 cp /bin/adm /bin/menu
 }
-cd ${SCPdir} && ./menu' > /bin/cgh && chmod +x /bin/cgh
+cd ${SCPdir} && ./menu' > /bin/chukk && chmod +x /bin/chukk
 #
 echo '#!/bin/bash
 # Creado por @drowkid01
