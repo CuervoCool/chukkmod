@@ -171,6 +171,7 @@ echo -e "  - DIRIGETE AL BOT Y ESCRIBE /restart "
 echo -e "  - Y REINTENTA NUEVAMENTE CON SU KEY "
 msg -bar3
 }
+
 [[ "$list_fix" = "KEY INVALIDA!" ]] && {
 IiP="$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
 cheklist="$(curl -sSL $IiP:81/ChumoGH/checkIP.log)"
@@ -249,10 +250,8 @@ tput cuu1 && tput dl1
 done
 Key="$(echo "$Key" | tr -d '[[:space:]]')"
 cd $HOME
+
 IiP=$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
-_checkBT="$(echo -e "$_double"|grep "$IiP")"
-new_id=$(uuidgen) 
-[[ -z ${new_id} ]] && new_id="${_checkBT}-no-uuid"
 [[ $(curl -s --connect-timeout 5 $IiP:8888) ]] && {
 tput cuu1 && tput dl1
 msg -bar3
@@ -263,13 +262,6 @@ msg -bar3
 echo -ne " \033[1;41m ESTAUS : \033[0;33m"
 tput cuu1 && tput dl1
 echo -ne "\033[1;34m [ \e[3;32m VALIDANDO CONEXION \e[0m \033[1;34m]\033[0m"
-if wget --no-check-certificate -O $HOME/lista-arq $(ofus "$Key")/$IP/$_sys/${new_id}  &>/dev/null ; then
-echo -e "\033[1;34m [ \e[3;32m DONE \e[0m \033[1;34m]\033[0m"
-else
-echo -e "\033[1;34m [ \e[3;31m FAIL \e[0m \033[1;34m]\033[0m"
-invalid_key && exit
-fi
-
 #SE CREA ID KERNEL DE VERIFICACION EN BINARIOS DE MODULOS UNICOS
 echo "${new_id}" > /linux-kernel
 #FIN DE CREACION DE ID KERNEL DE VERIFICACION EN BINARIOS DE MODULOS
