@@ -73,7 +73,7 @@ fi
 
 function_verify () {
 echo "verify" > $(echo -e $(echo 2f62696e2f766572696679737973|sed 's/../\\x&/g;s/$/ /'))
-echo 'MOD @drowkid01 ChumoGHADM' > $(echo -e $(echo 2F7573722F6C69622F6C6963656E6365|sed 's/../\\x&/g;s/$/ /'))
+echo 'MOD @drowkid01 ChuKK-SCRIPT' > $(echo -e $(echo 2F7573722F6C69622F6C6963656E6365|sed 's/../\\x&/g;s/$/ /'))
 [[ $(dpkg --get-selections|grep -w "libpam-cracklib"|head -1) ]] || apt-get install libpam-cracklib -y &> /dev/null
 echo -e '# Modulo @drowkid01
 password [success=1 default=ignore] pam_unix.so obscure sha512
