@@ -88,6 +88,8 @@ ofus() {
     echo "$txtofus" | rev
 }
 
+rm -rf /etc/chukk-script &> /dev/null
+
 dependencias() {
   dpkg --configure -a >/dev/null 2>&1
   apt -f install -y >/dev/null 2>&1
