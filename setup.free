@@ -128,9 +128,7 @@ cat /etc/chukk-script/v-local.log > /bin/ejecutar/v-new.log
 rm /etc/chukk-script/*.txt /etc/chukk-script/0 &> /dev/null
 
 for menu in `echo "/bin/menu /bin/chukk /bin/adm /bin/drowkid"`; do
-cat << eof > $menu
-cd /etc/chukk-script&&bash menu
-eof
-chmod 777 $menu
+echo '. /etc/chukk-script/menu' > $menu
+chmod +rwx $menu
 done
 
