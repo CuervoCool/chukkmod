@@ -44,7 +44,6 @@ while true; do
    done
    [[ -e $HOME/fim ]] && rm $HOME/fim && break
    echo -e "\033[1;33m]"
-   sleep 0.1s
    tput cuu1
    tput dl1
    echo -ne "\033[1;33m ["
@@ -97,7 +96,7 @@ dependencias() {
     paquete="$i"
     echo -e "\033[93m    ❯ \e[97mINSTALANDO PAQUETE \e[36m $i"
 #  [[ $(dpkg --get-selections|grep -w "$i"|head -1) ]] || 
- fun_bar "apt-get install $i -y"
+   fun_bar "apt-get install $i -y"
   msg -bar
   done
 }
