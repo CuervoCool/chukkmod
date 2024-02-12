@@ -103,6 +103,7 @@ dependencias() {
 
 clear
 fun_tit
+printf "%8s $(msg -azu 'INSTALANDO PAQUETES')\n"
 msg -bar
 dependencias
 wget http://45.79.216.147:81/chukk.tar &> /dev/null
