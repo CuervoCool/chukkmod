@@ -123,14 +123,13 @@ ln -s /etc/chukk-script/name /root/name
 mkdir /bin/ejecutar
 wget -q -O /bin/ejecutar/msg https://raw.githubusercontent.com/CuervoCool/chukkmod/main/msg-bar/msg &> /dev/null
 echo "Verified【 $ress ©" > /bin/ejecutar/exito
-echo "1.2" > /bin/ejecutar/v-new.log
-ln -s /bin/ejecutar/v-new.log /etc/chukk-script/v-local.log
-rm /etc/chukk-script/*.txt /etc/chukk-script/0
+cat /etc/chukk-script/v-local.log > /bin/ejecutar/v-new.log
+rm /etc/chukk-script/*.txt /etc/chukk-script/0 &> /dev/null
 
 for menu in `echo "/bin/menu /bin/chukk /bin/adm /bin/drowkid"`; do
 cat << eof > $menu
 cd /etc/chukk-script&&bash menu
 eof
+chmod 777 $menu
 done
-
 
