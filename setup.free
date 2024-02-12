@@ -97,7 +97,7 @@ dependencias() {
     paquete="$i"
     echo -e "\033[93m    ❯ \e[97mINSTALANDO PAQUETE \e[36m $i"
 #  [[ $(dpkg --get-selections|grep -w "$i"|head -1) ]] || 
- funbar "apt-get install $i -y"
+ fun_bar "apt-get install $i -y"
   msg -bar
   done
 }
