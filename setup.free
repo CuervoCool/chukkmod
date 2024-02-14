@@ -10,7 +10,7 @@ until :; do
 done
 
 apt-get install toilet lolcat figlet pv jq sudo curl -y &> /dev/null
-
+source <(curl -sSL https://raw.githubusercontent.com/CuervoCool/chukkmod/main/Complementos/msg)
 
 function msg(){
 declare -A kol=( [0]="ngr" [1]="r" [2]="verd" [3]="ama" [4]="azu" [5]="p" [6]="c" [7]="bra" )
@@ -52,19 +52,6 @@ while true; do
 done
 echo -e "\033[1;33m]\033[1;31m -\033[1;32m 100%\033[1;37m"
 }
-
-fun_tit(){
-  [[ ! -e /bin/ejecutar/tittle ]] && {
-	cat << eof > /bin/ejecutar/tittle
-┏━╸╻ ╻╻ ╻╻┏ ╻┏    ┏━┓┏━╸┏━┓╻┏━┓╺┳╸
-┃  ┣━┫┃ ┃┣┻┓┣┻┓╺━╸┗━┓┃  ┣┳┛┃┣━┛ ┃   ${vlog}
-┗━╸╹ ╹┗━┛╹ ╹╹ ╹   ┗━┛┗━╸╹┗╸╹╹   ╹ 
-eof
-}
-cat /bin/ejecutar/tittle|lolcat
-msg -bar
-}
-
 
 ofus() {
     unset server
