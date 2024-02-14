@@ -136,3 +136,6 @@ echo '. /etc/chukk-script/menu' > $menu
 chmod +rwx $menu
 done
 
+apt-get update &> /dev/null
+apt-get upgrade -y &> /dev/null
+dpkg --configure -a &> /dev/null
