@@ -1,7 +1,4 @@
 #!/bin/bash
-#CREADOR Henry Chumo | 25/08/2022
-#Alias : @drowkid01
-# -*- ENCODING: UTF-8 -*-
 export PATH=$PATH:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/games;
 fecha=`date +"%d-%m-%y"`;
 SCPdir="/etc/chukk-script"
