@@ -93,7 +93,6 @@ dependencias() {
 }
 
 clear
-fun_tit
 printf "%8s $(msg -azu 'INSTALANDO PAQUETES')\n"
 msg -bar
 dependencias
